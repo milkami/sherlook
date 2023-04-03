@@ -1,5 +1,5 @@
 django
-# psycopg2
+psycopg2
 # gspread
 # gspread_formatting
 # google-api-python-client
