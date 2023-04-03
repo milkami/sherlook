@@ -1,0 +1,8 @@
+django
+# psycopg2
+# gspread
+# gspread_formatting
+# google-api-python-client
+# django-crispy-forms
+# crispy_bootstrap4
+# django-allauth
