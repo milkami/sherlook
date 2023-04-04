@@ -7,6 +7,7 @@ from django.views.generic import TemplateView, CreateView
 from django.contrib.auth import login as auth_login
 from django.http import HttpResponseRedirect, QueryDict
 from django.shortcuts import redirect
+from apps.questions.models import *
 
 
 class SignUpView(CreateView):
@@ -31,3 +32,8 @@ class LogInView(LoginView):
             return HttpResponseRedirect(self.get_success_url())
         else:
             return redirect('/login/')
+
+
+def faq_view(request):
+    questions = Questions.objects.filter(is_active=True)
+    return render(request, 'commons/faq.html', {'questions': questions})

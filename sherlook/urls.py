@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from apps.common.views import SignUpView, LogInView, TemplateView
 from django.contrib.auth import views as auth_views
+from apps.common import views
 
 
 urlpatterns = [
@@ -27,5 +28,6 @@ urlpatterns = [
     path('register/', SignUpView.as_view(), name="register"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('login/', LogInView.as_view(), name='login'),
+    path('faq/', views.faq_view, name='faq'),
 
 ]
