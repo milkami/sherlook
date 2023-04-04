@@ -148,3 +148,21 @@ input[id="cb1"] {
     border: 2px solid #FF6B2C;
     border-radius: 2px;
   }
+
+  .text-style-large-black {
+    font-size: 65px;
+    font-family: 'Racing Sans One';
+    line-height: 85px;
+}
+
+.questions-box {
+    background-color: #F1F6F6;
+    border-radius: 20px;
+}
+
+.text-question-style {
+    font-size: 40px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 58px;
+}
