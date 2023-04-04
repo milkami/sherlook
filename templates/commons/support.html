@@ -1,17 +1,76 @@
+{% extends "commons/layout.html" %}
+
+{% load static %}
 {% load crispy_forms_tags %}
 
-<!DOCTYPE html>
+{% block body %}
+
+    <div class="d-flex container-fluid align-items-center justify-content-center pt-3" style="flex-grow: 1;">
+        <div class="col d-flex justify-content-center align-items-center row">
+            <div class="col-lg-9">
+                <div style="">
+                    <div class="" style="font-size: 48px; color: #100F0E; font-family: 'Racing Sans One'; line-height: 62px; text-align: left;">Send Us A Message</div>
+                    <div class="questions-box row d-flex">
+                      
+                        <div class="col-lg-6">
+                          <img class="img-fluid" src="{% static 'images/send_message.webp' %}">
+                          <div class="mt-4" style="font-size: 40px; font-family: 'Roboto'; color: #100F0E; line-height: 46px; font-weight: 500; text-align: center;">
+                            To listen closely and reply well is the highest perfection we are able to attain in the art of conversation
+                          </div>
+                        </div>
+                        <div class="col-lg-6">
+                          <div class="col">
+                            <div style="font-size: 24px; font-family: 'Racing Sans One'; line-height: 32px; color: #100F0E;">Send Us</div>
+                            <form method="POST">
+                              {% csrf_token %}
+
+                              {% for field in email_form %}
+
+                                {% if field.widget.field.label != 'Attachment' %}
+                                    
+                                <label class="text-style-small-light" style="margin-bottom: 8px;">{{field.label}}</label>
+                                {{ field }}
+
+                                {% else %}
+                                <i class="fa-solid fa-paperclip"></i>
+                                <label class="text-style-small-light" style="margin-bottom: 8px;">{{field.label}}</label>
+                                {{ field }}
+                                {% endif %}
+                                  
+                                  
+                              {% endfor %}
+                            
+                              <button type="submit" class="login-button-style"
+                                      style="margin-bottom: 22px; margin-top: 34px;">
+                                  <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
+                                  Log-in
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+
+                      
+                  
+                        
+                    </div>
+                </div>
+            
+                
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <title>Email Attachment - Django and Python</title>
-  <!-- Bootstrap core CSS -->
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
 
-  <!-- Page Content -->
   <div class="container">
     <div class="row">
       <div class="col-lg-12">
@@ -35,10 +94,9 @@
     </div>
   </div>
 
-  <!-- Bootstrap core JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 
-</html>
+</html> -->

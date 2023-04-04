@@ -69,5 +69,21 @@ class LogInForm(AuthenticationForm):
 class EmailForm(forms.Form):
     # email = forms.EmailField()
     subject = forms.CharField(max_length=100)
-    attach = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
     message = forms.CharField(widget=forms.Textarea)
+    attach = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
+    
+
+    
+    
+
+    def __init__(self, *args, **kwargs):
+        super(EmailForm, self).__init__(*args, **kwargs)
+        self.fields['message'].label = 'Your request'
+        self.fields['attach'].label = 'Attachement'
+        self.fields['subject'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 20px',})
+        self.fields['message'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 20px',})
+        self.fields['attach'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 20px; display: inline',})
+        
+        
+        
+       
