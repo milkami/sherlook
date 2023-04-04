@@ -1,0 +1,82 @@
+{% extends "commons/layout.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Django CRM - Login{% endblock %}
+
+
+
+{% block body %}
+<div class="col container-fluid justify-content-center px-5">
+    <div class="row d-flex justify-content-center mt-4 pb-4">
+        <div class="row justify-content-between align-items-center" style="width: 100%; max-height: 170px;">
+            <div class="col-lg-1 col-sm-1">
+                <img class="img-fluid" src="{% static 'images/scherlok.jpeg' %}">
+            </div>
+            <div class="col-lg-9">
+                <form>
+                    <input style="width: 100%; height: 60px; border-radius: 6px; background-color: #FFF4F4; border: none;">
+                </form>
+            </div>
+            <div class="col-lg-2">
+                <button class="text-style-middle-2" style="height: 60px; width: 100%; background-color: #F1F6F6; border-radius: 20px; border: none;">SEARCH</button>
+            </div>
+        </div>
+        
+    </div>
+    <div class="row d-flex mt-5">
+        <div class="col-lg-3 justify-content-center">
+            <div class="p-4" style="background-color: #FFA8A8; border-radius: 6px;">
+                <span class="text-style-middle-outlined">NOTIFICATIONS</span>
+                <div class="text-box-style mt-4 mb-3">
+                    <span class="text-style-middle-2">NEW ITEM AT YOUR SAVED VIEW #2</span>
+                </div>
+                <div class="text-box-style mb-5">
+                    <span class="text-style-middle-2">YOUR SAVED ITEM IS NOW AVAILABLE</span>
+                </div>
+                <hr style="border-width: 4px; color: #5E6B78;">
+                <div class="p-4 mt-5 mb-5" style="text-align: center; height: 134px;"> 
+                    <span class="text-style-big-2">
+                        GET ANALYTICS
+                    </span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col col-log-9" style="width: 100%;">
+            <div class="mb-5" style="width: 100%;">
+                <div style="display: flex; justify-content: space-between;">
+                                            
+                    <button style="width: 100%; margin-right: 15px;" class="button-box-style text-style-middle-2">
+                        SHERLOOK APP
+                    </button>
+                    <button style="width: 100%; margin-left: 15px; margin-right: 15px;" class="button-box-style text-style-middle-2">
+                        RESERVATION
+                    </button>
+                    <button style="width: 100%; margin-left: 15px;" class="button-box-style text-style-middle-2">
+                        LIBRARY
+                    </button>
+                </div>
+            </div>
+
+            <div class="pt-4" style="width: 100%;">
+                <div style="display: flex; justify-content: space-between;">                              
+                    <button style="width: 100%; margin-right: 15px; font-size: 45px !important;" class="button-box-style text-style-middle-2">
+                        FAQ
+                    </button>
+                    <button style="width: 100%; margin-left: 15px; font-size: 25px !important;" class="button-box-style text-style-middle-2">
+                        SEND US A MESSAGE
+                    </button>
+                </div>
+            </div>
+
+            <div class="mt-5" style="height: 134px; width: 100%; vertical-align: middle; display: flex; align-items: center; justify-content: center;">
+                <div class="text-style-middle-2" style="color:black !important; margin-left: 80px; margin-right: 80px; text-align: center;">"EDUCATION NEVER ENDS, WATSON. IT IS A SERIES OF LESSONS, WITH THE GREATES FOR THE LAST."</div>
+            </div>
+    </div>
+    </div>
+
+    
+</div>
+{% endblock %}

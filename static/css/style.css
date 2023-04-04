@@ -102,6 +102,45 @@ body {
 
 }
 
+.text-style-middle-2 {
+    font-size: 22px;
+    font-family: Racing Sans One;
+    line-height: 28px;
+    color: #100F0E;
+    vertical-align: middle;
+}
+
+.text-style-middle-outlined {
+    font-size: 24px;
+    font-family: 'Racing Sans One';
+    line-height: 31px;
+    color: black;
+    -webkit-text-stroke: 1px white;
+}
+
+.text-box-style {
+    border-color: black; 
+    border: 1px solid; 
+    border-radius: 20px; 
+    padding: 20px; 
+    text-align: center;
+    vertical-align: middle;
+}
+
+.text-style-big-2 {
+    font-size: 36px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 47px;
+}
+
+.button-box-style {
+    border: none;
+    background-color: #F1F6F6;
+    border-radius: 20px;
+    height: 136px;
+}
+
 input[id="cb1"] {
     display: inline;
     width: 14px;
