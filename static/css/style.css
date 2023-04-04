@@ -78,3 +78,34 @@ body {
     height: 48px; 
     border-radius: 6px;
 }
+
+.first-container {
+    background-image: linear-gradient(to right, #ED1C24 , #FF6B2C);
+}
+
+.text-style-large {
+    font-size: 68px;
+    font-family: 'Racing Sans One';
+    line-height: 85px;
+    color: white;
+    text-align: center;
+
+}
+
+.button-custom-style {
+    background-color: #FF6B2C;
+    border: none;
+    color: white;
+    height: 48px;
+    border-radius: 6px;
+    margin-bottom: 22px;
+
+}
+
+input[id="cb1"] {
+    display: inline;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #FF6B2C;
+    border-radius: 2px;
+  }

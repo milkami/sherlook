@@ -19,8 +19,17 @@ class SignUpForm(UserCreationForm):
             'number_of_employer',
         ]
 
+        labels = {
+            'email': 'E-mail'
+        }
+
         widgets = {
-            'email': forms.TextInput(attrs={'placeholder':'name@example.com'}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'First Name', 'style': 'margin-bottom: 10px',}),
+            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Last Name', 'style': 'margin-bottom: 10px',}),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'name@example.com', 'style': 'margin-bottom: 10px',}),
+            # 'password1': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'XXXXXXX'}),
+            'company_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Company Name', 'style': 'margin-bottom: 10px',}),
+            'number_of_employer': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'', 'style': 'margin-bottom: 23px',}),
         }
 
 
@@ -29,6 +38,7 @@ class SignUpForm(UserCreationForm):
         super(SignUpForm, self).__init__(*args, **kwargs)
         del self.fields['password2']
         self.fields['password1'].help_text = None
+        self.fields['password1'].widget.attrs.update({'class': 'form-control', 'placeholder':'XXXXXXX', 'style': 'margin-bottom: 10px', 'autocomplete': 'off'})
 
 
 class LogInForm(AuthenticationForm):
