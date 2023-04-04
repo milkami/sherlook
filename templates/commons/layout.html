@@ -20,9 +20,14 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 
+
+
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
         
         <title>{% block title %}{% endblock %}</title>
+
+        {% block script %}
+        {% endblock %}
 
         <style>
           

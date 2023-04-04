@@ -1,0 +1,67 @@
+{% extends "commons/layout.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Django CRM - FAQ{% endblock %}
+
+
+{% block script %}
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('bla');
+            var question_answer_all = document.querySelectorAll('.question-answer-div');
+            console.log(question_answer_all);
+            question_answer_all.forEach(function (each_question) {
+                console.log(each_question);
+                each_question.addEventListener('click', event => {
+                    const dropdown_icon = each_question.querySelector('.dropdown-icon');
+                    const answer_div = each_question.querySelector('.answer-div');
+                    if (event.target === dropdown_icon) {
+                        console.log('yes');
+                        console.log(answer_div);
+                        if (answer_div.style.visibility === 'hidden') {
+                            answer_div.style.visibility = 'visible';
+                            answer_div.style.display = 'block';
+                        } else {
+                            answer_div.style.visibility = 'hidden';
+                            answer_div.style.display = 'none';
+                        }
+
+                    } 
+                })
+            })
+        })
+    </script>
+{% endblock %}
+
+
+{% block body %}
+
+    <div class="d-flex container-fluid align-items-center justify-content-center pt-3" style="flex-grow: 1;">
+        <div class="col d-flex justify-content-center align-items-center row">
+            <div class="col-lg-9">
+                <div style="width: 100%;">
+                    <div class="text-style-large-black" style="text-align: left;">FAQ</div>
+                    <div class="questions-box pb-5 mt-3 mb-5">
+                        {% for question in questions %}
+                            <div class="text-question-style pt-5 ps-5 question-answer-div">
+                                <div class="question-div">
+                                    {{ question.question }}
+                                    <i style="font-size: 25px !important; padding-left: 20px;" class="fa-regular fa-caret-down dropdown-icon"></i>
+                                </div>
+                                 
+                                <div class="answer-div" style="visibility: hidden; display: none; color: grey !important; font-size: 35px !important;">
+                                    {{ question.answer }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            
+                
+            </div>
+            
+        </div>
+    </div>
+{% endblock %}
