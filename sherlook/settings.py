@@ -144,3 +144,19 @@ AUTH_USER_MODEL = 'accounts.CustomUser'
 LOGIN_REDIRECT_URL = '/'
 
 CSRF_TRUSTED_ORIGINS = ['https://sherlook.milkamilicevic.from.hr', 'https://*.127.0.0.0', 'https://*.127.0.0.1']
+
+
+# Email
+# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# EMAIL_HOST = 'smtp-relay.sendinblue.com'
+# EMAIT_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_HOST_USER = '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'
+# EMAIL_HOST_PASSWORD = 'gBJmpLAzhUaHjsME'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST_USER = 'milka.milicevic3@gmail.com'
+EMAIL_HOST = 'smtp.gmail.com' # tried smtp-relay.gmail.com also
+EMAIL_PORT = '587'
+EMAIL_USE_TLS = True
+EMAIL_HOST_PASSWORD = "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQD4A+o+tqhYiSrL\nPdLzBfWYE4RIWyb9N45KP36vil720MA81poHsOeTWqZm5Ms97kDJNLR/t5F2EXlU\na3+Okzgtc7L6LVecyWrhAQ/bnYMWwvsDuLPkDt5yFmE8Yjff4k7U1j8Q/vtGWITT\npnKOhHZNpxX2vj6tpE+DkDO/3utDJMQdsvP9Uy/1kF1WfkIIR2NT5Eeq6PjW1TG7\nAQKYeSSBw0YUTlgoTsoUTyo6KCChFXMT8t4JvCMClU9vwal6ZwcCrU/8Yr1Wd+Ye\nY8n2btvuPHU1SH6NKgtWz+Hyhm7Hwt/blhmfV+HvDxxqG4J7wwRFCF+OJzMNpoF5\noJHr+HePAgMBAAECggEABDT94oly7YDP9uJXLZJsznpbumXu4slY38aMZ+c+YfT1\n6L3q/FKA7sBc2fdUNZ05l6drFPHk4hclswvZZu5pu9tHKJ0ld4nhe2DIMCBbR6uy\n8VVasaQmYbsidBzmOAJRPBl3LQl+ONnv0K67WBhbZTG4mrPVhyo9fcbeYGY7lR9d\nZR5KAP9GQyqgutjkN0CDhemGOlzH6a9V3Z4RpNOGsAffexStMWHn0O/PyFoc9C8h\nxIHeLazkqfG86GpD1HuL4KmIsVhvxg1D1oWjZk5CdpHTUhHG7nVpDV7EiDS9xolM\n4QcrAbY03KOw2+J+6nT5n++65djpSf53OAF5jrO28QKBgQD8t5+BO6OVVDJbR8bz\nx5wEHTSA4um8ahPO3p1saEsV+g7qyHMqZ7F27de0uCbZ2AXxZzbL5dvMQ3xzhnRm\nqMU0pw6c1UbFbkCJZ/Rm4HNe+l/A7xXYDVf0zZbUkJO9ViCUmJjdaLW6KmjkBHmF\naXVVrBth8X6QH6wDjiuvh5ckMQKBgQD7PKf5B1Wb2QFqseJyssNUxhbA31D0PUf5\nZGq1BItT/9BaqHIODdyjUGv3udHqIhuGEgRWKFGkoSwx4uXZlf8mP14ztYpET5qW\nLNOJKHZi2tzIJP5ttkQwq9PYVGSE9N3aDhDf2zRQoFYdMiVbnO/tlt2e8saVYr70\n+LSdr4EnvwKBgH2V4rYeJRS4Wq3x5XSP5YBF4ymJmg3/yQgsqJ6O1YF+WptiMZkJ\nHq+zUlaEjQoEyC9G03xQJgJEJzxhvManaBjaS/C0LA9A0uF1v4bAU5UHZz5BkeFk\nACmvYR0RG9ojSt2NV6nvtx9ko+tsLdeWqLCCbrklgXetxZWeuSbpgrqBAoGBAKqq\nBpTVFaN7o0m+MsylgKkKsxQr3ws6wbS5MP9sadUS1o9vE6NWaUYLcHxknyMELlxB\nyu5YDzXdQm9U6byH9z4dF7nanWVQCfvv0Xa/pMP8VrQi5S7T/LhvUMYIdgwXZskk\nevQGLSCD+lt04Am+rwFfVYcO9jUuUfeJJvBi80JzAoGBAOVccjjKhOXxkC7aiEk0\n14bZyyRmGabqA5ULSywLbrIpLtkF5TfeuHmVkTd6GoOw/QyJsFAij9pVUDIXsXCD\nVrmrKPPr384MwgFnh9dFdsGtIBuopQfwf+TsUEpne/eSbsYAvWlZWugterRmM1oF\n0hBSMmrmAK065W6JmBUkWxXh\n-----END PRIVATE KEY-----\n",

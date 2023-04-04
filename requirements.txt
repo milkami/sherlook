@@ -6,3 +6,4 @@ psycopg2
 django-crispy-forms
 crispy_bootstrap4
 # django-allauth
+sib_api_v3_sdk

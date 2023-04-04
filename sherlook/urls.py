@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from apps.common.views import SignUpView, LogInView, TemplateView
+from apps.common.views import SignUpView, LogInView, TemplateView, EmailAttachementView
 from django.contrib.auth import views as auth_views
 from apps.common import views
 
@@ -29,5 +29,6 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('login/', LogInView.as_view(), name='login'),
     path('faq/', views.faq_view, name='faq'),
+    path('support/', EmailAttachementView.as_view(), name='support')
 
 ]
