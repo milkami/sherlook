@@ -166,3 +166,10 @@ input[id="cb1"] {
     color: #100F0E;
     line-height: 58px;
 }
+
+.text-style-support {
+    font-size: 40px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 46px;
+}
