@@ -1,9 +1,11 @@
+from django.shortcuts import render
 from django.urls import reverse_lazy
+from django.views.generic import CreateView
 from .forms import SignUpForm, LogInForm
 from django.contrib.auth.views import LoginView
-from django.views.generic import CreateView
+from django.views.generic import TemplateView, CreateView
 from django.contrib.auth import login as auth_login
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, QueryDict
 from django.shortcuts import redirect
 
 
