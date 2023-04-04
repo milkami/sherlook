@@ -1,9 +1,10 @@
-from django.shortcuts import render
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
 from .forms import SignUpForm, LogInForm
 from django.contrib.auth.views import LoginView
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import CreateView
+from django.contrib.auth import login as auth_login
+from django.http import HttpResponseRedirect
+from django.shortcuts import redirect
 
 
 class SignUpView(CreateView):
@@ -23,4 +24,8 @@ class LogInView(LoginView):
         if not remember_me:
             self.request.session.set_expiry(0)  # if remember me is 
             self.request.session.modified = True
-        return super(LogInView, self).form_valid(form)
+        if form.get_user():
+            auth_login(self.request, form.get_user())
+            return HttpResponseRedirect(self.get_success_url())
+        else:
+            return redirect('/login/')

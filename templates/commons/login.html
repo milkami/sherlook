@@ -17,6 +17,10 @@
                         <h5 class="card-title text-style-big" style="margin-bottom: 10px;">Welcome back!</h5>
                         <p class="text-style-middle card-text" style="margin-bottom: 33px;">Don't have an account?<a href="{% url 'register' %}"
                                 style="color: #FF6B2C; padding-left: 10px;">Sign-up</a></p>
+                        {% if form.errors %}
+                            <p>Email or password not correct</p>
+                        {% endif %}
+
                         <form method="POST">
                             {% csrf_token %}
                             {% for field in form %}
