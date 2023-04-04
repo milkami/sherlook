@@ -62,10 +62,10 @@
 
             <div class="pt-4" style="width: 100%;">
                 <div style="display: flex; justify-content: space-between;">                              
-                    <button style="width: 100%; margin-right: 15px; font-size: 45px !important;" href="{% url 'faq' %}" class="button-box-style text-style-middle-2">
+                    <button style="width: 100%; margin-right: 15px; font-size: 45px !important;" onclick="location.href={% url 'faq' %}" class="button-box-style text-style-middle-2">
                         FAQ
                     </button>
-                    <button style="width: 100%; margin-left: 15px; font-size: 25px !important;" {% url 'support' %} class="button-box-style text-style-middle-2">
+                    <button style="width: 100%; margin-left: 15px; font-size: 25px !important;" onclick="location.href={% url 'support' %}" class="button-box-style text-style-middle-2">
                         SEND US A MESSAGE
                     </button>
                 </div>
