@@ -25,7 +25,7 @@
         </div>
         
     </div>
-    <div class="row d-flex mt-5">
+    <div class="row d-flex mt-5 pb-5">
         <div class="col-lg-3 justify-content-center">
             <div class="p-4" style="background-color: #FFA8A8; border-radius: 6px;">
                 <span class="text-style-middle-outlined">NOTIFICATIONS</span>
@@ -62,10 +62,10 @@
 
             <div class="pt-4" style="width: 100%;">
                 <div style="display: flex; justify-content: space-between;">                              
-                    <button style="width: 100%; margin-right: 15px; font-size: 45px !important;" class="button-box-style text-style-middle-2">
+                    <button style="width: 100%; margin-right: 15px; font-size: 45px !important;" onclick="location.href={% url 'faq' %}" class="button-box-style text-style-middle-2">
                         FAQ
                     </button>
-                    <button style="width: 100%; margin-left: 15px; font-size: 25px !important;" class="button-box-style text-style-middle-2">
+                    <button style="width: 100%; margin-left: 15px; font-size: 25px !important;" onclick="location.href={% url 'support' %}" class="button-box-style text-style-middle-2">
                         SEND US A MESSAGE
                     </button>
                 </div>
