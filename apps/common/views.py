@@ -16,3 +16,11 @@ class LogInView(LoginView):
     form_class = LogInForm
     success_url = reverse_lazy('home')
     template_name = 'commons/login.html'
+
+    def form_valid(self, form):
+       
+        remember_me = form.cleaned_data['remember_me']  # get remember me data from cleaned_data of form
+        if not remember_me:
+            self.request.session.set_expiry(0)  # if remember me is 
+            self.request.session.modified = True
+        return super(LogInView, self).form_valid(form)

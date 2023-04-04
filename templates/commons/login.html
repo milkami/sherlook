@@ -1,152 +1,13 @@
+{% extends "commons/layout.html" %}
+
 {% load static %}
 {% load crispy_forms_tags %}
 
-<!DOCTYPE html>
-<html lang="en">
+{% block title %}Django CRM - Login{% endblock %}
 
-<head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
 
-    <title>Django CRM - Login</title>
-
-    <!-- Custom fonts for this template-->
-    <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-          rel="stylesheet">
-
-    <!-- Custom styles for this template-->
-    <link href="{% static 'css/sb-admin-2.min.css' %}" rel="stylesheet">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
-          integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
-
-    <script src="https://kit.fontawesome.com/b1a21454b8.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/fonts/fontawesome-free-5.3.1-web/css/all.css">
-
-    <link href='https://fonts.googleapis.com/css?family=Racing Sans One' rel='stylesheet'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-
-    <style>
-        .navbar-custom {
-            background-image: linear-gradient(to right, #ED1C24, #FF6B2C);
-            height: 86px;
-        }
-
-        .navbar-brand .navbar-text .nav-link {
-            color: white !important;
-        }
-
-        .container-custom {
-            background-color: #F1F6F6;
-            border-radius: 20px;
-        }
-
-        /* .card {
-            background-color: #F1F6F6;
-        } */
-
-        ::placeholder {
-            font-size: 16px;
-            font-family: 'Roboto';
-            font-weight: 300;
-            color: #5E6B78;
-            padding-left: 18px;
-
-        }
-
-        .text-style-big {
-            font-size: 32px;
-            font-family: 'Racing Sans One';
-            color: #100F0E;
-            line-height: 40px;
-        }
-
-        .text-style-middle {
-            font-size: 16px;
-            font-family: 'Roboto';
-            color: #100F0E;
-            line-height: 19px;
-        }
-
-        .text-style-small {
-            font-size: 14px;
-            font-family: 'Roboto';
-            color: #100F0E;
-            line-height: 16px;
-        }
-
-        .text-style-small-light {
-            font-size: 14px;
-            font-family: 'Roboto';
-            color: #100F0E;
-            line-height: 16px;
-            font-weight: 300;
-        }
-
-        .input-box {
-            border-radius: 6px;
-            width: 100%;
-            height: 48px;
-            border: none;
-            box-sizing: border-box;
-            vertical-align: middle;
-        }
-
-        html, body {
-            height: 100%;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-
-    </style>
-</head>
-
-<body>
-<header>
-    <nav class="navbar navbar-expand-lg navbar-custom">
-        <div class="container-fluid">
-            <div style="color: white;" class="collapse navbar-collapse d-flex justify-content-between"
-                 id="navbarSupportedContent">
-                <div class="d-flex">
-                    <a class="nav-link active" aria-current="page" href="#"
-                       style="font-family: 'Roboto'; font-size: 21.5px; font-weight: 700;">
-                        Home
-                    </a>
-                </div>
-                <div class="d-flex">
-                    <a class="nav-link active" aria-current="page" href="#"
-                       style="font-family: 'Racing Sans One'; font-weight: 400; font-size: 24px;">
-                        SHERLOOK 3000
-                    </a>
-                </div>
-                <div>
-                    <div style="float: left; padding-right: 20px;" class="d-flex">
-                        <a class="nav-link active" aria-current="page" href="#">
-                            <i class="fa-solid fa-cart-shopping"></i>
-                        </a>
-                    </div>
-                    <div style="float: right;" class="d-flex">
-                        <a class="nav-link active" aria-current="page" href="#">
-                            <i class="fa-regular fa-user"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </nav>
-</header>
-
+{% block body %}
 <div class="d-flex container-fluid align-items-center justify-content-center" style="flex-grow: 1;">
     <div class="col d-flex justify-content-center align-items-center row" style="vertical-align: middle;">
         <div class="container-custom card col-lg-5 col-md-10 col-sm-12">
@@ -158,9 +19,18 @@
                                 style="color: #FF6B2C; padding-left: 10px;">Sign-up</a></p>
                         <form method="POST">
                             {% csrf_token %}
-                            {{ form | crispy }}
-                            <button type="submit"
-                                    style="background-color: #FF6B2C; width: 100%; border: none; color: white; height: 48px; border-radius: 6px; margin-bottom: 22px;">
+                            {% for field in form %}
+                                {% if field.field.widget.input_type != 'checkbox' %}    
+                                <label class="text-style-small-light" style="margin-bottom: 8px;">{{field.label}}</label>
+                                {{ field }}
+                                
+                                {% elif field.field.widget.input_type == 'checkbox' %}
+                                    {{ field }}<label class="text-style-small" style="margin-left: 10px;">{{field.label}}</label>
+                                {% endif %}
+                            {% endfor %}
+                            
+                            <button type="submit" class="login-button-style"
+                                    style="margin-bottom: 22px; margin-top: 34px;">
                                 <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
                                 Log-in
                             </button>
@@ -179,5 +49,4 @@
 <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
 <!-- Custom scripts for all pages-->
 <script src="{% static 'js/sb-admin-2.min.js' %}"></script>
-</body>
-</html>
+{% endblock %}
