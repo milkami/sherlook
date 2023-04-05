@@ -173,3 +173,36 @@ input[id="cb1"] {
     color: #100F0E;
     line-height: 46px;
 }
+
+.text-style-profile-big {
+    font-size: 40px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 58px;
+}
+
+.button-profile {
+    border: none;
+    border-radius: 20px;
+    color: white;
+    background-color: #FF6B2C;
+    font-size: 25px;
+    font-family: 'Racing Sans One';
+}
+
+.profile-rectangle {
+    border-radius: 20px;
+    background-color: white;
+}
+
+.profile-rectangle-black {
+    border-radius: 20px;
+    border-color: black;
+    border: 1px solid;
+}
+
+.text-style-profile-medium {
+    font-size: 30px;
+    font-family: 'Racing Sans One';
+    line-height: 38px;
+}
