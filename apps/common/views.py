@@ -61,7 +61,7 @@ def payment_view(request):
         subtotal = 0
         for order in orders:
             subtotal = subtotal + order.product.price
-        return render(request, 'commons/profile.html', {'user': user, 'orders': orders, 'subtotal': subtotal})
+        return render(request, 'commons/payment.html', {'user': user, 'orders': orders, 'subtotal': subtotal})
     return render(request, 'commons/payment.html',)
 
 

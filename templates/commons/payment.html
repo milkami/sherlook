@@ -1,0 +1,138 @@
+{% extends "commons/layout.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Django CRM - Payment{% endblock %}
+
+{% block body %}
+<div class="d-flex container-fluid align-items-center justify-content-center" style="flex-grow: 1;">
+    <div class="col d-flex justify-content-center align-items-center row" style="vertical-align: middle;">
+        <div class="col-lg-11 mt-4">
+            <div style="width: 100%;">
+                <div class="text-style-profile-big" style="text-align: left;">Your Shopping Cart</div>
+                <div class="questions-box pb-4 mt-3 mb-5 ps-4 pe-4 pt-4" style="width: 100%;">
+                    <div class="row d-flex" >
+                        <div class="col-lg-8">
+                            <div style="width: 100%;">
+                            {% for order in orders %}
+                            <!-- One order -->
+                            <div class="row d-flex g-0 me-4 mb-3">
+                                <div class="profile-rectangle d-flex justify-content-between ps-3 py-3" style="width: 100%;">
+                                    <div class="col-lg-4">
+                                        <div class="col">
+                                            <div>
+                                                <div class="text-style-rso-24">POSITION</div>
+                                                <div class="text-style-ro-18b mt-1">{{ order.product.position }}</div>
+                                            </div>
+                                            <div class="mt-4">
+                                                <div class="text-style-rso-24">EXPERIENCE</div>
+                                                <div class="mt-1 text-style-ro-18b" style="color: #FF6B2C;">LINK</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3">
+                                        <div class="col">
+                                            <div>
+                                                <div class="text-style-rso-24">SPECIALIZATION</div>
+                                                <div class="text-style-ro-18b mt-1">{{ order.product.specialisation }}</div>
+                                            </div>
+                                            <div class="mt-4">
+                                                <div class="text-style-rso-24">RATING</div>
+                                                <div class="mt-1 text-style-ro-18b">{{ order.product.rating }}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 ps-4">
+                                        <div class="col">
+                                                <div class="text-style-rso-24">COUNTRY</div>
+                                                <div class="text-style-ro-18b mt-1">{{ order.product.nationality }}</div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-1 d-flex justify-content-center align-items-center pe-4">
+                                        <div class="text-style-rso-24">{{ order.product.price }}<sup><u>00</u></sup>€</div>
+                                    </div>
+                                    <div class="col-lg-1 d-flex justify-content-center align-items-center">
+                                        <button style="border: none; background-color:white; color: #AAAFB0;"><i class="fa-solid fa-xmark fa-1x"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                            <!-- Last row -->
+                            <div class="row ps-3 py-3 mt-3 pe-5" style="width: 100%;">
+                                <div class="d-flex justify-content-between">
+                                    <button class="text-style-ro-22b" style="color:#FF6B2C; border: none; background-color: #F1F6F6;">
+                                        <i class="fa-solid fa-arrow-left"></i><span class="ms-4">Back to search</span>
+                                    </button>
+                                    <div class="text-style-ro-22b">Subtotal:</div>
+                                    <div class="text-style-ro-22b me-5">{{ subtotal }}<sup><u>00</u></sup>€</div>
+                                </div>
+                                
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Card details -->
+                        <div class="col-lg-4 pt-4">
+                            <div style="width: 100%;">
+                                <div class="col">
+                                    <div class="text-style-rso-24">CARD DETAILS</div>
+                                    <div class="row mt-4">
+                                        <div class="d-flex justify-content-between">
+                                            <span class="text-style-ro-16b ">Payment method</span>
+                                            <span class="text-style-ro-16b " style="color: #1E6AFF">Saved payment method</span>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div style="width: 100%;">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="pe-1">
+                                                <img class="img-fluid" src="{% static 'images/Visa.png' %}">
+                                            </div>
+                                            <div class="ps-1 pe-1">  
+                                                <img class="img-fluid" src="{% static 'images/Mastercard.png' %}">
+                                            </div>
+                                            <div class="ps-1 pe-1">
+                                                <img class="img-fluid" src="{% static 'images/PayPal.png' %}">
+                                            </div>
+                                            <div class="ps-1">
+                                                <img class="img-fluid" src="{% static 'images/Revolut.png' %}">
+                                            </div>
+                                        </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-style-ro-16b mt-4">Card number</div>
+                                    <div class="input-icons">
+                                        <input type="text" class="input-field input-box mt-2" placeholder="0000 0000 0000 0000">
+                                    </div>
+                                    <div class="text-style-ro-16b mt-4">Cardholder name</div>
+                                    <input class="input-box mt-2" placeholder="Name Surname">
+                                    <div class="row">
+                                        <div class="d-flex justify-content-between">
+                                            <div class="me-3">
+                                                <div class="text-style-ro-16b mt-4">Expiry date</div>
+                                                <input class="input-box mt-2" placeholder="MM / YYYY">
+                                            </div>
+                                            <div class="ms-3">
+                                                <div class="text-style-ro-16b mt-4">CVV/CVC</div>
+                                                <input class="input-box mt-2" placeholder="xxx">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="text-style-ro-16b mt-5" style="font-weight: 400;">
+                                        We will send you an order details to your email after the successfull payment
+                                    </div>
+                                    <button class="button-custom-style mt-5" style="width: 100%;">Checkout</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        
+    </div>
+</div>
+{% endblock %}

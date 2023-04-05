@@ -206,3 +206,34 @@ input[id="cb1"] {
     font-family: 'Racing Sans One';
     line-height: 38px;
 }
+
+.text-style-rso-24 {
+    font-size: 24px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 32px;
+}
+
+.text-style-ro-18b {
+    font-size: 18px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.text-style-ro-22b {
+    font-size: 22px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.text-style-ro-16b {
+    font-size: 16px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 19px;
+    font-weight: 500;
+}
