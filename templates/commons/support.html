@@ -26,7 +26,7 @@
 
                               {% for field in email_form %}
 
-                                {% if field.widget.field.label != 'Attachment' %}
+                                {% if field.label != 'Attachement' %}
                                     
                                 <label class="text-style-small-light" style="margin-bottom: 8px;">{{field.label}}</label>
                                 {{ field }}
