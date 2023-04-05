@@ -32,18 +32,22 @@
                                 {{ field }}
 
                                 {% else %}
-                                <i class="fa-solid fa-paperclip"></i>
+                              
                                 <label class="text-style-small-light" style="margin-bottom: 8px;">{{field.label}}</label>
+                                <i class="fa-solid fa-paperclip"></i>
                                 {{ field }}
                                 {% endif %}
                                   
                                   
                               {% endfor %}
+
+                              <div>
+                                You will get an automatic reply if your request ticket has been received.
+                              </div>
                             
                               <button type="submit" class="login-button-style"
                                       style="margin-bottom: 22px; margin-top: 34px;">
-                                  <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
-                                  Log-in
+                                  Send
                               </button>
                             </form>
                           </div>
