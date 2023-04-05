@@ -24,7 +24,7 @@ class SignUpView(CreateView):
 
 class LogInView(LoginView):
     form_class = LogInForm
-    success_url = reverse_lazy('home')
+    success_url = '/home/'
     template_name = 'commons/login.html'
 
     def form_valid(self, form):
@@ -35,7 +35,7 @@ class LogInView(LoginView):
             self.request.session.modified = True
         if form.get_user():
             auth_login(self.request, form.get_user())
-            return HttpResponseRedirect(self.get_success_url())
+            return HttpResponseRedirect(self.success_url)
         else:
             return redirect('/login/')
 
@@ -47,12 +47,22 @@ def faq_view(request):
     return render(request, 'commons/login.html', )
 
 
-
 def profile_view(request):
     if request.user.is_authenticated:
         user = CustomUser.objects.filter(email=request.user.email).first()
         return render(request, 'commons/profile.html', {'user': user})
     return render(request, 'commons/login.html',)
+
+
+def payment_view(request):
+    if request.user.is_authenticated:
+        user = CustomUser.objects.filter(email=request.user.email).first()
+        orders = user.orders.filter(status='buy')
+        subtotal = 0
+        for order in orders:
+            subtotal = subtotal + order.product.price
+        return render(request, 'commons/profile.html', {'user': user, 'orders': orders, 'subtotal': subtotal})
+    return render(request, 'commons/payment.html',)
 
 
 class EmailAttachementView(View):
