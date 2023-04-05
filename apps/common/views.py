@@ -44,14 +44,14 @@ def faq_view(request):
     if request.user.is_authenticated:
         questions = Questions.objects.filter(is_active=True)
         return render(request, 'commons/faq.html', {'questions': questions})
-    return render(request, 'commons/login.html', )
+    return redirect('/login/')
 
 
 def profile_view(request):
     if request.user.is_authenticated:
         user = CustomUser.objects.filter(email=request.user.email).first()
         return render(request, 'commons/profile.html', {'user': user})
-    return render(request, 'commons/login.html',)
+    return redirect('/login/')
 
 
 def payment_view(request):
@@ -62,7 +62,18 @@ def payment_view(request):
         for order in orders:
             subtotal = subtotal + order.product.price
         return render(request, 'commons/payment.html', {'user': user, 'orders': orders, 'subtotal': subtotal})
-    return render(request, 'commons/payment.html',)
+    return redirect('/login/')
+
+
+def search_view(request):
+    if request.user.is_authenticated:
+        user = CustomUser.objects.filter(email=request.user.email).first()
+        students = Students.objects.all()
+        country = list(Students.objects.values_list('nationality', flat=True).distinct())
+        position = list(Students.objects.values_list('position', flat=True).distinct())
+
+        return render(request, 'commons/search.html', {'students': students, 'country': country, 'position': position })
+    return redirect('/login/')
 
 
 class EmailAttachementView(View):
@@ -73,7 +84,7 @@ class EmailAttachementView(View):
         if request.user.is_authenticated:
             form = self.form_class()
             return render(request, self.template_name, {'email_form': form})
-        return render(request, 'commons/login.html', )
+        return redirect('/login/')
 
 
     def post(self, request, *args, **kwargs):

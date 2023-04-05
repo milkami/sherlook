@@ -23,14 +23,15 @@ from apps.common import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TemplateView.as_view(template_name='example.html'), name='signup'),
+    #path('', TemplateView.as_view(template_name='example.html'), name='signup'),
     path('home/', TemplateView.as_view(template_name='commons/home.html'), name='home'),
-    path('register/', SignUpView.as_view(), name="register"),
+    path('', SignUpView.as_view(), name="register"),
     path('accounts/', include('django.contrib.auth.urls')),
     path('login/', LogInView.as_view(), name='login'),
     path('faq/', views.faq_view, name='faq'),
     path('support/', EmailAttachementView.as_view(), name='support'),
     path('profile/', views.profile_view, name='profile'),
     path('payment/', views.payment_view, name='payment'),
+    path('search/', views.search_view, name='search'),
 
 ]

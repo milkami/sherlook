@@ -199,7 +199,7 @@
                                     <div class="col-lg-11 col-sm-10">
                                         <div class="card-body" style="width: 100%; padding-top: 56px; padding-bottom: 22px;">
                                             <h5 class="card-title text-style-big" style="margin-bottom: 10px;">Create new account.</h5>
-                                            <p class="text-style-middle card-text" style="margin-bottom: 33px;">Already have an account?<a style="color: #FF6B2C; padding-left: 10px;">Log in</a></p>
+                                            <p class="text-style-middle card-text" style="margin-bottom: 33px;">Already have an account?<a href="{% url 'login' %}" style="color: #FF6B2C; padding-left: 10px;">Log in</a></p>
                                             <form method="POST">
                                                 {% csrf_token %}
                                                 {% for field in form %}
