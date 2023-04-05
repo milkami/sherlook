@@ -50,7 +50,7 @@ def faq_view(request):
 
 def profile_view(request):
     if request.user.is_authenticated:
-        user = CustomUser.objects.filter(email=request.user.email)
+        user = CustomUser.objects.filter(email=request.user.email).first()
         return render(request, 'commons/profile.html', {'user': user})
     return render(request, 'commons/login.html',)
 
