@@ -4,3 +4,22 @@
 {% load crispy_forms_tags %}
 
 {% block title %}Django CRM - Login{% endblock %}
+
+{% block body %}
+<div class="d-flex container-fluid justify-content-center">
+    <div class="col d-flex justify-content-center row">
+        <div class="col-lg-9">
+            <img class="img-fluid" style="height: 120px; width: 100%;" src="{% static 'images/profile_test.jpeg' %}">
+            <div class="questions-box">
+                {% for data in user %}
+                <div class="row">
+                    
+                </div>
+                {% endfor %}
+            </div>
+                
+
+        </div>
+    </div>
+</div>
+{% endblock %}
