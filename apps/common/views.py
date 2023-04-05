@@ -62,7 +62,7 @@ def payment_view(request):
         for order in orders:
             subtotal = subtotal + order.product.price
         return render(request, 'commons/profile.html', {'user': user, 'orders': orders, 'subtotal': subtotal})
-    return render(request, 'commons/login.html',)
+    return render(request, 'commons/payment.html',)
 
 
 class EmailAttachementView(View):
