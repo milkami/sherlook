@@ -46,3 +46,51 @@ class CustomUser(AbstractUser):
     REQUIRED_FIELDS = []
 
     objects = CustomUserManager()
+
+
+class Students(models.Model):
+    SPECIALISATION = (
+        ('Team Captain', 'Team Captain'),
+        ('Chief Engineer', 'Chief Engineer'),
+        ('Aerodynamics', 'Aerodynamics'),
+        ('Powertrain', 'Powertrain'),
+        ('Chassis', 'Chassis'),
+        ('Engine', 'Engine'),
+        ('Electronics & Wiring', 'Electronics & Wiring'),
+        ('Suspension', 'Suspension'),
+        ('IT', 'IT'),
+        ('Team Member', 'Team Member'),
+        ('Manufacturing', 'Manufacturing'),
+
+    )
+    id = models.AutoField(primary_key=True)
+    first_name = models.CharField(max_length=255)
+    last_name = models.CharField(max_length=255)
+    university = models.CharField(max_length=255, null=True)
+    date_of_birth = models.DateField(blank=True, null=True)
+    email = models.CharField(max_length=255, null=True)
+    mobile_phone_number = models.CharField(max_length=255, null=True)
+    nationality = models.CharField(max_length=255, null=True)
+    position = models.CharField(max_length=255, null=True)
+    level = models.CharField(max_length=255, null=True)
+    estimate_year_of_graduation = models.IntegerField(blank=True, null=True)
+    specialisation = models.CharField(max_length=255, null=True, choices=SPECIALISATION)
+    rating = models.IntegerField(blank=True, null=True)
+    price = models.IntegerField(blank=True, null=True, default=100)
+
+    def __str__(self):
+        if self.first_name:
+            return f"{self.first_name} {self.last_name}"
+        else:
+            return ""
+
+    class Meta:
+        verbose_name = 'Student'
+        verbose_name_plural = 'Students'
+
+
+class Order(models.Model):
+    customer = models.ForeignKey(CustomUser, null=True, on_delete=models.SET_NULL, related_name='orders')
+    product = models.ForeignKey(Students, null=True, on_delete=models.SET_NULL)
+    date_created = models.DateTimeField(auto_now_add=True, null=True)
+    status = models.CharField(max_length=255, null=True, blank=True)

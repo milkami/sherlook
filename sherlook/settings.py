@@ -60,6 +60,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'sherlook.urls'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CSRF_TRUSTED_ORIGINS = ['https://sherlook.milkamilicevic.from.hr', 'https://*.127.0.0.1']
+
 
 TEMPLATES = [
     {

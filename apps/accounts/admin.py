@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
+from .models import *
 
 
 class CustomUserAdmin(UserAdmin):
@@ -25,3 +26,5 @@ class CustomUserAdmin(UserAdmin):
 
 
 admin.site.register(get_user_model(), CustomUserAdmin)
+admin.site.register(Students)
+admin.site.register(Order)

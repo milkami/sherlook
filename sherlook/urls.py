@@ -31,5 +31,6 @@ urlpatterns = [
     path('faq/', views.faq_view, name='faq'),
     path('support/', EmailAttachementView.as_view(), name='support'),
     path('profile/', views.profile_view, name='profile'),
+    path('payment/', views.payment_view, name='payment'),
 
 ]
