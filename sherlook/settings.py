@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'apps.questions.apps.QuestionsConfig',
     'crispy_forms',
     'crispy_bootstrap4',
+    'competition.apps.CompetitionConfig',
 ]
 
 MIDDLEWARE = [

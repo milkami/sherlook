@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .forms import *
+from apps.accounts.models import *
 from django.contrib.auth.views import LoginView
 from django.views.generic import TemplateView, CreateView, View
 from django.contrib.auth import login as auth_login
@@ -40,8 +41,18 @@ class LogInView(LoginView):
 
 
 def faq_view(request):
-    questions = Questions.objects.filter(is_active=True)
-    return render(request, 'commons/faq.html', {'questions': questions})
+    if request.user.is_authenticated:
+        questions = Questions.objects.filter(is_active=True)
+        return render(request, 'commons/faq.html', {'questions': questions})
+    return render(request, 'commons/login.html', )
+
+
+
+def profile_view(request):
+    if request.user.is_authenticated:
+        user = CustomUser.objects.filter(email=request.user.email)
+        return render(request, 'commons/profile.html', {'user': user})
+    return render(request, 'commons/login.html',)
 
 
 class EmailAttachementView(View):
@@ -49,8 +60,11 @@ class EmailAttachementView(View):
     template_name = 'commons/support.html'
 
     def get(self, request, *args, **kwargs):
-        form = self.form_class()
-        return render(request, self.template_name, {'email_form': form})
+        if request.user.is_authenticated:
+            form = self.form_class()
+            return render(request, self.template_name, {'email_form': form})
+        return render(request, 'commons/login.html', )
+
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
