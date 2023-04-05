@@ -82,7 +82,7 @@ class EmailForm(forms.Form):
         self.fields['attach'].label = 'Attachement'
         self.fields['subject'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 20px',})
         self.fields['message'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 20px',})
-        self.fields['attach'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 20px; display: inline',})
+        self.fields['attach'].widget.attrs.update({'class': 'form-inline', 'style': 'margin-bottom: 20px',})
         
         
         
