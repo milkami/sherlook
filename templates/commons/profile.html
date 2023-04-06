@@ -10,24 +10,24 @@
     <div class="col d-flex justify-content-center row">
         <div class="col-lg-10">
             <img class="img-fluid" style="height: 120px; width: 100%;" src="{% static 'images/profile_test.jpeg' %}">
-            <div class="questions-box px-4 pb-4 pt-2" style="width: 100%;">
+            <div class="light-grey-box px-4 pb-4 pt-2" style="width: 100%;">
                 <div class="row">
                     <div class="d-flex justify-content-between" style="width: 100%;">
-                        <div class="text-style-profile-big">Profile Name</div>
+                        <div class="text-style-rso-40">Profile Name</div>
                         <div class="d-flex justify-content-end">
-                            <div class="text-style-profile-big me-5">{{ user.company_name | upper }}</div>
-                            <div class="text-style-profile-big me-2">{{ user.first_name }}</div>
-                            <div class="text-style-profile-big">{{ user.last_name }}</div>
+                            <div class="text-style-rso-40 me-5">{{ user.company_name | upper }}</div>
+                            <div class="text-style-rso-40 me-2">{{ user.first_name }}</div>
+                            <div class="text-style-rso-40">{{ user.last_name }}</div>
                         </div>   
                     </div>   
                 </div>
                 <hr class="mx-4">
                 <div class="row">
                     <div class="d-flex justify-content-between" style="width: 100%;">
-                        <div class="text-style-profile-big">Broj Zaposlenika: {{ user.number_of_employer }}</div>
+                        <div class="text-style-rso-40">Broj Zaposlenika: {{ user.number_of_employer }}</div>
                         <div class="d-flex justify-content-end">
                             <form>
-                                <button class="button-profile py-3 px-4">Log Out</button>
+                                <button class="orange-button text-style-rso-25 py-3 px-4" style="color: white; border-radius: 20px;">Log Out</button>
                             </form>
                         </div>
                     </div>
@@ -35,14 +35,14 @@
                 <div class="row pt-4">
                     <div class="d-flex justify-content-between">
                         <div class="col col-lg-6">
-                            <div class="profile-rectangle py-1 me-4">
+                            <div class="white-box  py-1 me-4">
                                 <div class="row">
                                     <div class="d-flex justify-content-between px-5">
-                                        <div class="text-style-profile-medium">Pending orders</div>
-                                        <div class="text-style-profile-medium">...</div>
+                                        <div class="text-style-rso-30">Pending orders</div>
+                                        <div class="text-style-rso-30">...</div>
                                     </div>    
                                 </div>
-                                <div class="profile-rectangle-black mx-4 my-2 pb-3">
+                                <div class="black-outlined-box mx-4 my-2 pb-3">
                                     <p class="pt-3"></p>
                                     <hr class="mx-3" style="color: black; background-color: black !important; height: 1px;">
                                     <p class="pt-1"></p>
@@ -54,15 +54,15 @@
                         </div>
 
                         <div class="col col-lg-6">
-                            <div class="profile-rectangle py-1 ms-4">
+                            <div class="white-box py-1 ms-4">
                                 <div class="row">
                                     <div class="d-flex justify-content-between px-5">
-                                        <div class="text-style-profile-medium">Notifications</div>
-                                        <div class="text-style-profile-medium">...</div>
+                                        <div class="text-style-rso-30">Notifications</div>
+                                        <div class="text-style-rso-30">...</div>
                                     </div>    
                                 </div>
-                                <div class="profile-rectangle-black mx-4 py-4 mt-3 mb-3"></div>
-                                <div class="profile-rectangle-black mx-4 py-4 mt-4 mb-3"></div>
+                                <div class="black-outlined-box mx-4 py-4 mt-3 mb-3"></div>
+                                <div class="black-outlined-box mx-4 py-4 mt-4 mb-3"></div>
                             </div>
                         </div>
 
@@ -73,42 +73,42 @@
                 <div class="row mt-3">
                     <div class="d-flex justify-content-between">
                         <div class="col col-lg-6">
-                            <div class="profile-rectangle py-1 me-4">
+                            <div class="white-box py-1 me-4">
                                 <div class="row">
                                     <div class="d-flex justify-content-between px-5">
-                                        <div class="text-style-profile-medium">Ticket request</div>
-                                        <div class="text-style-profile-medium">...</div>
+                                        <div class="text-style-rso-30">Ticket request</div>
+                                        <div class="text-style-rso-30">...</div>
                                     </div>    
                                 </div>
-                                <div class="profile-rectangle-black mx-4 py-4 mt-3 mb-3"></div>
-                                <div class="profile-rectangle-black mx-4 py-4 mt-4 mb-3"></div>
+                                <div class="black-outlined-box mx-4 py-4 mt-3 mb-3"></div>
+                                <div class="black-outlined-box mx-4 py-4 mt-4 mb-3"></div>
                             </div>
                         </div>
 
                         <div class="col col-lg-6">
-                            <div class="profile-rectangle pt-1 ms-4">
+                            <div class="white-box pt-1 ms-4">
                                 <div class="row">
                                     <div class="d-flex justify-content-between px-5">
-                                        <div class="text-style-profile-medium">Settings</div>
+                                        <div class="text-style-rso-30">Settings</div>
                                     </div>    
                                 </div>
                                 <div class="row ps-3 pe-3 pb-4 mt-4">
                                     <div class="d-flex justify-content-between">
-                                        <div class="profile-rectangle-black text-center py-3 me-2" style="width: 100%;">
+                                        <div class="black-outlined-box text-center py-3 me-2" style="width: 100%;">
                                             <i class="fa-solid fa-book-open fa-3x"></i>
-                                            <div class="text-style-middle mt-1">Library</div>                                            
+                                            <div class="text-style-ro-16 mt-1">Library</div>                                            
                                         </div>
-                                        <div class="profile-rectangle-black text-center py-3 ms-2 me-2" style="width: 100%;">
+                                        <div class="black-outlined-box text-center py-3 ms-2 me-2" style="width: 100%;">
                                             <i class="fa-solid fa-credit-card fa-3x"></i>
-                                            <div class="text-style-middle mt-1">Payment</div>
+                                            <div class="text-style-ro-16 mt-1">Payment</div>
                                         </div>
-                                        <div class="profile-rectangle-black text-center py-3 ms-2 me-2" style="width: 100%;">
+                                        <div class="black-outlined-box text-center py-3 ms-2 me-2" style="width: 100%;">
                                             <i class="fa-solid fa-unlock-keyhole fa-3x"></i>
-                                            <div class="text-style-middle mt-1">Security</div>
+                                            <div class="text-style-ro-16 mt-1">Security</div>
                                         </div>
-                                        <div class="profile-rectangle-black text-center py-3 ms-2" style="width: 100%;">
+                                        <div class="black-outlined-box text-center py-3 ms-2" style="width: 100%;">
                                             <i class="fa-solid fa-screwdriver-wrench fa-3x"></i>
-                                            <div class="text-style-middle mt-1">Tools</div>
+                                            <div class="text-style-ro-16 mt-1">Tools</div>
                                         </div>
                                     </div>    
                                 </div>

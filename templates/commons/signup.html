@@ -54,28 +54,12 @@
         
         <style>
 
-            html, body {
-                
-            }
-
             body {
-                display: flex;
-                
+                display: flex;    
             }
 
             .first-container {
                 background-image: linear-gradient(to right, #ED1C24 , #FF6B2C);
-                
-                
-            }
-
-            .text-style-large {
-                font-size: 68px;
-                font-family: 'Racing Sans One';
-                line-height: 85px;
-                color: white;
-                text-align: center;
-
             }
 
             .navbar-custom {
@@ -98,28 +82,36 @@
 
             }
 
-            .text-style-big {
+            .text-style-rso-68 {
+                font-size: 68px;
+                font-family: 'Racing Sans One';
+                line-height: 85px;
+                color: white;
+                text-align: center;
+            }
+
+            .text-style-rso-32 {
                 font-size: 32px;
                 font-family: 'Racing Sans One';
                 color: #100F0E;
                 line-height: 40px;
             }
 
-            .text-style-middle {
+            .text-style-ro-16 {
                 font-size: 16px;
                 font-family: 'Roboto';
                 color: #100F0E;
                 line-height: 20px;
             }
 
-            .text-style-small {
+            .text-style-ro-14 {
                 font-size: 14px;
                 font-family: 'Roboto';
                 color: #100F0E;
                 line-height: 16px;
             }
 
-            .text-style-small-light {
+            .text-style-ro-14l {
                 font-size: 14px;
                 font-family: 'Roboto';
                 color: #100F0E;
@@ -143,20 +135,7 @@
                 height: 48px;
                 border-radius: 6px;
                 margin-bottom: 22px;
-
             }
-
-            input[id="cb1"] {
-  display: inline;
-  width: 14px;
-  height: 14px;
-
-  border: 2px solid #FF6B2C;
-  border-radius: 2px;
-}
-
-
-
 
         </style>
 
@@ -164,12 +143,12 @@
 
 <body>
 
-  <div class="container-fluid row" style=""></div>
+  <div class="container-fluid row"></div>
 
             <div class=" first-container container-fluid col-lg-6 d-flex justify-content-center" style=" overflow: auto;">
                 <div class="d-flex flex-column container-fluid align-items-center justify-content-center">
-                <p class="text-style-large">"My job is to know what other people don't know."</p>
-                <p style="margin-top: 50px;" class="text-style-large">SCHERLOOK 3000</p>
+                <p class="text-style-rso-68">"My job is to know what other people don't know."</p>
+                <p style="margin-top: 50px;" class="text-style-rso-68">SCHERLOOK 3000</p>
             </div>
 
             </div>
@@ -192,25 +171,25 @@
                 </header>
 
 
-                    <div class="d-flex container-fluid align-items-center justify-content-center" style="flex-grow: 1; margin-top: 30px; margin-bottom: 30px;">
+                    <div class="d-flex container-fluid align-items-center justify-content-center mt-4 mb-4" style="flex-grow: 1;">
                         <div class="col d-flex justify-content-center align-items-center row" style="vertical-align: middle;">
                             <div class="container-custom card col-lg-10 col-md-10 col-sm-12">
                                 <div class="row justify-content-center">
                                     <div class="col-lg-11 col-sm-10">
-                                        <div class="card-body" style="width: 100%; padding-top: 56px; padding-bottom: 22px;">
-                                            <h5 class="card-title text-style-big" style="margin-bottom: 10px;">Create new account.</h5>
-                                            <p class="text-style-middle card-text" style="margin-bottom: 33px;">Already have an account?<a href="{% url 'login' %}" style="color: #FF6B2C; padding-left: 10px;">Log in</a></p>
+                                        <div class="card-body pt-4 pb-4" style="width: 100%;">
+                                            <h5 class="card-title text-style-rso-32 mb-3">Create new account.</h5>
+                                            <p class="text-style-ro-16 card-text mb-4">Already have an account?<a href="{% url 'login' %}" style="color: #FF6B2C; padding-left: 10px; text-decoration: none;">Log in</a></p>
                                             <form method="POST">
                                                 {% csrf_token %}
                                                 {% for field in form %}
-                                                    <label class="text-style-small-light" style="margin-bottom: 8px;">{{field.label}}</label>
+                                                    <label class="text-style-ro-14l mb-2">{{field.label}}</label>
                                                     {{field }}
                                                 {% endfor %}
                                                 <input id="cb1" style="border-color: #FF6B2C;" type="checkbox">
-                                                <label for="cb1">I agree to platform's <a href="">Terms of service and privacy policy</a></label> 
+                                                <label for="cb1" class="text-style-ro-14 ms-2">I agree to platform's <a class="text-style-ro-14" href="">Terms of service and privacy policy</a></label> 
                                                 
 
-                                                    <button id="signup-button" type="submit" style="width: 100%; margin-top: 34px;" class="button-custom-style">
+                                                    <button id="signup-button" type="submit" style="width: 100%;" class="button-custom-style mt-5">
                                                         <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
                                                         Sign-up
                                                     </button>

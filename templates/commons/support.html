@@ -5,22 +5,22 @@
 
 {% block body %}
 
-    <div class="d-flex container-fluid align-items-center justify-content-center pt-3" style="flex-grow: 1;">
+    <div class="d-flex container-fluid align-items-center justify-content-center pt-3 pb-5" style="flex-grow: 1;">
         <div class="col d-flex justify-content-center align-items-center row">
             <div class="col-lg-9">
-                <div style="">
-                    <div class="" style="font-size: 48px; color: #100F0E; font-family: 'Racing Sans One'; line-height: 62px; text-align: left;">Send Us A Message</div>
-                    <div class="questions-box row d-flex">
+                <div>
+                    <div class="text-style-rso-45" style="text-align: left;">Send Us A Message</div>
+                    <div class="light-grey-box row d-flex pt-5 ps-5 pe-5">
                       
                         <div class="col-lg-6">
                           <img class="img-fluid" src="{% static 'images/send_message.webp' %}">
-                          <div class="mt-4" style="font-size: 40px; font-family: 'Roboto'; color: #100F0E; line-height: 46px; font-weight: 500; text-align: center;">
+                          <div class="text-style-ro-35b mt-5" style="text-align: center;">
                             To listen closely and reply well is the highest perfection we are able to attain in the art of conversation
                           </div>
                         </div>
                         <div class="col-lg-6">
-                          <div class="col">
-                            <div style="font-size: 24px; font-family: 'Racing Sans One'; line-height: 32px; color: #100F0E;">Send Us</div>
+                          <div class="col ps-4">
+                            <div class="text-style-rso-24 mb-3">YOUR DETAILS</div>
                             <form method="POST">
                               {% csrf_token %}
 
@@ -28,12 +28,12 @@
 
                                 {% if field.label != 'Attachement' %}
                                     
-                                <label class="text-style-small-light" style="margin-bottom: 8px;">{{field.label}}</label>
+                                <label class="text-style-ro-14l mb-2">{{field.label}}</label>
                                 {{ field }}
 
                                 {% else %}
                               
-                                <label class="text-style-small-light" style="margin-bottom: 8px;">{{field.label}}</label>
+                                <label class="text-style-ro-14l mb-2">{{field.label}}</label>
                                 <i class="fa-solid fa-paperclip"></i>
                                 {{ field }}
                                 {% endif %}
@@ -41,12 +41,12 @@
                                   
                               {% endfor %}
 
-                              <div>
+                              <div class="text-style-ro-16">
                                 You will get an automatic reply if your request ticket has been received.
                               </div>
                             
-                              <button type="submit" class="login-button-style"
-                                      style="margin-bottom: 22px; margin-top: 34px;">
+                              <button type="submit" class="orange-button mt-4 mb-5"
+                                      style="height: 48px;">
                                   Send
                               </button>
                             </form>

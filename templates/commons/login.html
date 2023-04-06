@@ -13,10 +13,10 @@
         <div class="container-custom card col-lg-5 col-md-10 col-sm-12">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-sm-10">
-                    <div class="card-body" style="width: 100%; padding-top: 56px; padding-bottom: 22px;">
-                        <h5 class="card-title text-style-big" style="margin-bottom: 10px;">Welcome back!</h5>
-                        <p class="text-style-middle card-text" style="margin-bottom: 33px;">Don't have an account?<a href="{% url 'register' %}"
-                                style="color: #FF6B2C; padding-left: 10px;">Sign-up</a></p>
+                    <div class="card-body pt-5 pb-3" style="width: 100%;">
+                        <h5 class="card-title text-style-rso-32 mb-2">Welcome back!</h5>
+                        <p class="text-style-ro-16 card-text mb-3">Don't have an account?<a href="{% url 'register' %}"
+                                style="color: #FF6B2C; padding-left: 10px; text-decoration:none;">Sign-up</a></p>
                         {% if form.errors %}
                             <p>Email or password not correct</p>
                         {% endif %}
@@ -25,16 +25,16 @@
                             {% csrf_token %}
                             {% for field in form %}
                                 {% if field.field.widget.input_type != 'checkbox' %}    
-                                <label class="text-style-small-light" style="margin-bottom: 8px;">{{field.label}}</label>
+                                <label class="text-style-ro-14l mb-2">{{field.label}}</label>
                                 {{ field }}
                                 
                                 {% elif field.field.widget.input_type == 'checkbox' %}
-                                    {{ field }}<label class="text-style-small" style="margin-left: 10px;">{{field.label}}</label>
+                                    {{ field }}<label class="text-style-ro-14" style="margin-left: 10px;">{{field.label}}</label>
                                 {% endif %}
                             {% endfor %}
                             
-                            <button type="submit" class="login-button-style"
-                                    style="margin-bottom: 22px; margin-top: 34px;">
+                            <button type="submit" class="orange-button mb-3 mt-4"
+                                    style="height:48px;">
                                 <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
                                 Log-in
                             </button>

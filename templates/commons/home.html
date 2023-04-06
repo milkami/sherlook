@@ -3,7 +3,7 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}Django CRM - Login{% endblock %}
+{% block title %}Django CRM - Home{% endblock %}
 
 
 
@@ -16,28 +16,28 @@
             </div>
             <div class="col-lg-9">
                 <form>
-                    <input style="width: 100%; height: 60px; border-radius: 6px; background-color: #FFF4F4; border: none;">
+                    <input class="light-pink-input-h60" style="width: 100%;">
                 </form>
             </div>
             <div class="col-lg-2">
-                <button class="text-style-middle-2" style="height: 60px; width: 100%; background-color: #F1F6F6; border-radius: 20px; border: none;">SEARCH</button>
+                <button class="light-grey-button text-style-rso-22" style="width: 100%; vertical-align: middle; height: 60px;">SEARCH</button>
             </div>
         </div>
         
     </div>
     <div class="row d-flex mt-5 pb-5">
         <div class="col-lg-3 justify-content-center">
-            <div class="p-4" style="background-color: #FFA8A8; border-radius: 6px;">
-                <span class="text-style-middle-outlined">NOTIFICATIONS</span>
-                <div class="text-box-style mt-4 mb-3">
-                    <span class="text-style-middle-2">NEW ITEM AT YOUR SAVED VIEW #2</span>
+            <div class="pink-box p-4">
+                <span class="text-style-rso-24-outlined">NOTIFICATIONS</span>
+                <div class="black-outlined-box mt-4 mb-3 py-3 px-4" style="text-align: center; vertical-align: middle;">
+                    <span class="text-style-rso-22">NEW ITEM AT YOUR SAVED VIEW #2</span>
                 </div>
-                <div class="text-box-style mb-5">
-                    <span class="text-style-middle-2">YOUR SAVED ITEM IS NOW AVAILABLE</span>
+                <div class="black-outlined-box mb-5 px-4 py-3" style="text-align: center; vertical-align: middle;">
+                    <span class="text-style-rso-22">YOUR SAVED ITEM IS NOW AVAILABLE</span>
                 </div>
                 <hr style="border-width: 4px; color: #5E6B78;">
                 <div class="p-4 mt-5 mb-5" style="text-align: center; height: 134px;"> 
-                    <span class="text-style-big-2">
+                    <span class="text-style-rso-36">
                         GET ANALYTICS
                     </span>
                 </div>
@@ -48,13 +48,13 @@
             <div class="mb-5" style="width: 100%;">
                 <div style="display: flex; justify-content: space-between;">
                                             
-                    <button onclick="location.href={% url 'search' %}" style="width: 100%; margin-right: 15px;" class="button-box-style text-style-middle-2">
+                    <button onclick="location.href={% url 'search' %}" style="width: 100%; margin-right: 15px; height: 136px;" class="light-grey-button text-style-rso-22">
                         SHERLOOK APP
                     </button>
-                    <button style="width: 100%; margin-left: 15px; margin-right: 15px;" class="button-box-style text-style-middle-2">
+                    <button style="width: 100%; margin-left: 15px; margin-right: 15px; height: 136px;" class="light-grey-button text-style-rso-22">
                         RESERVATION
                     </button>
-                    <button style="width: 100%; margin-left: 15px;" class="button-box-style text-style-middle-2">
+                    <button style="width: 100%; margin-left: 15px; height: 136px;" class="light-grey-button text-style-rso-22">
                         LIBRARY
                     </button>
                 </div>
@@ -62,17 +62,17 @@
 
             <div class="pt-4" style="width: 100%;">
                 <div style="display: flex; justify-content: space-between;">                              
-                    <button style="width: 100%; margin-right: 15px; font-size: 45px !important;" onclick="location.href={% url 'faq' %}" class="button-box-style text-style-middle-2">
+                    <button style="width: 100%; height: 136px;" onclick="location.href={% url 'faq' %}" class="light-grey-button text-style-rso-45 me-2">
                         FAQ
                     </button>
-                    <button style="width: 100%; margin-left: 15px; font-size: 25px !important;" onclick="location.href={% url 'support' %}" class="button-box-style text-style-middle-2">
+                    <button style="width: 100%; height: 136px;" onclick="location.href={% url 'support' %}" class="light-grey-button text-style-rso-25 ms-2">
                         SEND US A MESSAGE
                     </button>
                 </div>
             </div>
 
             <div class="mt-5" style="height: 134px; width: 100%; vertical-align: middle; display: flex; align-items: center; justify-content: center;">
-                <div class="text-style-middle-2" style="color:black !important; margin-left: 80px; margin-right: 80px; text-align: center;">"EDUCATION NEVER ENDS, WATSON. IT IS A SERIES OF LESSONS, WITH THE GREATES FOR THE LAST."</div>
+                <div class="text-style-rso-22 ms-5 me-5" style="color:black !important; text-align: center;">"EDUCATION NEVER ENDS, WATSON. IT IS A SERIES OF LESSONS, WITH THE GREATES FOR THE LAST."</div>
             </div>
     </div>
     </div>

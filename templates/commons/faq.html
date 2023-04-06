@@ -9,17 +9,13 @@
 {% block script %}
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('bla');
             var question_answer_all = document.querySelectorAll('.question-answer-div');
             console.log(question_answer_all);
             question_answer_all.forEach(function (each_question) {
-                console.log(each_question);
                 each_question.addEventListener('click', event => {
                     const dropdown_icon = each_question.querySelector('.dropdown-icon');
                     const answer_div = each_question.querySelector('.answer-div');
                     if (event.target === dropdown_icon) {
-                        console.log('yes');
-                        console.log(answer_div);
                         if (answer_div.style.visibility === 'hidden') {
                             answer_div.style.visibility = 'visible';
                             answer_div.style.display = 'block';
@@ -42,10 +38,10 @@
         <div class="col d-flex justify-content-center align-items-center row">
             <div class="col-lg-9">
                 <div style="width: 100%;">
-                    <div class="text-style-large-black" style="text-align: left;">FAQ</div>
-                    <div class="questions-box pb-5 mt-3 mb-5">
+                    <div class="text-style-rso-65" style="text-align: left;">FAQ</div>
+                    <div class="light-grey-box pb-5 mt-3 mb-5">
                         {% for question in questions %}
-                            <div class="text-question-style pt-5 ps-5 question-answer-div">
+                            <div class="text-style-rso-40 pt-5 ps-5 question-answer-div">
                                 <div class="question-div">
                                     {{ question.question }}
                                     <i style="font-size: 25px !important; padding-left: 20px;" class="fa-regular fa-caret-down dropdown-icon"></i>

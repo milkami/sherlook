@@ -12,7 +12,6 @@
     border-radius: 20px;
 }
 
-
 ::placeholder {
     font-size: 16px;
     font-family: 'Roboto';
@@ -22,21 +21,237 @@
     
 }
 
-
-.text-style-big {
-    font-size: 32px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 40px;
+html, body {
+    height: 100%;
 }
 
-.text-style-middle {
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.first-container {
+    background-image: linear-gradient(to right, #ED1C24 , #FF6B2C);
+}
+
+input[id="cb1"] {
+    display: inline;
+    width: 14px;
+    height: 14px;
+    border: 2px solid #FF6B2C;
+    border-radius: 2px;
+  }
+
+
+
+/* Boxes */
+.light-grey-box {
+    background-color: #F1F6F6;
+    border-radius: 20px;
+}
+
+.pink-box {
+    background-color: #FFA8A8; 
+    border-radius: 6px;
+}
+
+.light-pink-input-h60 {
+    height: 60px; 
+    border-radius: 6px; 
+    background-color: #FFF4F4; 
+    border: none;
+}
+
+.light-grey-button {
+    background-color: #F1F6F6; 
+    border-radius: 20px; 
+    border: none;
+}
+
+.black-outlined-box {
+    border-color: black; 
+    border: 1px solid; 
+    border-radius: 20px; 
+    
+}
+
+.orange-button {
+    background-color: #FF6B2C; 
+    width: 100%; 
+    border: none; 
+    color: white; 
+    border-radius: 6px;
+}
+
+.white-box {
+    border-radius: 20px;
+    background-color: white;
+}
+
+.white-input-box {
+    border-radius: 6px;
+    width: 100%; 
+    border: none; 
+    box-sizing: border-box;
+    vertical-align: middle;
+}
+
+
+
+/* Text styles - Roboto */
+
+.text-style-ro-14l {
+    font-size: 14px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 16px;
+    font-weight: 300;
+}
+
+.text-style-ro-14 {
+    font-size: 14px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 16px;
+}
+
+.text-style-ro-16 {
     font-size: 16px;
     font-family: 'Roboto';
     color: #100F0E;
     line-height: 19px;
 }
 
+.text-style-ro-16b {
+    font-size: 16px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 19px;
+    font-weight: 500;
+}
+
+.text-style-ro-18b {
+    font-size: 18px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.text-style-ro-22b {
+    font-size: 22px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.text-style-ro-35b {
+    font-size: 35px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 45px;
+    font-weight: 500;
+}
+
+/* Text styles - Racing Sans One */
+
+.text-style-rso-18 {
+    font-size: 18px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 24px;
+}
+
+.text-style-rso-22 {
+    font-size: 22px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 28px;
+}
+
+.text-style-rso-24 {
+    font-size: 24px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 32px;
+}
+
+.text-style-rso-24-outlined {
+    font-size: 24px;
+    font-family: 'Racing Sans One';
+    line-height: 31px;
+    color: black;
+    -webkit-text-stroke: 1px white;
+}
+
+.text-style-rso-25 {
+    font-size: 25px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 30px;
+}
+
+.text-style-rso-30 {
+    font-size: 30px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 39px;
+}
+
+.text-style-rso-32 {
+    font-size: 32px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 40px;
+}
+
+.text-style-rso-36 {
+    font-size: 36px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 47px;
+}
+
+.text-style-rso-40 {
+    font-size: 40px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 58px;
+}
+
+.text-style-rso-45 {
+    font-size: 40px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 60px;
+}
+
+.text-style-rso-65 {
+    font-size: 65px;
+    font-family: 'Racing Sans One';
+    line-height: 85px;
+}
+
+
+
+
+
+
+/* 
+
+.text-style-profile-medium {
+    font-size: 30px;
+    font-family: 'Racing Sans One';
+    line-height: 38px;
+}
+
+.text-style-profile-big {
+    font-size: 40px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 58px;
+}
 .text-style-small {
     font-size: 14px;
     font-family: 'Roboto';
@@ -52,54 +267,43 @@
     font-weight: 300;
 }
 
-.input-box {
-    border-radius: 6px;
-    width: 100%; 
-    height: 48px; 
-    border: none; 
-    box-sizing: border-box;
-    vertical-align: middle;
+.text-style-middle {
+    font-size: 16px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 19px;
 }
 
-html, body {
-    height: 100%;
+.text-style-big {
+    font-size: 32px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 40px;
 }
 
-body {
-    display: flex;
-    flex-direction: column;
+.text-style-big-2 {
+    font-size: 36px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 47px;
 }
 
-.login-button-style {
-    background-color: #FF6B2C; 
-    width: 100%; 
-    border: none; 
-    color: white; 
-    height: 48px; 
-    border-radius: 6px;
-}
-
-.first-container {
-    background-image: linear-gradient(to right, #ED1C24 , #FF6B2C);
-}
-
-.text-style-large {
-    font-size: 68px;
+.text-style-large-black {
+    font-size: 65px;
     font-family: 'Racing Sans One';
     line-height: 85px;
-    color: white;
-    text-align: center;
-
 }
 
-.button-custom-style {
-    background-color: #FF6B2C;
-    border: none;
-    color: white;
-    height: 48px;
-    border-radius: 6px;
-    margin-bottom: 22px;
+.questions-box {
+    background-color: #F1F6F6;
+    border-radius: 20px;
+}
 
+.text-question-style {
+    font-size: 40px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 58px;
 }
 
 .text-style-middle-2 {
@@ -127,13 +331,6 @@ body {
     vertical-align: middle;
 }
 
-.text-style-big-2 {
-    font-size: 36px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 47px;
-}
-
 .button-box-style {
     border: none;
     background-color: #F1F6F6;
@@ -141,44 +338,37 @@ body {
     height: 136px;
 }
 
-input[id="cb1"] {
-    display: inline;
-    width: 14px;
-    height: 14px;
-    border: 2px solid #FF6B2C;
-    border-radius: 2px;
-  }
-
-  .text-style-large-black {
-    font-size: 65px;
-    font-family: 'Racing Sans One';
-    line-height: 85px;
+.login-button-style {
+    background-color: #FF6B2C; 
+    width: 100%; 
+    border: none; 
+    color: white; 
+    height: 48px; 
+    border-radius: 6px;
 }
 
-.questions-box {
-    background-color: #F1F6F6;
+.profile-rectangle {
     border-radius: 20px;
+    background-color: white;
 }
 
-.text-question-style {
-    font-size: 40px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 58px;
+.input-box {
+    border-radius: 6px;
+    width: 100%; 
+    height: 48px; 
+    border: none; 
+    box-sizing: border-box;
+    vertical-align: middle;
 }
 
-.text-style-support {
-    font-size: 40px;
-    font-family: 'Roboto';
-    color: #100F0E;
-    line-height: 46px;
-}
+.button-custom-style {
+    background-color: #FF6B2C;
+    border: none;
+    color: white;
+    height: 48px;
+    border-radius: 6px;
+    margin-bottom: 22px;
 
-.text-style-profile-big {
-    font-size: 40px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 58px;
 }
 
 .button-profile {
@@ -190,79 +380,26 @@ input[id="cb1"] {
     font-family: 'Racing Sans One';
 }
 
-.profile-rectangle {
-    border-radius: 20px;
-    background-color: white;
-}
-
 .profile-rectangle-black {
     border-radius: 20px;
     border-color: black;
     border: 1px solid;
 }
 
-.text-style-profile-medium {
-    font-size: 30px;
+.login-button-style {
+    background-color: #FF6B2C; 
+    width: 100%; 
+    border: none; 
+    color: white; 
+    height: 48px; 
+    border-radius: 6px;
+}
+
+.text-style-large {
+    font-size: 68px;
     font-family: 'Racing Sans One';
-    line-height: 38px;
-}
+    line-height: 85px;
+    color: white;
+    text-align: center;
 
-
-
-
-
-/* Text styles - Roboto */
-
-.text-style-ro-16b {
-    font-size: 16px;
-    font-family: 'Roboto';
-    color: #100F0E;
-    line-height: 19px;
-    font-weight: 500;
-}
-
-.text-style-ro-18b {
-    font-size: 18px;
-    font-family: 'Roboto';
-    color: #100F0E;
-    line-height: 24px;
-    font-weight: 500;
-}
-
-.text-style-ro-22b {
-    font-size: 22px;
-    font-family: 'Roboto';
-    color: #100F0E;
-    line-height: 30px;
-    font-weight: 700;
-}
-
-/* Text styles - Racing Sans One */
-
-.text-style-rso-18 {
-    font-size: 18px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 24px;
-}
-
-.text-style-rso-22 {
-    font-size: 22px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 28px;
-}
-
-.text-style-rso-24 {
-    font-size: 24px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 32px;
-}
-
-.text-style-rso-30 {
-    font-size: 30px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 39px;
-}
+} */
