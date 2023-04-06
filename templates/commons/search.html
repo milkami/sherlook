@@ -3,4 +3,91 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}Django CRM - Payment{% endblock %}
+{% block title %}Django CRM - Search{% endblock %}
+
+{% block body %}
+<div class="col container-fluid justify-content-center px-5">
+    <div class="row d-flex justify-content-center mt-4 pb-4">
+        <div class="col-lg-3">
+            <div class="col">
+                <div class="col-lg-6">
+                    <img class="img-fluid" src="{% static 'images/scherlok.jpeg' %}">
+                </div>
+            </div>
+            <div>
+                <div class="p-4 mt-4" style="background-color: #FFA8A8; border-radius: 6px;">
+                    <div class="row">
+                        <div class="d-flex justify-content-between">
+                            <span class="text-style-ro-18b">Filters:</span>
+                            <span class="text-style-ro-18b" style="color: #4484FF;">Save View</span>
+                        </div>
+                    </div>
+                    <form>
+                        <input class="mt-2" placeholder="Search" style="border: none; width: 100%; height: 37px;">
+                        <div class="mt-4" style="height:600px; overflow:scroll; overflow-x:hidden;">
+                            <div class="text-style-rso-18 mb-2">POSITION</div>
+                            {% for pos in position %}
+                                <div>
+                                <input class="align-middle me-3 my-2" type="checkbox"><span class="align-middle text-style-ro-18b">{{ pos }}</span>
+                                </div>
+                            {% endfor %}
+                            <div class="text-style-rso-18 mb-2">SPECIALIZATION</div>
+                            <div class="text-style-rso-18 mb-2">COUNTRY</div>
+                            {% for one_country in country %}
+                                <div>
+                                <input class="align-middle me-3 my-2" type="checkbox"><span class="align-middle text-style-ro-18b">{{ one_country }}</span>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="text-center mt-4">
+                            <button class="text-style-rso-22 px-4 py-3" style="border: none; border-radius: 20px; background-color: #F1F6F6;">SEARCH</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9 mt-5">
+            <div class="text-style-rso-30 ps-5">
+                <span class="px-3 py-3" style="background-color: #FFA8A8; border-top-right-radius: 20px; border-top-left-radius: 20px;">SEARCH HERE</span>
+                
+            </div>
+            <div class="questions-box mt-3 pt-3 ps-3 pe-3" style="width: 100%; border: 1px solid #FFA8A8;">
+                <div class="row ms-2 me-2">
+                    <div class="d-flex justify-content-between">
+                        <div class="col-lg-2 text-style-rso-24" style="font-size: 22px;">POSITION</div>
+                        <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">SPECIALIZATION</div>
+                        <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">COUNTRY</div>
+                        <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">EXPERIENCE</div>
+                        <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">RATING</div>
+                        <div class="col-lg-1 text-style-rso-24 text-center" style="font-size: 22px;">BUY</div>
+                        <div class="col-lg-1 text-style-rso-24 text-center" style="font-size: 22px;">SHARE</div>
+                    </div>
+                </div>
+                {% for student in students %}
+                <div class="row mb-3 ms-2 me-2 mt-3" style="background-color: white;">
+                    <div class="d-flex align-items-center py-2">
+                        <div class="col-lg-2 text-truncate text-style-ro-18b pe-4">{{student.position}}</div>
+                        <div class="col-lg-2 text-center text-style-ro-18b">{{student.specialisation}}</div>
+                        <div class="col-lg-2 text-center text-style-ro-18b">{{student.nationality}}</div>
+                        <div class="col-lg-2 text-center text-style-ro-18b"><a href="" style="color: #FF6B2C; text-decoration:none">LINK</a></div>
+                        <div class="col-lg-2 text-center text-style-ro-18b">{{student.rating}}</div>
+                        <div class="col-lg-1 text-center">
+                            <button style="border: none; background-color: #FF6B2C; color: white; border-radius: 5px; font-size: 10px;">|</button>
+                        </div>
+                        <div class="col-lg-1 text-center">
+                            <button style="border: none; background-color: white;">
+                                <i class="fa-regular fa-circle-up"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    
+</div>
+{% endblock %}

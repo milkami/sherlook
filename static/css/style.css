@@ -207,11 +207,18 @@ input[id="cb1"] {
     line-height: 38px;
 }
 
-.text-style-rso-24 {
-    font-size: 24px;
-    font-family: 'Racing Sans One';
+
+
+
+
+/* Text styles - Roboto */
+
+.text-style-ro-16b {
+    font-size: 16px;
+    font-family: 'Roboto';
     color: #100F0E;
-    line-height: 32px;
+    line-height: 19px;
+    font-weight: 500;
 }
 
 .text-style-ro-18b {
@@ -230,10 +237,32 @@ input[id="cb1"] {
     font-weight: 700;
 }
 
-.text-style-ro-16b {
-    font-size: 16px;
-    font-family: 'Roboto';
+/* Text styles - Racing Sans One */
+
+.text-style-rso-18 {
+    font-size: 18px;
+    font-family: 'Racing Sans One';
     color: #100F0E;
-    line-height: 19px;
-    font-weight: 500;
+    line-height: 24px;
+}
+
+.text-style-rso-22 {
+    font-size: 22px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 28px;
+}
+
+.text-style-rso-24 {
+    font-size: 24px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 32px;
+}
+
+.text-style-rso-30 {
+    font-size: 30px;
+    font-family: 'Racing Sans One';
+    color: #100F0E;
+    line-height: 39px;
 }
