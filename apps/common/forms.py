@@ -24,9 +24,9 @@ class SignUpForm(UserCreationForm):
         }
 
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'First Name', 'style': 'margin-bottom: 10px',}),
+            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'First Name', 'autofocus': 'on', 'style': 'margin-bottom: 10px',}),
             'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Last Name', 'style': 'margin-bottom: 10px',}),
-            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'name@example.com', 'style': 'margin-bottom: 10px',}),
+            'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'name@example.com', 'style': 'margin-bottom: 10px; caret-color: transparent;',}),
             # 'password1': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'XXXXXXX'}),
             'company_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Company Name', 'style': 'margin-bottom: 10px',}),
             'number_of_employer': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'', 'style': 'margin-bottom: 23px',}),
@@ -42,7 +42,7 @@ class SignUpForm(UserCreationForm):
 
 
 class LogInForm(AuthenticationForm):
-    remember_me = forms.BooleanField(required=False)
+    remember_me = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class': 'my-custom-checkbox'}))
     """
     A Custom form for creating new users.
     """
@@ -70,7 +70,7 @@ class EmailForm(forms.Form):
     # email = forms.EmailField()
     subject = forms.CharField(max_length=100)
     message = forms.CharField(widget=forms.Textarea)
-    attach = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True}), required=False)
+    attach = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True, 'onchange': 'uploadFile(this)',}), required=False)
     
 
     
@@ -82,7 +82,7 @@ class EmailForm(forms.Form):
         self.fields['attach'].label = 'Attachement'
         self.fields['subject'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 20px',})
         self.fields['message'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 20px',})
-        self.fields['attach'].widget.attrs.update({'class': 'form-inline', 'style': 'margin-bottom: 20px',})
+        self.fields['attach'].widget.attrs.update({'class': 'my-file-input form-inline', 'style': 'margin-bottom: 20px',})
         
         
         

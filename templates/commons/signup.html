@@ -137,6 +137,38 @@
                 margin-bottom: 22px;
             }
 
+            /* Checkbox styling */
+            #cb1 {
+                /* -moz-appearance:none;
+                -webkit-appearance:none;
+                -o-appearance:none; */
+                appearance:none;
+                outline: none;
+                content: none;	
+                vertical-align: middle;
+            }
+
+            #cb1::before {
+                font-size: 12px;
+                color: transparent !important;
+                display: block;
+                width: 15px;
+                height: 15px;
+                border-radius: 3px;
+                content: '';
+                outline: #FF6B2C;
+                border: 2px solid #FF6B2C;
+                text-align: center;
+            }
+
+            #cb1:checked:before {
+                font-family: "FontAwesome";
+                content: "\f00c";
+                font-size: 12px;
+                line-height: 15px !important;
+                color: #FF6B2C !important;
+            }
+
         </style>
 
 </head>
@@ -185,7 +217,7 @@
                                                     <label class="text-style-ro-14l mb-2">{{field.label}}</label>
                                                     {{field }}
                                                 {% endfor %}
-                                                <input id="cb1" style="border-color: #FF6B2C;" type="checkbox">
+                                                <input id="cb1" type="checkbox">
                                                 <label for="cb1" class="text-style-ro-14 ms-2">I agree to platform's <a class="text-style-ro-14" href="">Terms of service and privacy policy</a></label> 
                                                 
 

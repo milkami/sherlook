@@ -221,7 +221,7 @@ input[id="cb1"] {
 }
 
 .text-style-rso-45 {
-    font-size: 40px;
+    font-size: 45px;
     font-family: 'Racing Sans One';
     color: #100F0E;
     line-height: 60px;
@@ -233,7 +233,239 @@ input[id="cb1"] {
     line-height: 85px;
 }
 
+/* Text styles - Quicksand */
 
+.text-style-qs-16 {
+    font-size: 16px;
+    font-family: 'Quicksand';
+    line-height: 20px;
+}
+
+/* Checkbox styling */
+.my-custom-checkbox {
+    /* -moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none; */
+    appearance:none;
+	outline: none;
+	content: none;	
+    vertical-align: middle;
+}
+
+.my-custom-checkbox::before {
+    font-size: 12px;
+    color: transparent !important;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-radius: 3px;
+    content: '';
+    outline: #FF6B2C;
+    border: 2px solid #FF6B2C;
+    text-align: center;
+}
+
+.my-custom-checkbox:checked:before {
+    font-family: "FontAwesome";
+    content: "\f00c";
+    font-size: 12px;
+    line-height: 15px !important;
+	color: #FF6B2C !important;
+}
+
+/* Blured background */
+
+.blur {
+    filter: blur(2px);
+    /* -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px); */
+}
+
+.pop-up-box {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    visibility: hidden;
+}
+
+.pop-up-box .overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    background: #000;
+    opacity: 0;
+    transition: opacity 1.3s;
+  }
+
+  .pop-up-box .pop-up-body {
+    max-height: 0px;
+    opacity: 0;
+    overflow: hidden;
+  }
+
+  .pop-up-box .pop-up-body .pop-up-inner-body {
+    background: #fff;
+  padding: 25px;
+  border-radius: 8px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0px 0px 65px 0px rgba(0, 0, 0, 0.43);
+  }
+
+  .pop-up-box.pop-up-show {
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+  transition: all 0.9s;
+  }
+
+.pop-up-box.pop-up-show .overlay {
+    opacity: 0.5;
+  transition: opacity 1.3s;
+  }
+
+.pop-up-box.pop-up-show .pop-up-body {
+    max-height: 1000px;
+  opacity: 1;
+  transition: 0.3s max-height 0.8s, 0.3s opacity 0.6s;
+}
+
+
+
+/* input[type=checkbox] { display: none; }
+input[type=checkbox] + label {
+  padding-left: 30px;
+  position: relative;
+}
+
+input[type=checkbox] + label::before {
+  display: block;
+  border: 1px solid #FF6B2C;
+  left: 3px;
+  top: 3px;
+  height: 14px;
+  width: 14px;
+  content: "";
+  position: absolute;
+  line-height: 14px;
+}
+
+input[type=checkbox]:checked + label::before {
+    content: "✓";
+  } */
+
+/* .my-custom-checkbox {
+	-moz-appearance:none;
+	-webkit-appearance:none;
+	-o-appearance:none;
+	outline: none;
+	content: none;	
+    vertical-align: middle;
+}
+
+.my-custom-checkbox:before {
+	font-family: "FontAwesome";
+    content: "\f00c";
+    font-size: 15px;
+    color: transparent !important;
+    background: #F1F6F6;
+    display: block;
+    width: 15px;
+    height: 15px;
+    border: 2px solid #FF6B2C;
+    border-radius: 2px;
+    margin-right: 7px;
+    text-align: center;
+}
+
+.my-custom-checkbox:checked:before {
+    font-family: "FontAwesome";
+    content: "\f00c";
+	color: #FF6B2C !important;
+    text-align: center;
+    
+} */
+
+
+
+
+
+input[type="file"] {
+    position: relative;
+    cursor: grab;
+    /* color:transparent; */
+    /* font-size: 20px; */
+  }
+  
+  input[type="file"]::file-selector-button {
+    color: transparent;
+    border: none;
+    background-color: #F1F6F6;
+    display: inline;
+  }
+  
+  input[type="file"]::before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 900;
+    color: black;
+    content: '\f0c6';
+    font: var(--fa-font-regular);
+    /* padding-left: 60px; */
+  }
+
+  input[type="file"]::after {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    
+  }
+  /* Faked label styles and icon */
+  /* input[type="file"]::before {
+    vertical-align: middle;
+    content: '\f0c6';
+    font: var(--fa-font-regular);
+  } */
+  
+  /* input[type="file"]::after {
+    position: absolute;
+    pointer-events: none;
+    top: 11px;
+    left: 40px;
+    color: #0964b0;
+    content: "Upload File";
+  } */
+  
+  /* ------- From Step 1 ------- */
+  
+
+  
+
+
+
+
+/* .my-file-input::file-selector-button:hover {
+    cursor: pointer;
+    background-color: crimson;
+    font-size: 1.2em;
+    border-radius: 25%;
+    box-shadow: inset 5px 10px 10px cornsilk;
+ }
+ .my-file-input::-webkit-file-upload-button:hover {
+    cursor: pointer; 
+    background-color: crimson;
+    font-size: 1.2em;
+    border-radius: 25%;
+    box-shadow: inset 5px 10px 10px cornsilk;
+ } */
 
 
 

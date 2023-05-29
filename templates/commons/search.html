@@ -4,13 +4,32 @@
 {% load crispy_forms_tags %}
 
 {% block title %}Django CRM - Search{% endblock %}
+{% block script %}
 
+    <script src="{% static 'search.js' %}"></script>
+    <!-- <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    
+        var connect_buttons = document.querySelectorAll('.connect-button');
+        console.log(connect_buttons);
+        connect_buttons.forEach(function(button) {
+            button.addEventListener('click', event => {
+                document.querySelector('.search-body').classList.add('blur');
+                document.querySelector('.pop-up-box').classList.add('pop-up-show');
+            })
+        })
+    
+    })
+    </script> -->
+{% endblock %}
 {% block body %}
-<div class="col container-fluid justify-content-center px-5">
+
+
+<div class="col container-fluid justify-content-center px-5" id="search-body">
     <div class="row d-flex justify-content-center mt-4 pb-4">
         <div class="col-lg-3">
-            <div class="col">
-                <div class="col-lg-6">
+            <div class="col ms-2">
+                <div class="col-lg-6 ms-5">
                     <img class="img-fluid" src="{% static 'images/scherlok.jpeg' %}">
                 </div>
             </div>
@@ -55,28 +74,30 @@
                 <div class="row ms-2 me-2">
                     <div class="d-flex justify-content-between">
                         <div class="col-lg-2 text-style-rso-24" style="font-size: 22px;">POSITION</div>
-                        <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">SPECIALIZATION</div>
+                        <div class="col-lg-3 text-style-rso-24 text-center" style="font-size: 22px;">SPECIALIZATION</div>
                         <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">COUNTRY</div>
-                        <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">EXPERIENCE</div>
-                        <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">RATING</div>
-                        <div class="col-lg-1 text-style-rso-24 text-center" style="font-size: 22px;">BUY</div>
-                        <div class="col-lg-1 text-style-rso-24 text-center" style="font-size: 22px;">SHARE</div>
+                        <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">AGE</div>
+                        <!-- <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">EXPERIENCE</div> -->
+                        <!-- <div class="col-lg-2 text-style-rso-24 text-center" style="font-size: 22px;">RATING</div> -->
+                        <div class="col-lg-2 text-style-rso-24 text-center pe-4" style="font-size: 22px;">CONNECT</div>
+                        <div class="col-lg-1 text-style-rso-24 text-center" style="font-size: 22px;">SAVE</div>
                     </div>
                 </div>
                 {% for student in students %}
                 <div class="row mb-3 ms-2 me-2 mt-3" style="background-color: white; border-radius: 6px;">
                     <div class="d-flex align-items-center py-2">
-                        <div class="col-lg-2 text-truncate text-style-ro-18b pe-4">{{student.position}}</div>
-                        <div class="col-lg-2 text-center text-style-ro-18b">{{student.specialisation}}</div>
-                        <div class="col-lg-2 text-center text-style-ro-18b">{{student.nationality}}</div>
-                        <div class="col-lg-2 text-center text-style-ro-18b"><a href="" style="color: #FF6B2C; text-decoration:none">LINK</a></div>
-                        <div class="col-lg-2 text-center text-style-ro-18b">{{student.rating}}</div>
-                        <div class="col-lg-1 text-center">
-                            <button style="border: none; background-color: #FF6B2C; color: white; border-radius: 5px; font-size: 10px;">|</button>
+                        <div class="col-lg-2 text-truncate text-style-ro-18b pe-4" id="position">{{student.position}}</div>
+                        <div class="col-lg-3 text-center text-style-ro-18b" id="specialization">{{student.specialisation}}</div>
+                        <div class="col-lg-2 text-center text-style-ro-18b" id="nationality">{{student.nationality}}</div>
+                        <div class="col-lg-2 text-center text-style-ro-18b" style="color: #FF6B2C;" id="age">25</div>
+                        <!-- <div class="col-lg-2 text-center text-style-ro-18b"><a href="" style="color: #FF6B2C; text-decoration:none">LINK</a></div> -->
+                        <!-- <div class="col-lg-2 text-center text-style-ro-18b">{{student.rating}}</div> -->
+                        <div class="col-lg-2 text-center pe-4">
+                            <button class="connect-button" style="border: none; background-color: #FF6B2C; color: white; border-radius: 5px; font-size: 10px;">|</button>
                         </div>
                         <div class="col-lg-1 text-center">
                             <button style="border: none; background-color: white;">
-                                <i class="fa-regular fa-circle-up"></i>
+                                <i class="fa-regular fa-circle-down"></i>
                             </button>
                         </div>
                     </div>
@@ -87,7 +108,81 @@
         
         
     </div>
-    
-    
+</div>
+<div class="pop-up-box container-fluid justify-content-center">
+    <div class="overlay row d-flex"></div>
+    <div class="pop-up-body col-lg-8">
+        <div class="pop-up-inner-body">
+            <div class="row">
+                <div class="d-flex">
+                    <div class="col-lg-5">
+                        <div class="">
+                            <div class="d-flex justify-content-start mb-3">
+                                <div class="col-lg-7 align-middle text-style-rso-22">POSITION</div>
+                                <div id="pop-up-position" class="text-truncate col-lg-5 text-style-ro-16b" style="line-height: 28px!important;"></div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="col-lg-7 text-style-rso-22">SPECIALIZATION</div>
+                                <div id="pop-up-specialization" class="col-lg-5 text-style-ro-16b" style="line-height: 28px!important;"></div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="col-lg-7 text-style-rso-22">COUNTRY</div>
+                                <div id="pop-up-nationality" class="col-lg-5 text-style-ro-16b" style="line-height: 28px!important;"></div>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <div class="col-lg-7 text-style-rso-22">AGE</div>
+                                <div id="pop-up-age" class="col-lg-5 text-style-ro-16b" style="line-height: 28px!important;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 ps-4">
+                        <div class="d-flex mb-2">
+                            <div class="col-lg-6 align-middle text-style-rso-22">
+                                RELEVANT EXPERIENCE
+                            </div>
+                            <div class="col-lg-6 align-middle text-style-ro-16b" style="line-height: 28px!important;">
+                                <span class="align-middle text-style-qs-16" style="line-height: 28px; vertical-align: middle; border: 0px;">VERIFIED AT FS ALPE ADRIA</span> <span style="font-size: 12px!important; line-height: 28px; vertical-align: middle; border: 0px;">&#x2705</span>
+                            </div>
+                        </div>
+                        <div>
+                            <ul class="text-style-ro-16">
+                                <li>Hybrid design – combination of monocoque and steel frame</li>
+                                <li>CFRP monocoque (prepreg + autoclave), aluminium honeycomb</li>
+                                <li>8 mm lower centre of gravity</li>
+                                <li>Ergonomic design</li>
+                                <li>Powertrain in CRMo space frame</li>
+                                <li>High chassis stifness and mainenance – heavy design</li>
+                            </ul>
+                                
+                        </div>
+                    </div>
+                    
+                </div>
+                <div class="d-flex justify-content-between mt-4">
+                    <div class="text-style-rso-22">
+                        SAVE TO LIBRARY
+                    </div>
+                    <div>
+                        <button style="border: none; background-color: white;">
+                            <i class="fa-regular fa-circle-down"></i>
+                        </button>
+                    </div>
+                    <div>
+                        <button class="btn text-style-rso-22 px-5" style="background-color: #FD602C; color: white;">
+                            CONNECT
+                        </button>
+                    </div>
+                    <div class="text-style-rso-18">
+                        300 💰 CREDITS
+                    </div>
+                    <div>
+                        <button class="text-style-ro-16b" style="border: none; background-color: white; color: #FD602C;">
+                            Not Interested
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}

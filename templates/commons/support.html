@@ -3,24 +3,34 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
+{% block script %}
+
+    <script>
+      function uploadFile(target) {
+    document.getElementById("file-name").innerHTML = target.files[0].name;
+}
+    </script>
+    
+{% endblock %}
+
 {% block body %}
 
     <div class="d-flex container-fluid align-items-center justify-content-center pt-3 pb-5" style="flex-grow: 1;">
         <div class="col d-flex justify-content-center align-items-center row">
-            <div class="col-lg-9">
+            <div class="col-lg-9 mt-5">
                 <div>
-                    <div class="text-style-rso-45" style="text-align: left;">Send Us A Message</div>
+                    <div class="text-style-rso-45 ps-5" style="text-align: left;">Send Us A Message</div>
                     <div class="light-grey-box row d-flex pt-5 ps-5 pe-5">
                       
-                        <div class="col-lg-6">
+                        <div class="col-lg-7 pe-4">
                           <img class="img-fluid" src="{% static 'images/send_message.webp' %}">
                           <div class="text-style-ro-35b mt-5" style="text-align: center;">
-                            To listen closely and reply well is the highest perfection we are able to attain in the art of conversation
+                            "To listen closely and reply well is the highest perfection we are able to attain in the art of conversation"
                           </div>
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-5">
                           <div class="col ps-4">
-                            <div class="text-style-rso-24 mb-3">YOUR DETAILS</div>
+                            <div class="text-style-rso-24 mb-3">SEND US YOUR QUESTION BELOW</div>
                             <form method="POST">
                               {% csrf_token %}
 
@@ -28,25 +38,37 @@
 
                                 {% if field.label != 'Attachement' %}
                                     
-                                <label class="text-style-ro-14l mb-2">{{field.label}}</label>
+                                <label class="text-style-ro-16b mb-2 ms-2">{{field.label}}</label>
                                 {{ field }}
 
                                 {% else %}
-                              
-                                <label class="text-style-ro-14l mb-2">{{field.label}}</label>
-                                <i class="fa-solid fa-paperclip"></i>
-                                {{ field }}
+
+                                <div class="d-flex align-items-center">
+                                <label class="text-style-ro-16b ms-2 me-5">{{field.label}}</label>
+                                <div class="text-style-ro-16b">{{ field }}</div>
+                                </div>
+
+                                <div class="d-flex align-items-center">
+                                  <label class="d-flex text-style-ro-16b align-items-center ms-2" style="width: 100%;">{{field.label}}
+                                    <i class="fa-solid fa-paperclip fa-xl ms-5 me-2"></i>
+                                    <div id="file-name" class="text-style-ro-16 align-middle ps-2 ms-5 file-box" style="background-color: #E4D8D8; border: 1px solid #E4D8D8; width: 100%; height: 26px; border-radius: 6px; line-height: 26px !important; display: flex; align-items: center;"></div>
+                                    <div class="text-style-ro-16b" style="display: none;">{{ field }}</div>
+                                  </div>
+                                  </label>
+                                  <!-- <div class="text-style-ro-16b" style="display: none;">{{ field }}</div>
+                                  </div> -->
                                 {% endif %}
                                   
                                   
                               {% endfor %}
+                              
 
-                              <div class="text-style-ro-16">
+                              <div class="text-style-ro-16 mt-4">
                                 You will get an automatic reply if your request ticket has been received.
                               </div>
                             
-                              <button type="submit" class="orange-button mt-4 mb-5"
-                                      style="height: 48px;">
+                              <button type="submit" class="orange-button text-style-ro-16b mt-4 mb-5"
+                                      style="height: 48px; color: white;">
                                   Send
                               </button>
                             </form>
