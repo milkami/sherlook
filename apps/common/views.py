@@ -14,6 +14,7 @@ from sherlook import settings
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
 from django.contrib import messages
+import math
 
 
 class SignUpView(CreateView):
@@ -42,8 +43,11 @@ class LogInView(LoginView):
 
 def faq_view(request):
     if request.user.is_authenticated:
-        questions = Questions.objects.filter(is_active=True)
-        return render(request, 'commons/faq.html', {'questions': questions})
+        questions = Questions.objects.filter(is_active=True).order_by('id')
+        questions_half = math.ceil(questions.count()/2)
+        questions_first = questions[0:questions_half]
+        questions_second = questions[questions_half:questions.count()]
+        return render(request, 'commons/faq.html', {'questions_first_half': questions_first, 'questions_second_half': questions_second})
     return redirect('/login/')
 
 
@@ -68,7 +72,16 @@ def payment_view(request):
 def search_view(request):
     if request.user.is_authenticated:
         user = CustomUser.objects.filter(email=request.user.email).first()
-        students = Students.objects.all()
+        if request.GET:
+            a=1
+            students = []
+            for req in request.GET:
+                a=1
+                types, value = req.split('_')
+                if types == 'position':
+                    students += Students.objects.filter(position=value)
+        else:
+            students = Students.objects.all()
         country = list(Students.objects.values_list('nationality', flat=True).distinct())
         position = list(Students.objects.values_list('position', flat=True).distinct())
 

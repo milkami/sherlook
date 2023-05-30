@@ -47,14 +47,14 @@
                             <div class="text-style-rso-18 mb-2">POSITION</div>
                             {% for pos in position %}
                                 <div>
-                                <input class="align-middle me-3 my-2" type="checkbox"><span class="align-middle text-style-ro-18b">{{ pos }}</span>
+                                <input class="align-middle me-3 my-2" type="checkbox" name="position_{{pos}}")><span class="align-middle text-style-ro-18b">{{ pos }}</span>
                                 </div>
                             {% endfor %}
                             <div class="text-style-rso-18 mb-2">SPECIALIZATION</div>
                             <div class="text-style-rso-18 mb-2">COUNTRY</div>
                             {% for one_country in country %}
                                 <div>
-                                <input class="align-middle me-3 my-2" type="checkbox"><span class="align-middle text-style-ro-18b">{{ one_country }}</span>
+                                <input class="align-middle me-3 my-2" type="checkbox" name="country_{{one_country}}"><span class="align-middle text-style-ro-18b">{{ one_country }}</span>
                                 </div>
                             {% endfor %}
                         </div>
