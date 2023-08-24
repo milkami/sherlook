@@ -70,7 +70,7 @@ class EmailForm(forms.Form):
     # email = forms.EmailField()
     subject = forms.CharField(max_length=100)
     message = forms.CharField(widget=forms.Textarea)
-    attach = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': True, 'onchange': 'uploadFile(this)',}), required=False)
+    attach = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': False, 'onchange': 'uploadFile(this)',}), required=False)
     
 
     
