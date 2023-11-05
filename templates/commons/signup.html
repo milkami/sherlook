@@ -55,7 +55,8 @@
         <style>
 
             body {
-                display: flex;    
+                display: flex;   
+                flex-direction: column; 
             }
 
             .first-container {
@@ -69,9 +70,17 @@
                 color: white;
             }
 
+            .footer-custom {
+                background-image: linear-gradient(to right, #ED1C24 , #FF6B2C);
+                height: 70px;
+                color: white;
+            }
+
             .container-custom {
-                background-color: #F1F6F6;
+                background-color: #FFF0EA;
                 border-radius: 20px;
+                border-color: #FFF0EA;
+                box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.2), -2px 5px 5px -1px rgba(0, 0, 0, 0.2);
             }
 
             ::placeholder {
@@ -118,6 +127,23 @@
                 color: #100F0E;
                 line-height: 16px;
                 font-weight: 300 ;
+            }
+
+            .text-style-ro-32b {
+                font-size: 32px;
+                font-family: 'Roboto';
+                color: #100F0E;
+                line-height: 40px;
+                font-weight: 900;
+            }
+
+            .text-style-ro-60 {
+                font-size: 60px;
+                font-family: 'Roboto';
+                color: white;
+                line-height: 70px;
+                font-weight: 100;
+                text-align: center;
             }
 
             .input-box {
@@ -175,67 +201,88 @@
 </head>
 
 <body>
+    <div class="row">
+    <div class=" first-container container-fluid col-lg-6 d-flex justify-content-center" style=" overflow: auto;">
+        <div class="d-flex flex-column container-fluid align-items-center justify-content-center">
+            <p class="text-style-ro-60">"To find the solution to your problem, you only need to find us."</p>
+            <p style="margin-top: 50px; font-weight: 900 !important;" class="text-style-ro-60">SHERLOOK 3000</p>
+        </div>
+    </div>
 
-  <div class="container-fluid row"></div>
-
-            <div class=" first-container container-fluid col-lg-6 d-flex justify-content-center" style=" overflow: auto;">
-                <div class="d-flex flex-column container-fluid align-items-center justify-content-center">
-                <p class="text-style-rso-68">"My job is to know what other people don't know."</p>
-                <p style="margin-top: 50px;" class="text-style-rso-68">SCHERLOOK 3000</p>
-            </div>
-
-            </div>
-
-            <div class="col-lg-6 px-0" style="display: flex; flex-direction: column; height: 100%;">
-                <header>
-                <nav class="navbar navbar-expand-lg navbar-custom">
-                    <div class="container-fluid">
-                        <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
-                            <div class="navbar-nav ms-auto">
-                                
-                            </div>
+    <div class="col-lg-6 px-0" style="display: flex; flex-direction: column; height: 100%;">
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-custom">
+                <div class="container-fluid">
+                    <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
+                        <div class="navbar-nav ms-auto">    
                         </div>
                     </div>
-                </nav>
-                </header>
-
-
-                    <div class="d-flex container-fluid align-items-center justify-content-center mt-4 mb-4" style="flex-grow: 1;">
-                        <div class="col d-flex justify-content-center align-items-center row" style="vertical-align: middle;">
-                            <div class="container-custom card col-lg-10 col-md-10 col-sm-12">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-11 col-sm-10">
-                                        <div class="card-body pt-4 pb-4" style="width: 100%;">
-                                            <h5 class="card-title text-style-rso-32 mb-3">Create new account.</h5>
-                                            <p class="text-style-ro-16 card-text mb-4">Already have an account?<a href="{% url 'login' %}" style="color: #FF6B2C; padding-left: 10px; text-decoration: none;">Log in</a></p>
-                                            <form method="POST">
-                                                {% csrf_token %}
-                                                {% for field in form %}
-                                                    <label class="text-style-ro-14l mb-2">{{field.label}}</label>
-                                                    {{field }}
-                                                {% endfor %}
-                                                <input id="cb1" type="checkbox">
-                                                <label for="cb1" class="text-style-ro-14 ms-2">I agree to platform's <a class="text-style-ro-14" href="">Terms of service and privacy policy</a></label> 
-                                                
-
-                                                    <button id="signup-button" type="submit" style="width: 100%;" class="button-custom-style mt-5">
-                                                        <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
-                                                        Sign-up
-                                                    </button>
-                                            </form>
-                                            <hr style="color: #5E6B78;">
-                                            </div>
-                                            
-                                        </div>
+                </div>
+            </nav>
+        </header>
+        <div class="d-flex container-fluid align-items-center justify-content-center mt-4 mb-4" style="flex-grow: 1;">
+            <div class="col d-flex justify-content-center align-items-center row" style="vertical-align: middle;">
+                <div class="container-custom card col-lg-10 col-md-10 col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-11 col-sm-10">
+                            <div class="card-body pt-4 pb-4" style="width: 100%;">
+                                <h5 class="card-title text-style-ro-32b mb-3">Welcome back</h5>
+                                <p class="text-style-ro-16 card-text mb-4">Don't have an account?<a href="{% url 'login' %}" style="color: #FF6B2C; padding-left: 10px; text-decoration: none;">Sign up</a></p>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    {% for field in form %}
+                                        <label class="text-style-ro-14l mb-2">{{field.label}}</label>
+                                        {{field }}
+                                    {% endfor %}
+                                    <input id="cb1" type="checkbox">
+                                    <label for="cb1" class="text-style-ro-14 ms-2">Remember me</label> 
+                                    <div class="d-flex justify-content-between">
+                                        <button id="signup-button" type="submit" style="width: 100%;" class="button-custom-style mt-5 me-3">
+                                            <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
+                                                Log-in                                        </button>
+                                        <button id="signup-button" type="submit" style="width: 100%;" class="button-custom-style mt-5 ms-3">
+                                            <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
+                                                Sign-up
+                                        </button>
                                     </div>
-                                </div>
-                            </div>
+                                </form>
+                                <hr style="color: #5E6B78;">
+                            </div>               
                         </div>
                     </div>
-
-
-
+                </div>
             </div>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <nav class="navbar navbar-expand-lg footer-custom">
+            <div class="container-fluid px-5">
+                <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarSupportedContent" style="color: white;">
+                    <div class="d-flex navbar-nav align-items-center justify-content-between" style="width: 100%;">
+                            <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
+                                WHO ARE WE?
+                            </a>
+                            <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
+                                CONTACT
+                            </a>
+                            <a class="nav-link active text-style-ro-22b" aria-current="page" href="{% url 'faq' %}" style="color: white;">
+                                FAQ
+                            </a>
+                            <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
+                                SHERLOOK APP
+                            </a>
+                            <div>
+                                <img class="img-fluid" src="{% static 'images/croatian_flag.png' %}" style="height: 22px;">
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </footer>
+
+            
 
   <!-- Bootstrap core JavaScript-->
   <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>

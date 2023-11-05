@@ -22,7 +22,7 @@
 }
 
 html, body {
-    height: 100%;
+    height: calc(100% - 35px);
 }
 
 body {
@@ -144,11 +144,37 @@ input[id="cb1"] {
     font-weight: 500;
 }
 
+.text-style-ro-18b-popover {
+    font-size: 18px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 24px;
+    font-weight: 500;
+    font-variant: small-caps;
+    text-align: center;
+}
+
 .text-style-ro-22b {
     font-size: 22px;
     font-family: 'Roboto';
     color: #100F0E;
     line-height: 30px;
+    font-weight: 700;
+}
+
+.text-style-ro-24b {
+    font-size: 24px;
+    font-family: 'Roboto';
+    color: white;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+.text-style-ro-29b {
+    font-size: 29px;
+    font-family: 'Roboto';
+    color: white;
+    line-height: 35px;
     font-weight: 700;
 }
 
@@ -233,6 +259,18 @@ input[id="cb1"] {
     line-height: 60px;
 }
 
+.text-style-rso-55 {
+    font-size: 55px;
+    font-family: 'Racing Sans One';
+    line-height: 65px;
+}
+
+.text-style-rso-60 {
+    font-size: 60px;
+    font-family: 'Racing Sans One';
+    line-height: 70px;
+}
+
 .text-style-rso-65 {
     font-size: 65px;
     font-family: 'Racing Sans One';
@@ -282,7 +320,7 @@ input[id="cb1"] {
 /* Blured background */
 
 .blur {
-    filter: blur(2px);
+    filter: blur(4px);
     /* -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
@@ -344,60 +382,35 @@ input[id="cb1"] {
 }
 
 
+/* Popover */
 
-/* input[type=checkbox] { display: none; }
-input[type=checkbox] + label {
-  padding-left: 30px;
-  position: relative;
-}
-
-input[type=checkbox] + label::before {
-  display: block;
-  border: 1px solid #FF6B2C;
-  left: 3px;
-  top: 3px;
-  height: 14px;
-  width: 14px;
-  content: "";
-  position: absolute;
-  line-height: 14px;
-}
-
-input[type=checkbox]:checked + label::before {
-    content: "✓";
-  } */
-
-/* .my-custom-checkbox {
-	-moz-appearance:none;
-	-webkit-appearance:none;
-	-o-appearance:none;
-	outline: none;
-	content: none;	
-    vertical-align: middle;
-}
-
-.my-custom-checkbox:before {
-	font-family: "FontAwesome";
-    content: "\f00c";
-    font-size: 15px;
-    color: transparent !important;
-    background: #F1F6F6;
-    display: block;
-    width: 15px;
-    height: 15px;
-    border: 2px solid #FF6B2C;
-    border-radius: 2px;
-    margin-right: 7px;
+.popover-header {
+    font-size: 25px;
+    font-family: 'Racing Sans One';
     text-align: center;
+    background-color: white;     
 }
 
-.my-custom-checkbox:checked:before {
-    font-family: "FontAwesome";
-    content: "\f00c";
-	color: #FF6B2C !important;
+/* .popover-body .text-style-ro-18b {
+    font-variant: small-caps;
     text-align: center;
-    
 } */
+
+.popover-body {
+    height: 300px;
+    overflow: scroll;
+    overflow-x:hidden;
+}
+
+.custom-cart-popover {
+    width: 400px;
+  --bs-popover-max-width: 400px;
+}
+
+
+
+
+
 
 
 
@@ -434,210 +447,9 @@ input[type="file"] {
     transform: translateY(-50%);
     
   }
-  /* Faked label styles and icon */
-  /* input[type="file"]::before {
-    vertical-align: middle;
-    content: '\f0c6';
-    font: var(--fa-font-regular);
-  } */
-  
-  /* input[type="file"]::after {
-    position: absolute;
-    pointer-events: none;
-    top: 11px;
-    left: 40px;
-    color: #0964b0;
-    content: "Upload File";
-  } */
-  
-  /* ------- From Step 1 ------- */
+
   
 
   
 
 
-
-
-/* .my-file-input::file-selector-button:hover {
-    cursor: pointer;
-    background-color: crimson;
-    font-size: 1.2em;
-    border-radius: 25%;
-    box-shadow: inset 5px 10px 10px cornsilk;
- }
- .my-file-input::-webkit-file-upload-button:hover {
-    cursor: pointer; 
-    background-color: crimson;
-    font-size: 1.2em;
-    border-radius: 25%;
-    box-shadow: inset 5px 10px 10px cornsilk;
- } */
-
-
-
-
-/* 
-
-.text-style-profile-medium {
-    font-size: 30px;
-    font-family: 'Racing Sans One';
-    line-height: 38px;
-}
-
-.text-style-profile-big {
-    font-size: 40px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 58px;
-}
-.text-style-small {
-    font-size: 14px;
-    font-family: 'Roboto';
-    color: #100F0E;
-    line-height: 16px;
-}
-
-.text-style-small-light {
-    font-size: 14px;
-    font-family: 'Roboto';
-    color: #100F0E;
-    line-height: 16px;
-    font-weight: 300;
-}
-
-.text-style-middle {
-    font-size: 16px;
-    font-family: 'Roboto';
-    color: #100F0E;
-    line-height: 19px;
-}
-
-.text-style-big {
-    font-size: 32px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 40px;
-}
-
-.text-style-big-2 {
-    font-size: 36px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 47px;
-}
-
-.text-style-large-black {
-    font-size: 65px;
-    font-family: 'Racing Sans One';
-    line-height: 85px;
-}
-
-.questions-box {
-    background-color: #F1F6F6;
-    border-radius: 20px;
-}
-
-.text-question-style {
-    font-size: 40px;
-    font-family: 'Racing Sans One';
-    color: #100F0E;
-    line-height: 58px;
-}
-
-.text-style-middle-2 {
-    font-size: 22px;
-    font-family: Racing Sans One;
-    line-height: 28px;
-    color: #100F0E;
-    vertical-align: middle;
-}
-
-.text-style-middle-outlined {
-    font-size: 24px;
-    font-family: 'Racing Sans One';
-    line-height: 31px;
-    color: black;
-    -webkit-text-stroke: 1px white;
-}
-
-.text-box-style {
-    border-color: black; 
-    border: 1px solid; 
-    border-radius: 20px; 
-    padding: 20px; 
-    text-align: center;
-    vertical-align: middle;
-}
-
-.button-box-style {
-    border: none;
-    background-color: #F1F6F6;
-    border-radius: 20px;
-    height: 136px;
-}
-
-.login-button-style {
-    background-color: #FF6B2C; 
-    width: 100%; 
-    border: none; 
-    color: white; 
-    height: 48px; 
-    border-radius: 6px;
-}
-
-.profile-rectangle {
-    border-radius: 20px;
-    background-color: white;
-}
-
-.input-box {
-    border-radius: 6px;
-    width: 100%; 
-    height: 48px; 
-    border: none; 
-    box-sizing: border-box;
-    vertical-align: middle;
-}
-
-.button-custom-style {
-    background-color: #FF6B2C;
-    border: none;
-    color: white;
-    height: 48px;
-    border-radius: 6px;
-    margin-bottom: 22px;
-
-}
-
-.button-profile {
-    border: none;
-    border-radius: 20px;
-    color: white;
-    background-color: #FF6B2C;
-    font-size: 25px;
-    font-family: 'Racing Sans One';
-}
-
-.profile-rectangle-black {
-    border-radius: 20px;
-    border-color: black;
-    border: 1px solid;
-}
-
-.login-button-style {
-    background-color: #FF6B2C; 
-    width: 100%; 
-    border: none; 
-    color: white; 
-    height: 48px; 
-    border-radius: 6px;
-}
-
-.text-style-large {
-    font-size: 68px;
-    font-family: 'Racing Sans One';
-    line-height: 85px;
-    color: white;
-    text-align: center;
-
-} */

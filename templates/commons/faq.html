@@ -34,30 +34,44 @@
 
 {% block body %}
 
-    <div class="d-flex container-fluid align-items-center justify-content-center pt-3" style="flex-grow: 1;">
+    <div class="body d-flex container-fluid align-items-center justify-content-center pt-3 px-0" style="flex-grow: 1;">
         <div class="col d-flex justify-content-center align-items-center row">
-            <div class="col-lg-9">
-                <div style="width: 100%;">
-                    <div class="text-style-rso-65" style="text-align: left;">FAQ</div>
-                    <div class="light-grey-box pb-5 mt-3 mb-5">
-                        {% for question in questions %}
-                            <div class="text-style-rso-40 pt-5 ps-5 question-answer-div">
+            <div class="col-lg-11 pb-5">
+                <div class="text-style-rso-55 mt-2" style="text-align: left;">Frequently Asked Questions</div>
+                <div class="d-flex justify-content-center px-3 mt-2">
+                    <div class="col-lg-6 light-grey-box pb-5 mt-3 mb-5 me-3">
+                        {% for question in questions_first_half %}
+                            <div class="text-style-rso-30 pt-5 ps-5 question-answer-div">
                                 <div class="question-div">
                                     {{ question.question }}
                                     <i style="font-size: 25px !important; padding-left: 20px;" class="fa-regular fa-caret-down dropdown-icon"></i>
                                 </div>
-                                 
-                                <div class="answer-div" style="visibility: hidden; display: none; color: grey !important; font-size: 35px !important;">
+                                    
+                                <div class="answer-div" style="visibility: hidden; display: none; color: grey !important; font-size: 25px !important;">
                                     {{ question.answer }}
                                 </div>
                             </div>
                         {% endfor %}
                     </div>
+                    <div class="col-lg-6 light-grey-box pb-5 mt-3 mb-5 ms-3">
+                        {% for question in questions_second_half %}
+                            <div class="text-style-rso-30 pt-5 ps-5 question-answer-div">
+                                <div class="question-div">
+                                    {{ question.question }}
+                                    <i style="font-size: 25px !important; padding-left: 20px;" class="fa-regular fa-caret-down dropdown-icon"></i>
+                                </div>
+                                    
+                                <div class="answer-div" style="visibility: hidden; display: none; color: grey !important; font-size: 25px !important;">
+                                    {{ question.answer }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>  
+                <div class="text-style-ro-16 text-center">
+                    We offer best support over email, and the best way to contact us is through the in-app help menu. 
                 </div>
-            
-                
             </div>
-            
         </div>
     </div>
 {% endblock %}
