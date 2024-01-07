@@ -24,9 +24,11 @@ from apps.common import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', TemplateView.as_view(template_name='example.html'), name='signup'),
+    # path('home/', TemplateView.as_view(template_name='commons/home.html'), name='home'),
+    # path('', LogInView.as_view(), name='login'),
+    path('accounts/', include('django.contrib.auth.urls')),
     path('home/', TemplateView.as_view(template_name='commons/home.html'), name='home'),
     path('', LogInView.as_view(), name='login'),
-    path('accounts/', include('django.contrib.auth.urls')),
     #path('login/', LogInView.as_view(), name='login'),
     path('signup/', SignUpView.as_view(), name="register"),
     path('faq/', views.faq_view, name='faq'),
