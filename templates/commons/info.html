@@ -1,0 +1,81 @@
+{% extends "commons/layout.html" %}
+
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}Django CRM - Login{% endblock %}
+
+
+
+{% block body %}
+<div class="d-flex align-items-center justify-content-center">
+    <div class="col-lg-10">
+        <!-- First row -->
+        <div class="row d-flex mt-5" style="align-items: stretch;">
+            <div class="col-lg-5 ps-3 pe-5 d-flex flex-column justify-content-center">
+                <div class="light-pink-box text-center px-5 py-4">
+                    <div class="text-style-ro-40b">WHAT IS SHERLOOK 300?</div>
+                </div>
+            </div>
+            <div class="col-lg-7 ps-2 pe-3 d-flex flex-column justify-content-center">
+                <div class="text-style-ro-26" style="text-align: justify;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+            </div>
+        </div>
+        <!-- Second row -->
+        <div class="row d-flex mt-5" style="align-items: stretch;">
+            <div class="col-lg-7 ps-3 pe-2 d-flex flex-column justify-content-center">
+                <div class="text-style-ro-26" style="text-align: justify;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+            </div>
+            <div class="col-lg-5 ps-5 pe-3 d-flex flex-column justify-content-center">
+                <div class="light-pink-box text-center px-5 py-4">
+                    <div class="text-style-ro-40b">WHO IS SHERLOOK FOR?</div>
+                </div>
+            </div>
+        </div>
+        <!-- Text div -->
+        <div class="text-style-ro-30b text-center mt-5 py-4">
+            "EDUCATION NEVER ENDS, WATSON. IT IS A SERIES OF LESSONS, WITH THE GREATEST FOR THE LAST."
+        </div>
+        <!-- Third row -->
+        <div class="row d-flex mt-5" style="align-items: stretch;">
+            <div class="col-lg-5 ps-3 pe-5 d-flex flex-column justify-content-center">
+                <div class="light-pink-box text-center px-5 py-4">
+                    <div class="text-style-ro-40b">WHAT CAN IT DO FOR ME?</div>
+                </div>
+            </div>
+            <div class="col-lg-7 ps-2 pe-3 flex-column justify-content-center">
+                <div class="text-style-ro-26" style="text-align: justify;">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </div>
+            </div>
+        </div>
+        <div class="text-style-ro-40b mt-5">
+            OUR PARTNERS
+        </div>
+        <div class="row mb-5 mt-5 pb-5">
+            <div class="d-flex justify-content-between px-5 mb-4">
+                <div class="ps-5">
+                    <img class="img-fluid" src="{% static 'images/porsche_digital.png' %}">
+                </div>
+                <div class="">
+                    <img class="img-fluid" src="{% static 'images/rimac.png' %}">
+                </div>
+                <div class="pe-5">
+                    <img class="img-fluid" src="{% static 'images/bugatti_rimac.png' %}">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bootstrap core JavaScript-->
+<script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+<script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<!-- Core plugin JavaScript-->
+<script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
+<!-- Custom scripts for all pages-->
+<script src="{% static 'js/sb-admin-2.min.js' %}"></script>
+{% endblock %}

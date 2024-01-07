@@ -25,13 +25,16 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     #path('', TemplateView.as_view(template_name='example.html'), name='signup'),
     path('home/', TemplateView.as_view(template_name='commons/home.html'), name='home'),
-    path('', SignUpView.as_view(), name="register"),
+    path('', LogInView.as_view(), name='login'),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('login/', LogInView.as_view(), name='login'),
+    #path('login/', LogInView.as_view(), name='login'),
+    path('signup/', SignUpView.as_view(), name="register"),
     path('faq/', views.faq_view, name='faq'),
     path('support/', EmailAttachementView.as_view(), name='support'),
     path('profile/', views.profile_view, name='profile'),
     path('payment/', views.payment_view, name='payment'),
     path('search/', views.search_view, name='search'),
+    path('info/', views.info_view, name='info'),
+    path('library/', views.library_view, name='library'),
 
 ]

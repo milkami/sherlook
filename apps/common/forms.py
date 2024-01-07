@@ -11,12 +11,12 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = [
-            'first_name',
-            'last_name',
+            #'first_name',
+            #'last_name',
             'email',
             'password1',
-            'company_name',
-            'number_of_employer',
+            #'company_name',
+            #'number_of_employer',
         ]
 
         labels = {
@@ -24,12 +24,12 @@ class SignUpForm(UserCreationForm):
         }
 
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'First Name', 'autofocus': 'on', 'style': 'margin-bottom: 10px',}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Last Name', 'style': 'margin-bottom: 10px',}),
+            #'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'First Name', 'autofocus': 'on', 'style': 'margin-bottom: 10px',}),
+            #'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Last Name', 'style': 'margin-bottom: 10px',}),
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'name@example.com', 'style': 'margin-bottom: 10px; caret-color: transparent;',}),
             # 'password1': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'XXXXXXX'}),
-            'company_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Company Name', 'style': 'margin-bottom: 10px',}),
-            'number_of_employer': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'', 'style': 'margin-bottom: 23px',}),
+            #'company_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Company Name', 'style': 'margin-bottom: 10px',}),
+            #'number_of_employer': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'', 'style': 'margin-bottom: 23px',}),
         }
 
 

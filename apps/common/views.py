@@ -149,3 +149,14 @@ class EmailAttachementView(View):
 
         return render(request, self.template_name,
                       {'email_form': form, 'error_message': 'Unable to send email. Please try again later'})
+    
+def info_view(request):
+    if request.user.is_authenticated:
+        return render(request, 'commons/info.html')
+    return redirect('/login/')
+
+
+def library_view(request):
+    if request.user.is_authenticated:
+        return render(request, 'commons/library.html')
+    return redirect('/login/')

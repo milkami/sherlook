@@ -1,6 +1,12 @@
 .navbar-custom {
     background-image: linear-gradient(to right, #ED1C24 , #FF6B2C);
-    height: 86px;
+    /* height: 86px; */
+}
+
+@media screen and (min-width: 800px) {
+    .navbar-custom {
+        height: 6vw;
+    }
 }
 
 .navbar-brand .navbar-text .nav-link{
@@ -22,12 +28,14 @@
 }
 
 html, body {
-    height: calc(100% - 35px);
+    height: 100%;
+    /* height: calc(100% - 35px); */
 }
 
 body {
     display: flex;
     flex-direction: column;
+    padding-bottom: 80px;
 }
 
 .first-container {
@@ -61,6 +69,13 @@ input[id="cb1"] {
     border-radius: 6px;
 }
 
+.light-pink-box {
+    background-color: #FFF0EA;
+    border-radius: 20px;
+    border-color: #FFF0EA;
+    box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.2), -2px 5px 5px -1px rgba(0, 0, 0, 0.2);
+}
+
 .light-pink-input-h60 {
     height: 60px; 
     border-radius: 6px; 
@@ -82,7 +97,7 @@ input[id="cb1"] {
 }
 
 .orange-button {
-    background-color: #FF6B2C; 
+    background-color: #FD602C; 
     width: 100%; 
     border: none; 
     color: white; 
@@ -137,7 +152,7 @@ input[id="cb1"] {
 }
 
 .text-style-ro-18b {
-    font-size: 18px;
+    font-size: 1.3vw;
     font-family: 'Roboto';
     color: #100F0E;
     line-height: 24px;
@@ -154,6 +169,14 @@ input[id="cb1"] {
     text-align: center;
 }
 
+.text-style-ro-20b {
+    font-size: 20px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 30px;
+    font-weight: 700;
+}
+
 .text-style-ro-22b {
     font-size: 22px;
     font-family: 'Roboto';
@@ -163,11 +186,18 @@ input[id="cb1"] {
 }
 
 .text-style-ro-24b {
-    font-size: 24px;
+    font-size: 1.55vw;
     font-family: 'Roboto';
     color: white;
-    line-height: 30px;
+    line-height: 1.6px;
     font-weight: 700;
+}
+
+.text-style-ro-26 {
+    font-size: 26px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 35px;
 }
 
 .text-style-ro-29b {
@@ -178,11 +208,42 @@ input[id="cb1"] {
     font-weight: 700;
 }
 
+.text-style-ro-30b {
+    font-size: 30px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 40px;
+    font-weight: 700;
+}
+
+.text-style-ro-32 {
+    font-size: 32px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 40px;
+}
+
 .text-style-ro-35b {
     font-size: 35px;
     font-family: 'Roboto';
     color: #100F0E;
     line-height: 45px;
+    font-weight: 500;
+}
+
+.text-style-ro-40b {
+    font-size: 40px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 50px;
+    font-weight: 500;
+}
+
+.text-style-ro-60b {
+    font-size: 3.8vw;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 70px;
     font-weight: 500;
 }
 
@@ -408,7 +469,21 @@ input[id="cb1"] {
 }
 
 
+/* Remove colored box from the dropdown */
+.dropdown, .dropdown, .dropdown-menu {
+    outline: none;
+    box-shadow: none;
+}
 
+.dropdown:focus, .dropdown:focus, .dropdown-menu:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.dropdown:active, .dropdown:active, .dropdown-menu:active {
+    outline: none;
+    box-shadow: none;
+}
 
 
 
