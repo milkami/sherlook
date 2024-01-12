@@ -14,7 +14,9 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Django CRM - Register</title>
+  <title>LogIn</title>
+
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
 
   <!-- Custom fonts for this template-->
   <link href="{% static 'vendor/fontawesome-free/css/all.min.css' %}" rel="stylesheet" type="text/css">
@@ -82,6 +84,7 @@
                 border-radius: 20px;
                 border-color: #FFF0EA;
                 box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.2), -2px 5px 5px -1px rgba(0, 0, 0, 0.2);
+                max-width: 700px;
             }
 
             ::placeholder {
@@ -219,23 +222,13 @@
     </div>
 
     <div class="col-lg-6 px-0" style="display: flex; flex-direction: column; height: calc(100% - 70px);">
-        <header>
-            <nav class="navbar navbar-expand-lg navbar-custom">
-                <div class="container-fluid">
-                    <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
-                        <div class="navbar-nav ms-auto">    
-                        </div>
-                    </div>
-                </div>
-            </nav>
-        </header>
         <div class="d-flex container-fluid align-items-center justify-content-center mt-4 mb-4" style="flex-grow: 1;">
             <div class="col d-flex justify-content-center align-items-center row" style="vertical-align: middle;">
                 <div class="container-custom card col-lg-10 col-md-10 col-sm-12">
                     <div class="row justify-content-center">
                         <div class="col-lg-11 col-sm-10">
                             <div class="card-body pt-4 pb-4" style="width: 100%;">
-                                <h5 class="card-title text-style-ro-32b mb-3">Welcome back</h5>
+                                <h5 class="card-title text-style-re-40-600w mb-3">Welcome back</h5>
                                 <p class="text-style-ro-16 card-text mb-4">Don't have an account?<a href="{% url 'register' %}" style="color: #FF6B2C; padding-left: 10px; text-decoration: none;">Sign up</a></p>
                                 <form method="POST">
                                     {% csrf_token %}
@@ -243,16 +236,10 @@
                                         <label class="text-style-ro-14l mb-2">{{field.label}}</label>
                                         {{field }}
                                     {% endfor %}
-                                    <input id="cb1" type="checkbox">
-                                    <label for="cb1" class="text-style-ro-14 ms-2">Remember me</label> 
                                     <div class="d-flex justify-content-between">
                                         <button id="login-button" type="submit" style="width: 100%;" class="button-custom-style mt-5 me-3">
                                             <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
                                                 Log-in                                        </button>
-                                        <button id="signup-button" type="" style="width: 100%;" class="button-custom-style mt-5 ms-3">
-                                            <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
-                                                Sign-up
-                                        </button>
                                     </div>
                                 </form>
                                 <hr style="color: #5E6B78;">
