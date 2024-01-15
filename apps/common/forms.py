@@ -57,8 +57,8 @@ class LogInForm(AuthenticationForm):
         self.fields['username'].label = 'E-mail'
         self.fields['username'].widget.attrs['placeholder'] = 'name@example.com'
         self.fields['password'].widget.attrs['placeholder'] = 'XXXXXXX'
-        self.fields['username'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 10px', 'autocomplete': 'off'})
-        self.fields['password'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 23px', 'autocomplete': 'off'})
+        self.fields['username'].widget.attrs.update({'class': 'form-control mb-3', 'autocomplete': 'off'})
+        self.fields['password'].widget.attrs.update({'class': 'form-control mb-3',  'autocomplete': 'off'})
 
 
 class EmailForm(forms.Form):
