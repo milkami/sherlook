@@ -3,24 +3,20 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-{% block title %}Django CRM - Login{% endblock %}
+{% block title %}SignUp{% endblock %}
 
 
 
 {% block body %}
-<div style="display: flex;
-flex-direction: column;
-justify-content: space-between;
-min-height: calc(100% - 70px);">
 <div class="d-flex container-fluid align-items-center justify-content-center" style="flex-grow: 1;">
     <div class="col d-flex justify-content-center align-items-center row" style="vertical-align: middle;">
-        <div class="light-pink-box card col-lg-5 col-md-10 col-sm-12">
+        <div class="container-custom card col-lg-5 col-md-10 col-sm-12">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-sm-10">
                     <div class="card-body pt-5 pb-3" style="width: 100%;">
-                        <h5 class="card-title text-style-ro-32 mb-2">Create new account</h5>
-                        <p class="text-style-ro-16 card-text mb-3">Already have an account?<a href="{% url 'login' %}"
-                                style="color: #FF6B2C; padding-left: 10px; text-decoration:none;">Log-in</a></p>
+                        <h5 class="card-title text-style-re-40-600w mb-2">Create new account</h5>
+                        <p class="text-style-re-14 card-text mb-3">Already have an account?<a href="{% url 'login' %}"
+                                style="color: #FF6B2C; padding-left: 10px; text-decoration:none;">Log in!</a></p>
                         {% if form.errors %}
                             <p>Email or password not correct</p>
                         {% endif %}
@@ -28,20 +24,19 @@ min-height: calc(100% - 70px);">
                         <form method="POST">
                             {% csrf_token %}
                             {% for field in form %}
-                                {% if field.field.widget.input_type != 'checkbox' %}    
+                                {% if field.field.widget.input_type != 'checkbox' %}
                                 <label class="text-style-ro-14l mb-2">{{field.label}}</label>
                                 {{ field }}
-                                
+
                                 {% elif field.field.widget.input_type == 'checkbox' %}
                                     {{ field }}<label class="text-style-ro-14" style="margin-left: 10px;">{{field.label}}</label>
                                 {% endif %}
                             {% endfor %}
-                            <input class="my-custom-checkbox" type="checkbox">
-                            <label for="my-custom-checkbox" class="text-style-ro-14 ms-2">I agree to platform's <a>Terms of service</a> and privacy policy</label> 
+
                             <button type="submit" class="orange-button mb-3 mt-4"
                                     style="height:48px;">
                                 <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
-                                Sign-up
+                                Sign up
                             </button>
                         </form>
                         <hr style="color: #5E6B78;">
@@ -50,7 +45,6 @@ min-height: calc(100% - 70px);">
             </div>
         </div>
     </div>
-</div>
 </div>
 <!-- Bootstrap core JavaScript-->
 <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
