@@ -11,12 +11,12 @@ class SignUpForm(UserCreationForm):
     class Meta:
         model = get_user_model()
         fields = [
-            'first_name',
-            'last_name',
+            #'first_name',
+            #'last_name',
             'email',
             'password1',
-            'company_name',
-            'number_of_employer',
+            #'company_name',
+            #'number_of_employer',
         ]
 
         labels = {
@@ -24,15 +24,13 @@ class SignUpForm(UserCreationForm):
         }
 
         widgets = {
-            'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'First Name', 'autofocus': 'on', 'style': 'margin-bottom: 10px',}),
-            'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Last Name', 'style': 'margin-bottom: 10px',}),
+            #'first_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'First Name', 'autofocus': 'on', 'style': 'margin-bottom: 10px',}),
+            #'last_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Last Name', 'style': 'margin-bottom: 10px',}),
             'email': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'name@example.com', 'style': 'margin-bottom: 10px; caret-color: transparent;',}),
             'password1': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'XXXXXXX'}),
-            'company_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Company Name', 'style': 'margin-bottom: 10px',}),
-            'number_of_employer': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'e.g., E12345', 'style': 'margin-bottom: 23px',}),
+            #'company_name': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'Company Name', 'style': 'margin-bottom: 10px',}),
+            #'number_of_employer': forms.TextInput(attrs={'class': 'form-control', 'placeholder':'e.g., E12345', 'style': 'margin-bottom: 23px',}),
         }
-
-
 
     def __init__(self, *args, **kwargs):
         super(SignUpForm, self).__init__(*args, **kwargs)
@@ -43,9 +41,6 @@ class SignUpForm(UserCreationForm):
 
 class LogInForm(AuthenticationForm):
     remember_me = forms.BooleanField(required=False, widget=forms.CheckboxInput(attrs={'class': 'my-custom-checkbox'}))
-    """
-    A Custom form for creating new users.
-    """
 
     class Meta:
         model = get_user_model()
@@ -53,7 +48,6 @@ class LogInForm(AuthenticationForm):
             'email',
             'password1',
         ]
-
 
     def __init__(self, *args, **kwargs):
         super(LogInForm, self).__init__(*args, **kwargs)
@@ -66,15 +60,13 @@ class LogInForm(AuthenticationForm):
         self.fields['username'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 10px', 'autocomplete': 'off'})
         self.fields['password'].widget.attrs.update({'class': 'form-control', 'style': 'margin-bottom: 23px', 'autocomplete': 'off'})
 
+
 class EmailForm(forms.Form):
     # email = forms.EmailField()
     subject = forms.CharField(max_length=100)
     message = forms.CharField(widget=forms.Textarea)
     attach = forms.FileField(widget=forms.ClearableFileInput(attrs={'multiple': False, 'onchange': 'uploadFile(this)',}), required=False)
-    
 
-    
-    
 
     def __init__(self, *args, **kwargs):
         super(EmailForm, self).__init__(*args, **kwargs)
