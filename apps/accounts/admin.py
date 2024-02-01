@@ -25,6 +25,12 @@ class CustomUserAdmin(UserAdmin):
     ordering = ('email',)
 
 
+class StudentsAdmin(admin.ModelAdmin):
+    list_per_page = 100
+    search_fields = ['name']
+    list_display = ('first_name', 'study')
+
+
 admin.site.register(get_user_model(), CustomUserAdmin)
-admin.site.register(Students)
+admin.site.register(Students, StudentsAdmin)
 admin.site.register(Order)
