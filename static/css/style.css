@@ -3,6 +3,17 @@
     /* height: 86px; */
 }
 
+
+:root {
+    --start-color: #ED1C24; /* Define your start color here */
+    --end-color: #FF6B2C; /* Define your end color here */
+    --side-navbar-color: #ED1C24; /* Initial color for the side navbar */
+ }
+
+ .side-navbar {
+    background: var(--side-navbar-color);
+ }
+
 @media screen and (min-width: 800px) {
     .navbar-custom {
         height: 6vw;
@@ -49,6 +60,11 @@ input[id="cb1"] {
     border: 2px solid #FF6B2C;
     border-radius: 2px;
   }
+
+.side-nav-link.active {
+    background: linear-gradient(to right, #FF6B2C, #FFFFFF);
+    border-radius: 10px 0 0 10px;
+}
 
 
 
@@ -484,6 +500,8 @@ input[id="cb1"] {
     outline: none;
     box-shadow: none;
 }
+
+
 
 
 
