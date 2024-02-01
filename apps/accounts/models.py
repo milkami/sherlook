@@ -67,6 +67,7 @@ class Students(models.Model):
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     university = models.CharField(max_length=255, null=True)
+    study = models.CharField(max_length=255, null=True)
     date_of_birth = models.DateField(blank=True, null=True)
     email = models.CharField(max_length=255, null=True)
     mobile_phone_number = models.CharField(max_length=255, null=True)

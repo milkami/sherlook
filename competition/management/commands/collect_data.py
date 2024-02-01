@@ -15,28 +15,31 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         sa = gs.service_account(filename=SERVICE_ACCOUNT_CREDENTIALS)
         sh = sa.open('Search Engine v0.1')
-        wks = sh.worksheet('Studenti')
+        wks = sh.worksheet('Studenti2')
         j = 0
-        for i in range(377, 949):
+        for i in range(1, 1300):
             print(i)
             print("j"+ str(j))
-            if j < 5:
+            if j < 3:
                 j= j +1
             else:
                 j = 0
                 time.sleep(60)
-            university = wks.cell(i, 2).value
-            #team_name = wks.cell(i, 3).value
-            first_name = wks.cell(i, 4).value
-            last_name = wks.cell(i, 5).value
-            email = wks.cell(i, 7).value
-            phone_number = wks.cell(i, 8).value
-            nationality = wks.cell(i, 9).value
-            position = wks.cell(i, 10).value
-            level = wks.cell(i, 11).value
-            #estimate_year_of_graduation = int(wks.cell(i, 12).value)
-            specialisation = wks.cell(i, 13).value
-            rating = randint(1, 100)
+            first_name = wks.cell(i, 2).value
+            if first_name == "Our Faculty Advisors":
+                continue
+            last_name = wks.cell(i, 3).value
+            # date_of_birth = wks.cell(i, 4).value
+            email = wks.cell(i, 5).value
+            phone_number = wks.cell(i, 6).value
+            study = wks.cell(i, 7).value
+            level = wks.cell(i, 8).value
+            estimate_year_of_graduation = wks.cell(i, 9).value
+            specialisation = wks.cell(i, 10).value
+            role_at_the_competition = wks.cell(i, 13).value
+
+            university = wks.cell(i, 14).value
+            a=1
 
             student = Students.objects.update_or_create(
                 first_name=first_name,
@@ -45,13 +48,15 @@ class Command(BaseCommand):
                     "university": university,
                     "email": email,
                     "mobile_phone_number": phone_number,
-                    "nationality": nationality,
-                    "position": position,
+                    "study": study,
                     "level": level,
                     "specialisation": specialisation,
-                    "rating": rating,
-                    #"estimate_year_of_graduation": estimate_year_of_graduation,
+                    # "role_in_the_team ": role_in_the_team ,
+                    # "role_at_the_competition ": role_at_the_competition,
+                    "estimate_year_of_graduation": estimate_year_of_graduation,
+                    # "date_of_birth": date_of_birth
                 }
             )
+            b=1
 
         a=1
