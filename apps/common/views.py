@@ -89,7 +89,7 @@ def search_view(request):
         else:
             students = Students.objects.all()
         country = list(Students.objects.values_list('nationality', flat=True).distinct())
-        position = list(Students.objects.values_list('position', flat=True).distinct())
+        position = list(Students.objects.values_list('study', flat=True).distinct())
 
         return render(request, 'commons/search.html', {'students': students, 'country': country, 'position': position })
     return redirect('/login/')
