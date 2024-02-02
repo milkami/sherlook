@@ -57,10 +57,10 @@
                             <i class="fa-solid fa-chevron-down dropdown-icon px-2" style="font-size: 1.5vw; color: #FD612C;"></i>
                         </button> 
                         <ul class="dropdown-menu ms-1 me-1 mt-1" style="width: 97%;">
-                            <li class="dropdown-item text-style-ro-16">Mechanical Engineer</li>
-                            <li class="dropdown-item text-style-ro-16">Electrical Engineer</li>
-                            <li class="dropdown-item text-style-ro-16">Mechatronics Engineer</li>
-                            <li class="dropdown-item text-style-ro-16">Economist & Business</li>
+                            {% for pos in specializations %}
+                            <li class="dropdown-item text-style-ro-16">{{ pos }}</li>
+
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
