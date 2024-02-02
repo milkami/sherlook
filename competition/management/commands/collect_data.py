@@ -17,7 +17,7 @@ class Command(BaseCommand):
         sh = sa.open('Search Engine v0.1')
         wks = sh.worksheet('Studenti2')
         j = 0
-        for i in range(1, 1300):
+        for i in range(1228, 1300):
             print(i)
             print("j"+ str(j))
             if j < 3:
@@ -35,6 +35,8 @@ class Command(BaseCommand):
             study = wks.cell(i, 7).value
             level = wks.cell(i, 8).value
             estimate_year_of_graduation = wks.cell(i, 9).value
+            # if "/" in estimate_year_of_graduation:
+            #     estimate_year_of_graduation = None
             specialisation = wks.cell(i, 10).value
             role_at_the_competition = wks.cell(i, 13).value
 

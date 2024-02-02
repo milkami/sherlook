@@ -26,9 +26,10 @@
                     <div class="d-flex justify-content-between" style="width: 100%;">
                         <div class="text-style-rso-40">Broj Zaposlenika: {{ user.number_of_employer }}</div>
                         <div class="d-flex justify-content-end">
-                            <form>
-                                <button class="orange-button text-style-rso-25 py-3 px-4" style="color: white; border-radius: 20px;">Log Out</button>
-                            </form>
+                            <a class="orange-button text-style-rso-25 py-3 px-4" style="color: white; border-radius: 20px;"  href="{% url 'logout' %}">Log Out</a>
+{#                            <form>#}
+{#                                <button class="orange-button text-style-rso-25 py-3 px-4" style="color: white; border-radius: 20px;" onclick="location.href={% url 'logout' %}">Log Out</button>#}
+{#                            </form>#}
                         </div>
                     </div>
                 </div>

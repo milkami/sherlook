@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from django.views.generic import CreateView
 from .forms import *
 from apps.accounts.models import *
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic import TemplateView, CreateView, View
 from django.contrib.auth import login as auth_login
 from django.http import HttpResponseRedirect, QueryDict
@@ -11,6 +11,7 @@ from django.shortcuts import redirect
 from apps.questions.models import *
 from django.core.mail import EmailMessage
 from sherlook import settings
+from django.contrib.auth import logout
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
 from django.contrib import messages
@@ -22,10 +23,15 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'commons/signup.html'
 
+class LogoutView(View):
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        return redirect(reverse_lazy('login'))
+
 
 class LogInView(LoginView):
     form_class = LogInForm
-    success_url = '/home/'
+    success_url = '/search/'
     template_name = 'commons/login.html'
 
     def form_valid(self, form):
