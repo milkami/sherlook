@@ -88,8 +88,8 @@ def search_view(request):
         else:
             students = Students.objects.all()
         country = list(Students.objects.values_list('nationality', flat=True).distinct())
-        position = list(Students.objects.values_list('study', flat=True).distinct())
-        specializations = list(Students.objects.values_list('specialisation', flat=True).distinct())
+        position = list(Students.objects.values_list('study', flat=True).distinct().order_by('study'))
+        specializations = list(Students.objects.values_list('specialisation', flat=True).distinct().order_by('specialisation'))
 
         return render(request, 'commons/search.html', {'students': students, 'country': country, 'position': position, 'specializations': specializations})
     return redirect('/login/')
