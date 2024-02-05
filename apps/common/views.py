@@ -15,6 +15,7 @@ from django.contrib.auth import logout
 import sib_api_v3_sdk
 from sib_api_v3_sdk.rest import ApiException
 from django.contrib import messages
+from django.views.generic import TemplateView, View, ListView
 import math
 
 
@@ -79,10 +80,8 @@ def search_view(request):
     if request.user.is_authenticated:
         user = CustomUser.objects.filter(email=request.user.email).first()
         if request.GET:
-            a=1
             students = []
             for req in request.GET:
-                a=1
                 types, value = req.split('_')
                 if types == 'position':
                     students += Students.objects.filter(position=value)
@@ -94,6 +93,33 @@ def search_view(request):
 
         return render(request, 'commons/search.html', {'students': students, 'country': country, 'position': position, 'specializations': specializations})
     return redirect('/login/')
+
+
+class SearchListView(ListView):
+    model = Students
+    template_name = 'commons/search.html'
+    context_object_name = 'students'
+    paginate_by = 45
+
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_authenticated:
+            return redirect('/')  # Replace 'login' with your actual login URL
+        return super().get(request, *args, **kwargs)
+
+    def get_queryset(self):
+        return Students.objects.all()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        country = list(Students.objects.values_list('nationality', flat=True).distinct())
+        position = list(Students.objects.values_list('study', flat=True).distinct())
+        specializations = list(Students.objects.values_list('specialisation', flat=True).distinct())
+
+        context['country'] = country
+        context['position'] = position
+        context['specializations'] = specializations
+
+        return context
 
 
 class EmailAttachementView(View):
