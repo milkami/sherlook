@@ -23,6 +23,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet"> 
         <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet"> -->
@@ -195,11 +196,8 @@
             </div>
         </div>
 
-        <div class="" style="min-height: 100%;
-        display: flex;
-        flex-direction: column;">
-            <div class="row" style="flex: 1;
-            display: flex; width: 100%;">
+        <div class="" style="min-height: 100%; display: flex; flex-direction: column;">
+            <div class="row" style="flex: 1; display: flex; width: 100%;">
               <div id="side-navbar" style="width: 15%; position: fixed; top: 80px; left: 0; bottom: 0;  background-image: linear-gradient(to right, #ED1C24 , #F02825); box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);">
                 <div style="padding-top: 200px;">
                     <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 mb-2 {% if request.path == '/search/' %}active{% endif %}" href="{% url 'search' %}" style="color: white;">SEARCH</a>

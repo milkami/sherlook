@@ -559,6 +559,28 @@ input[id="cb1"] {
 }
 
 
+/* Pagination */
+.pagination .page-item .page-link {
+    background-color: #FFF0EA;
+    color: #FD612C;; 
+    border-color: #FFF0EA;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: rgb(275, 225, 210); 
+    border-color: rgb(275, 225, 210);
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: #FFF0EA;
+    border-color: #FFF0EA;
+    color: rgb(253, 97, 44, 0.3);
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: rgb(265, 215, 200);
+}
+
 
 
 

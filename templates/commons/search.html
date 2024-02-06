@@ -25,6 +25,7 @@
 {% endblock %}
 {% block body %}
 <div id="search-body" class="col-12 px-4 py-5 col container-fluid" style="width: 100%;">
+    {% if page_obj.number == 1 %}
     <div class="light-pink-box" style="height: 100%;">
         <div class="col">
             <div class="d-flex justify-content-between pt-5 col-12">
@@ -128,8 +129,123 @@
         </div>
 
     </div>
+    {% else %}
+    <div class="light-pink-box" style="height: 200px;">
+        <div class="col">
+            <div class="d-flex justify-content-between pt-5 col-12">
+                <div class="text-center col-4" style="">
+                    <div class="text-style-ro-24b" style="color: black;">
+                        POSITION
+                    </div>
+                    <div class="search-dropdown dropdown mt-4 mx-5 py-2">
+                        <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="selected-position" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">Eg. Mechanical Eng.</span>
+                            <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2"></i>
+                        </button> 
+                        <ul class="search-dropdown-menu dropdown-menu ms-1 me-1 mt-1">
+                            {% for pos in position %}
+                            <li class="dropdown-item text-style-ro-16 mb-1" onclick="document.getElementById('selected-position').innerText = this.innerText;">{{ pos }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center col-4" style="">
+                    <div class="text-style-ro-24b" style="color: black;">
+                        SPECIALIZATION
+                    </div>
+                    <div class="search-dropdown dropdown mt-4 mx-5 py-2">
+                        <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="selected-specialization" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">Eg. Aerodynamics</span>
+                            <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2" style="font-size: 1.5vw; color: #FD612C;"></i>
+                        </button> 
+                        <ul class="search-dropdown-menu dropdown-menu ms-1 me-1 mt-1">
+                            {% for spec in specializations %}
+                            <li class="dropdown-item text-style-ro-16 mb-1" onclick="document.getElementById('selected-specialization').innerText = this.innerText;">{{ spec }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center col-4" style="">
+                    <div class="text-style-ro-24b" style="color: black;">
+                        EXPERIENCE
+                    </div>
+                    <div class="search-dropdown dropdown mt-4 mx-5 py-2">
+                        <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="selected-experience" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">Eg. Level 3</span>
+                            <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2" style="font-size: 1.5vw; color: #FD612C;"></i>
+                        </button> 
+                        <ul class="search-dropdown-menu dropdown-menu ms-1 me-1 mt-1">
+                            <li class="dropdown-item text-style-ro-16">Mechanical Engineer</li>
+                            <li class="dropdown-item text-style-ro-16">Electrical Engineer</li>
+                            <li class="dropdown-item text-style-ro-16">Mechatronics Engineer</li>
+                            <li class="dropdown-item text-style-ro-16">Economist & Business</li>
+                        </ul>
+                    </div>
+                </div>    
+            </div>
+            <div class="expand-button-down-div d-flex justify-content-end me-5 mt-4">
+                <button class="" id="expand-button" style="background-color: transparent; border: none;">
+                    <i id="expand-icon" class="fa-solid fa-chevron-down fa-2x" style="color: #FD602C;"></i>
+                </button>
+            </div>
+            <div class="country-rating-row d-flex pt-5 col-12" style="display: none; visibility: hidden;">
+                <div class="text-center col-4" style="">
+                    <div class="text-style-ro-24b" style="color: black;">
+                        COUNTRY
+                    </div>
+                    <div class="search-dropdown dropdown mt-4 mx-5 py-2">
+                        <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="selected-country" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">Eg. Germany</span>
+                            <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2" style="font-size: 1.5vw; color: #FD612C;"></i>
+                        </button> 
+                        <ul class="search-dropdown-menu dropdown-menu ms-1 me-1 mt-1">
+                            {% for con in country %}
+                            <li class="dropdown-item text-style-ro-16 mb-1" onclick="document.getElementById('selected-country').innerText = this.innerText;">{{ con }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center col-4" style="">
+                    <div class="text-style-ro-24b" style="color: black;">
+                        RATING
+                    </div>
+                    <div class="search-dropdown dropdown mt-4 mx-5 py-2">
+                        <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span id="selected-rating" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">Eg. 70-80</span>
+                            <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2" style="font-size: 1.5vw; color: #FD612C;"></i>
+                        </button> 
+                        <ul class="search-dropdown-menu dropdown-menu dropdown-menu ms-1 me-1 mt-1">
+                            <li class="dropdown-item text-style-ro-16">Mechanical Engineer</li>
+                            <li class="dropdown-item text-style-ro-16">Electrical Engineer</li>
+                            <li class="dropdown-item text-style-ro-16">Mechatronics Engineer</li>
+                            <li class="dropdown-item text-style-ro-16">Economist & Business</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="search-row d-flex col-12 justify-content-end mt-5 px-5 mb-4 align-items-center" style="display: none; visibility: hidden;">
+                <div class="col-2 text-center">
+                    <button class="orange-button text-style-ro-24b py-3">
+                        SEARCH
+                    </button>
+                </div>
+                <div class="text-center">
+                    <button style="background-color: transparent; border: none; margin-left: -15px;">
+                        <i class="fa-solid fa-circle-chevron-right fa-3x" style="color: #FD602C;"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="expand-button-up-div d-flex justify-content-end me-5 mt-1">
+                <button class="pb-3" id="expand-button-up" style="background-color: transparent; border: none;">
+                    <i id="expand-icon" class="fa-solid fa-chevron-up fa-2x" style="color: #FD602C;"></i>
+                </button>
+            </div>
+        </div>
 
-    <div class="light-pink-box mt-5 px-5 pb-4" style="box-shadow: none; margin-bottom: 100px;">
+    </div>
+    {% endif %}
+
+    <div class="light-pink-box mt-5 px-5 pb-4" style="box-shadow: none; margin-bottom: 50px;">
         <div class="row pt-4">
             <div class="d-flex mb-2">
                 <div class="col-lg-2 col-md-2 text-center text-style-ro-22b" style="color: #100F0E;">
@@ -345,7 +461,101 @@
         </div>
         {% endfor %}
 
+
     </div>
+
+    <!-- <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Previous">
+              <span aria-hidden="true">&laquo;</span>
+            </a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <span aria-hidden="true">&raquo;</span>
+            </a>
+          </li>
+        </ul>
+      </nav> -->
+      <!-- Pagination -->
+      <nav aria-label="Page navigation example" class="mt-4">
+        <ul class="pagination justify-content-center">
+
+            {% if page_obj.number == 1 %}
+            <li class="page-item disabled">
+                <a class="page-link" href="" aria-label="First">
+                <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1" aria-label="First">
+                <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number}}" aria-label="Previous">
+                <span aria-hidden="true">&lsaquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="" aria-label="Previous">
+                <span aria-hidden="true">&lsaquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                {% else %}
+                    {% if num > page_objpage_obj.number|add:"-2" and num < page_obj.number|add:"2" %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                
+                    {% elif num == page_obj.paginator.num_pages %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">&rsaquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&rsaquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if page_obj.number == page_obj.paginator.num_pages %}
+            <li class="page-item disabled">
+                <a class="page-link" href="" aria-label="Last">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+        </ul>
+      </nav>
 
     
 </div>
