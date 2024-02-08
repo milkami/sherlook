@@ -8,15 +8,15 @@
 
 
 {% block body %}
-<div class="d-flex container-fluid align-items-center justify-content-center" style="flex-grow: 1;">
+<div class="d-flex container-fluid align-items-center justify-content-center" style="flex-grow: 1; height: 100%;">
     <div class="col d-flex justify-content-center align-items-center row" style="vertical-align: middle;">
-        <div class="container-custom card col-lg-5 col-md-10 col-sm-12">
+        <div class="light-pink-box card col-lg-5 col-md-10 col-sm-12">
             <div class="row justify-content-center">
                 <div class="col-lg-10 col-sm-10">
                     <div class="card-body pt-5 pb-3" style="width: 100%;">
-                        <h5 class="card-title text-style-re-40-600w mb-2">Create new account</h5>
-                        <p class="text-style-re-14 card-text mb-3">Already have an account?<a href="{% url 'login' %}"
-                                style="color: #FF6B2C; padding-left: 10px; text-decoration:none;">Log in!</a></p>
+                        <h5 class="card-title text-style-ro-35b mb-2">Create new account</h5>
+                        <!-- <p class="text-style-re-14 card-text mb-3">Already have an account?<a href="{% url 'login' %}"
+                                style="color: #FF6B2C; padding-left: 10px; text-decoration:none;">Log in!</a></p> -->
                         {% if form.errors %}
                             <p>Email or password not correct</p>
                         {% endif %}
@@ -33,13 +33,17 @@
                                 {% endif %}
                             {% endfor %}
 
-                            <button type="submit" class="orange-button mb-3 mt-4"
-                                    style="height:48px;">
-                                <i class="fa-solid fa-arrow-right-to-bracket" style="padding-right: 19px;"></i>
+                            <button type="submit" class="orange-button text-style-ro-16 mb-3 mt-4 py-3" style="color: white !important;">
+                                <i class="fa-solid fa-arrow-right-to-bracket pe-3"></i>
                                 Sign up
                             </button>
                         </form>
-                        <hr style="color: #5E6B78;">
+                        <div class="mt-3" style="height: 1.5px; background-color: #5E6B78; opacity: 90%"></div>
+                        <div class="d-flex justify-content-center">
+                            <p class="text-style-ro-16 card-text mb-3 mt-3">Already have an account?
+                                <a href="{% url 'login' %}" style="color: #FF6B2C; padding-left: 10px; text-decoration:none;">Log in!</a>
+                            </p> 
+                        </div>
                     </div>
                 </div>
             </div>
