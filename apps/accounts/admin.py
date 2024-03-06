@@ -28,7 +28,7 @@ class CustomUserAdmin(UserAdmin):
 class StudentsAdmin(admin.ModelAdmin):
     list_per_page = 100
     search_fields = ['name']
-    list_display = ('first_name', 'study')
+    list_display = ('first_name', 'last_name', 'study', 'age', 'country' )
 
 
 admin.site.register(get_user_model(), CustomUserAdmin)

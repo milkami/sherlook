@@ -49,34 +49,26 @@ class CustomUser(AbstractUser):
 
 
 class Students(models.Model):
-    SPECIALISATION = (
-        ('Team Captain', 'Team Captain'),
-        ('Chief Engineer', 'Chief Engineer'),
-        ('Aerodynamics', 'Aerodynamics'),
-        ('Powertrain', 'Powertrain'),
-        ('Chassis', 'Chassis'),
-        ('Engine', 'Engine'),
-        ('Electronics & Wiring', 'Electronics & Wiring'),
-        ('Suspension', 'Suspension'),
-        ('IT', 'IT'),
-        ('Team Member', 'Team Member'),
-        ('Manufacturing', 'Manufacturing'),
-
-    )
     id = models.AutoField(primary_key=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     university = models.CharField(max_length=255, null=True)
-    study = models.CharField(max_length=255, null=True)
+    study = models.CharField(max_length=255, null=True) # position
     date_of_birth = models.DateField(blank=True, null=True)
+    age = models.IntegerField(blank=True, null=True)
     email = models.CharField(max_length=255, null=True)
     mobile_phone_number = models.CharField(max_length=255, null=True)
-    nationality = models.CharField(max_length=255, null=True)
+    country = models.CharField(max_length=255, null=True)
     position = models.CharField(max_length=255, null=True)
     level = models.CharField(max_length=255, null=True)
     estimate_year_of_graduation = models.IntegerField(blank=True, null=True)
-    specialisation = models.CharField(max_length=255, null=True, choices=SPECIALISATION)
-    rating = models.IntegerField(blank=True, null=True)
+    specialisation = models.CharField(max_length=255, null=True) # role in the team
+    experience = models.IntegerField(blank=True, null=True)
+    role_bonus = models.IntegerField(blank=True, null=True)
+    driver = models.CharField(max_length=255, null=True)
+    eso = models.CharField(max_length=255, null=True)
+    role_at_competition = models.CharField(max_length=255, null=True)
+    category = models.CharField(max_length=255, null=True)
     price = models.IntegerField(blank=True, null=True, default=100)
 
     def __str__(self):
