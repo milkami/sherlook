@@ -97,6 +97,44 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
 
+    document.getElementById('expand-button').addEventListener('click', function() {
+        var container = document.querySelector('.light-pink-box');
+        var country_rating_row = document.querySelector('.country-rating-row');
+        var search_row = document.querySelector('.search-row');
+        var expand_button_up_div = document.querySelector('.expand-button-up-div');
+        var expand_button_down_div = document.querySelector('.expand-button-down-div');
+        container.style.height = 'auto';
+        country_rating_row.style.display = 'block';
+        country_rating_row.style.visibility = 'visible';
+        search_row.style.display = 'block';
+        search_row.style.visibility = 'visible';
+        expand_button_up_div.style.display = 'block';
+        expand_button_up_div.style.visibility = 'visible';
+        expand_button_down_div.style.display = 'none';
+        expand_button_down_div.style.visibility = 'hidden';
+        expand_button_down_div.style.height = 0;
+        // this.style.display = 'none';
+    });
+
+    document.getElementById('expand-button-up').addEventListener('click', function() {
+        var container = document.querySelector('.light-pink-box');
+        var country_rating_row = document.querySelector('.country-rating-row');
+        var search_row = document.querySelector('.search-row');
+        var expand_button_up_div = document.querySelector('.expand-button-up-div');
+        var expand_button_down_div = document.querySelector('.expand-button-down-div');
+        container.style.height = '200px';
+        country_rating_row.style.display = 'none';
+        country_rating_row.style.visibility = 'hidden';
+        search_row.style.display = 'none';
+        search_row.style.visibility = 'hidden';
+        expand_button_up_div.style.display = 'none';
+        expand_button_up_div.style.visibility = 'hidden';
+        expand_button_down_div.style.display = 'block';
+        expand_button_down_div.style.visibility = 'visible';
+        expand_button_down_div.style.height = auto;
+        // this.style.display = 'none';
+    });
+
     
 
 })
