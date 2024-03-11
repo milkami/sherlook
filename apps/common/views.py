@@ -24,6 +24,7 @@ class SignUpView(CreateView):
     success_url = reverse_lazy('login')
     template_name = 'commons/signup.html'
 
+
 class LogoutView(View):
     def get(self, request, *args, **kwargs):
         logout(request)
@@ -111,9 +112,11 @@ class SearchListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        country = list(Students.objects.values_list('nationality', flat=True).distinct())
-        position = list(Students.objects.values_list('study', flat=True).distinct())
-        specializations = list(Students.objects.values_list('specialisation', flat=True).distinct())
+        country = sorted(list(Students.objects.values_list('country', flat=True).distinct()))
+        position = sorted(list(Students.objects.values_list('study', flat=True).distinct()))
+        specializations = sorted(list(Students.objects.values_list('specialisation', flat=True).distinct()))
+        orders = self.request.user.orders.all()
+
 
         context['country'] = country
         context['position'] = position

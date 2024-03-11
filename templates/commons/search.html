@@ -71,10 +71,10 @@
                             <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2" style="font-size: 1.5vw; color: #FD612C;"></i>
                         </button> 
                         <ul class="search-dropdown-menu dropdown-menu ms-1 me-1 mt-1">
-                            <li class="dropdown-item text-style-ro-16">Mechanical Engineer</li>
-                            <li class="dropdown-item text-style-ro-16">Electrical Engineer</li>
-                            <li class="dropdown-item text-style-ro-16">Mechatronics Engineer</li>
-                            <li class="dropdown-item text-style-ro-16">Economist & Business</li>
+                            <li class="dropdown-item text-style-ro-16">Level 1</li>
+                            <li class="dropdown-item text-style-ro-16">Level 2</li>
+                            <li class="dropdown-item text-style-ro-16">Level 3</li>
+                            <li class="dropdown-item text-style-ro-16">Level 4</li>
                         </ul>
                     </div>
                 </div>
@@ -340,13 +340,14 @@
             <div class="row mt-3" style="background-color: white; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1);">
                 <div class="d-flex pt-2 pb-1 align-items-center">
                     <div class="col-2 text-center text-truncate text-style-ro-18b">{{ student.study }}</div>
-                    <div class="col-3 text-center text-style-ro-18b pe-4">{{ student.role_in_the_team }}</div>
+                    <div class="col-3 text-center text-style-ro-18b pe-4">{{ student.specialisation }}</div>
                     <div class="col-2 text-center text-style-ro-18b pe-4">{{ student.country }}</div>
-                    <div class="col-1 text-center text-style-ro-18b pe-4" style="color: #FD612C;">23</div>
+                    <div class="col-1 text-center text-style-ro-18b pe-4" style="color: #FD612C;">{{ student.age }}</div>
                     <div class="col-2 text-center pe-4">
-                        <button class="" style="border: none; background-color: transparent;">
-                            <i class="fa-regular fa-square" style="color: #FD612C;"></i>
-                        </button>
+                        {{ student.experience }}
+{#                        <button class="" style="border: none; background-color: transparent;">#}
+{#                            <i class="fa-regular fa-square" style="color: #FD612C;"></i>#}
+{#                        </button>#}
                     </div>
                     <div class="col-2 text-center text-style-ro-18b">
                         <span class="ps-xl-4 ps-lg-3 ps-md-3">Bought</span>
