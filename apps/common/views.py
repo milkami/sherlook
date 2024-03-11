@@ -196,3 +196,9 @@ def library_view(request):
     if request.user.is_authenticated:
         return render(request, 'commons/library.html')
     return redirect('/login/')
+
+
+def dashboard_view(request):
+    if request.user.is_authenticated:
+        return render(request, 'commons/dashboard.html')
+    return redirect('/login/')

@@ -38,6 +38,7 @@ urlpatterns = [
     #path('search/', views.search_view, name='search'),
     path('search/', SearchListView.as_view(), name='search'),
     path('info/', views.info_view, name='info'),
+    path('dashboard/', views.dashboard_view, name='dashboard'),
     path('library/', views.library_view, name='library'),
     path('logout/', LogoutView.as_view(), name="logout"),
 
