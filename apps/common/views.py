@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from .forms import *
 from apps.accounts.models import *
 from django.contrib.auth.views import LoginView
-from django.views.generic import CreateView, View, ListView
+from django.views.generic import CreateView, View, ListView, TemplateView
 from django.contrib.auth import login as auth_login
 from django.http import HttpResponseRedirect
 from django.shortcuts import redirect

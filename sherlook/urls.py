@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from apps.common.views import SignUpView, LogInView, TemplateView, EmailAttachementView, LogoutView, SearchListView, UpdateOrderView, LibraryListView, remove_from_library
+from apps.common.views import SignUpView, LogInView, LogoutView, SearchListView, UpdateOrderView, LibraryListView, remove_from_library, TemplateView
 from django.contrib.auth import views as auth_views
 from apps.common import views
 
@@ -24,10 +24,10 @@ from apps.common import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('accounts/', include('django.contrib.auth.urls')),
+    path('home/', TemplateView.as_view(template_name='commons/home.html'), name='home'),
     path('', LogInView.as_view(), name='login'),
     path('signup/', SignUpView.as_view(), name="register"),
     path('faq/', views.faq_view, name='faq'),
-    path('support/', EmailAttachementView.as_view(), name='support'),
     path('profile/', views.profile_view, name='profile'),
     path('payment/', views.payment_view, name='payment'),
     path('search/', SearchListView.as_view(), name='search'),
