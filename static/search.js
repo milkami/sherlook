@@ -71,6 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var search_body = document.querySelector('#search-body');
     var side_navbar = document.querySelector('#side-navbar');
     var pop_up_box = document.querySelector('.pop-up-box');
+    var navbar_custom = document.querySelector('.navbar-custom'); 
     // var pop_up_position = document.querySelector('#pop-up-position');
     // var pop_up_nationality = document.querySelector('#pop-up-nationality');
     // var pop_up_specialization = document.querySelector('#pop-up-specialization');
@@ -95,6 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
     //         pop_up_age.innerHTML = age;
             search_body.classList.add('blur');
             side_navbar.classList.add('blur');
+            navbar_custom.classList.add('blur');
             pop_up_box.classList.add('pop-up-show');
         })
         // const button = btn.target;
@@ -105,6 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelector('.overlay').addEventListener('click', () => {
         search_body.classList.remove('blur');
         side_navbar.classList.remove('blur');
+        navbar_custom.classList.remove('blur');
         pop_up_box.classList.remove('pop-up-show');
     })
 

@@ -26,14 +26,14 @@
 {% endblock %}
 
 {% block body %}
-<div class="d-flex align-items-center justify-content-center px-md-4" id="library-body">
+<div id="library-body" class="d-flex align-items-center justify-content-center px-md-4">
     <div class="col-lg-12 col-md-12">
         <div class="row">
             <div class="d-flex justify-content-between align-items-center mt-5">
                 <div>
                     <div class="text-style-lato-24b d-flex px-3 py-2" style="background-image: linear-gradient(to right, #ED1C24 , #FF6B2C); border-radius: 10px; color: white;">
                         <span id="saved-item">SAVED | {{ saved.count }}</span>
-                        <span id="connected-item" class="ps-4">|  CONNECTED | {{ connected.count }}</span>
+                        <span id="connected-item" class="ps-5">  CONNECTED | {{ connected.count }}</span>
                     </div>
                 </div>
             </div>
@@ -73,19 +73,18 @@
                 <div class="d-flex pt-2 pb-1 align-items-center">
                     <div class="col-2 text-center text-truncate text-style-ro-18b">{{ student.study }}</div>
                     <div class="col-3 text-center text-style-ro-18b pe-4">{{ student.role_in_the_team }}</div>
-                    <div class="col-2 text-center text-style-ro-18b pe-4">{{ student.country }}</div>
-                    <div class="col-1 text-center text-style-ro-18b pe-4" style="color: #FD612C;">{{ student.age }}</div>
+                    <div class="col-2 text-center text-style-ro-18b">{{ student.country }}</div>
+                    <div class="col-1 text-center text-style-ro-18b" style="color: #FD612C;">{{ student.age }}</div>
                     <div class="col-2 text-center text-style-ro-18b pe-4" style="color: #FD612C;">
                         {{ student.experience }}
-
                     </div>
-                    <div class="col-2 text-center text-style-ro-18b">
+                    <div class="col-2 d-flex justify-content-between text-center text-style-ro-18b">
                         {% if student.id in saved %}
-                        <span data-student-status-id="{{ student.id }}" class="ps-xl-4 ps-lg-3 ps-md-3">Saved</span>
+                        <span data-student-status-id="{{ student.id }}" class="ps-xl-5 ps-lg-3 ps-md-3">Saved</span>
                         {% else %}
                         <span data-student-status-id="{{ student.id }}" class="ps-xl-4 ps-lg-3 ps-md-3">Connected</span>
                         {% endif %}
-                        <button class="dropdown-button ps-xl-5 ps-lg-5 ps-md-4" style="border: none; background-color: transparent;">
+                        <button class="dropdown-button" style="padding-right: 0; border: none; background-color: transparent;">
                             <i class="fa-solid fa-chevron-down dropdown-icon" style="color: #FD612C;"></i>
                         </button>
                     </div>
@@ -117,16 +116,16 @@
                             <div class="text-style-ro-18b mt-1">SURNAME</div>
                             <div class="text-style-ro-18b mt-4">UNIVERSITY</div>
                             <div class="text-style-ro-18b mt-1">UNIVERSITY 2</div>
-                            <div class="text-style-ro-18b mt-4">MORE INFO 1</div>
-                            <div class="text-style-ro-18b mt-1">MORE INFO 2</div>
+                            <div class="text-style-ro-18b mt-4">EMAIL</div>
+                            <div class="text-style-ro-18b mt-1">PHONE #</div>
                         </div>
                         <div class="col-2">
                             <div class="text-style-ro-18b" style="filter: blur(4px);">Name</div>
                             <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">Surname</div>
                             <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">University</div>
                             <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">University 2</div>
-                            <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">More info 1</div>
-                            <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">More info 2</div>
+                            <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">Email</div>
+                            <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">Phone</div>
                         </div>
 
                         <div class="col-5 pe-5 ms-1">
@@ -162,19 +161,25 @@
                         <div class="col-4"></div>
                         <div class="col-5 ms-1">
                             <div>
-                                <a class="detailed-experience text-style-ro-16" style="color: #FF6B2C; font-weight: 700;">DETAILED EXPERIENCE AND COMPETENCES</a>
+                                <a data-studentId="{{ student.id }}" class="detailed-experience text-style-ro-16" style="color: #FF6B2C; font-weight: 700;">DETAILED EXPERIENCE AND COMPETENCES</a>
                             </div>
                         </div>
                         <div class="col-3 ms-2">
                             <div class="ps-4">
-                                <button data-student-id="{{ student.id }}" class="connect-button orange-button text-style-ro-24b" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)">CONNECT</button>
-{#                                <a href="#" class="text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</a>#}
-                                <a href="{% url 'remove_from_library' pk=student.id %}" class="text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</a>
+                                <button data-student-id="{{ student.id }}" class="connect-button orange-button text-style-ro-24b" style="width: 70% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)">CONNECT</button>  
                             </div>
 
-{#                            <div class="ps-4">#}
-{#                                <div data-student-id="{{ student.id }}" class="remove-button text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</div>#}
-{#                            </div>#}
+                            <!-- <div class="ps-4">
+                                <a href="{% url 'remove_from_library' pk=student.id %}" class="text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</a>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex">
+                        <div class="col-9"></div>
+                        <div class="col-3 mt-2 pe-3 text-center">
+                            <a href="{% url 'remove_from_library' pk=student.id %}" class="text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</a>
                         </div>
                     </div>
                 </div>
@@ -265,6 +270,138 @@
 
 <div class="pop-up-box container-fluid justify-content-center">
     <div class="overlay row d-flex"></div>
+    <div class="pop-up-body col-lg-9">
+        <div class="pop-up-inner-body">
+            <div class="row">
+                <div class="d-flex">
+                    <div class="col-lg-2">
+                        <div class="text-style-ro-18b">NAME</div>
+                        <div class="text-style-ro-18b mt-1">SURNAME</div>
+                        <div class="text-style-ro-18b mt-4">UNIVERSITY</div>
+                        <div class="text-style-ro-18b mt-1">UNIVERSITY 2</div>
+                        <div class="text-style-ro-18b mt-4">MORE INFO 1</div>
+                        <div class="text-style-ro-18b mt-1">MORE INFO 2</div>
+                    </div>
+                    <div class="col-lg-2">
+                        <div class="text-style-ro-18b" style="filter: blur(4px);">Name</div>
+                        <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">Surname</div>
+                        <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">University</div>
+                        <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">University 2</div>
+                        <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">More info 1</div>
+                        <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">More info 2</div>
+                    </div>
+
+                    <div class="col-lg-5 pe-5 ms-1">
+                        <div class="text-style-ro-18b" style="color: #FF6B2C;">EXPERIENCE</div>
+                        <div class="mt-2">
+                            <ul class="text-style-ro-16 ps-3">
+                                <li>Hybrid Design – Combination of Monocoque and Steel Frame</li>
+                                <li>CFRP Monocoque (Prepreg + Autoclave), Aluminium Honeycomb</li>
+                                <li>8 mm Lower Centre of Gravity</li>
+                                <li>Ergonomic Design</li>
+                                <li>Powertrain in CRMo Space Frame</li>
+                                <li>High Chassis Stifness and Maintenance – Heavy Design</li>
+                            </ul>
+                        </div>
+                        <!-- <div>
+                            <a class="detailed-experience text-style-ro-16" style="color: #FF6B2C; font-weight: 700;">DETAILED EXPERIENCE AND COMPETENCES</a>
+                        </div> -->
+                    </div>
+
+                    <div class="col-lg-3 ms-2">
+                        <div class="text-style-ro-18b ps-3" style="color: #FF6B2C;">PERSONALITY</div>
+                            <div class="mt-2">
+                                <ul class="text-style-ro-16">
+                                    <li>Quick Learner</li>
+                                    <li>Detail-Oriented</li>
+                                    <li>Hard Working</li>
+                                    <li>Team Player</li>
+                                    <li>Motivated By Success</li>
+                                </ul>
+                            </div>
+                        <!-- <div class="row">
+                            <div class="d-flex justify-content-between align-middle">
+                                <div class="text-style-qs-16" style="line-height: 28px;">FS ALPE ADRIA</div>
+                                <div>
+                                    <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="row">
+                            <div class="d-flex justify-content-between align-middle">
+                                <div class="text-style-qs-16" style="line-height: 28px;">FS AUSTRIA</div>
+                                <div>
+                                    <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="row">
+                            <div class="d-flex justify-content-between align-middle">
+                                <div class="text-style-qs-16" style="line-height: 28px;">FS EAST</div>
+                                <div>
+                                    <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="row">
+                            <div class="d-flex justify-content-between align-middle">
+                                <div class="text-style-qs-16" style="line-height: 28px;">FS GERMANY</div>
+                                <div>
+                                    <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="row">
+                            <div class="d-flex justify-content-between align-middle">
+                                <div class="text-style-qs-16" style="line-height: 28px;">FS INDIA</div>
+                                <div>
+                                    <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
+                                </div>
+                            </div>
+                        </div> -->
+                        <!-- <div class="ps-4">
+                        <button class="connect-button orange-button text-style-ro-24b py-3 mt-4" style="width: 60%; font-weight: 500; box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.07), 0px 3px 3px 1px rgba(0, 0, 0, 0.07), 0px 3px 3px 1px rgba(0, 0, 0, 0.07);">SAVE</button>
+                        </div> -->
+                        <!-- <button class="text-style-ro-14 mt-4" style="color: #FD602C; border: none; background-color: transparent;">Remove From Library</button> -->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="d-flex align-items-end">
+                        <div class="col-4"></div>
+                        <div class="col-5 ms-3">
+                            <div>
+                                <a class="detailed-experience text-style-ro-16" style="color: #FF6B2C; font-weight: 700;">DETAILED EXPERIENCE AND COMPETENCES</a>
+                            </div>
+                        </div>
+                        <div class="col-3 ms-2">
+                            <div class="ps-4">
+                                <button data-student-id="{{ student.id }}" class="save-button orange-button text-style-ro-24b save-button" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)">SAVE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-style-ro-18b mt-4">DETAILED EXPERIENCE ANDE COMPETENCES</div>
+                <div class="mt-2">
+                    <ul class="text-style-ro-16 ps-3">
+                        <li>Key description </li>
+                        <li>1. The chassis features a hybrid design, blending composite monocoque and steel frame.</li>
+                        <li>2. Front CFRP monocoque lowers center of gravity and houses driver's survival cell.</li>
+                        <li>3. Monocoque contains dedicated compartments for key components.</li>
+                        <li>4. Rear steel frame enables easy powertrain maintenance with quick-detach design.</li>
+                        <li>5. Improved stiffness and maintenance-friendliness without added weight compared to previous model.</li>
+                    </ul>
+                </div>
+                <div class="text-style-ro-16">
+                    The chassis features a novel hybrid design, combining a composite monocoque with a steel frame. A lightweight, strong carbon fiber reinforced plastic (CFRP) monocoque is constructed at the front, housing the driver's survival cell. This new, in-house developed monocoque has a lower center of gravity, adjustable pedals, and custom-molded seat padding for comfort. A compartment beneath the driver's seat holds the ECU, fuel tank, accumulator, and electronic sensors, accessible by detaching an inner firewall. The monocoque extends to the front suspension mounting points for improved rigidity. Designed with hybrid systems in mind, dedicated space is provided for the accumulator and motor controller units. The monocoque is built using prepreg, autoclave technology, and aluminum honeycomb for stiffness, featuring UD and twill layers, and three optimized insert types at load points. The rear of the car has a steel tubular space frame for easy powertrain maintenance, supporting the engine, drivetrain, and suspension units. The design allows detachment with six bolts, and quick connectors for wiring and hydraulic hoses. FEA simulations and topological optimization ensure strength and reduced weight.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="pop-up-box container-fluid justify-content-center">
+    <div class="overlay row d-flex"></div>
     <div class="pop-up-body col-lg-8">
         <div class="pop-up-inner-body">
             <div class="row">
@@ -274,16 +411,16 @@
                         <div class="text-style-ro-20b">SURNAME</div>
                         <div class="text-style-ro-20b mt-3">UNIVERSITY</div>
                         <div class="text-style-ro-20b">UNIVERSITY 2</div>
-                        <div class="text-style-ro-20b mt-3">MORE INFO 1</div>
-                        <div class="text-style-ro-20b">MORE INFO 2</div>
+                        <div class="text-style-ro-20b mt-3">EMAIL</div>
+                        <div class="text-style-ro-20b">PHONE #</div>
                     </div>
                     <div class="col-lg-3">
                         <div class="text-style-ro-20b" style="filter: blur(4px);">Name</div>
                         <div class="text-style-ro-20b" style="filter: blur(4px);">Surname</div>
                         <div class="text-style-ro-20b mt-3" style="filter: blur(4px);">University</div>
                         <div class="text-style-ro-20b" style="filter: blur(4px);">University 2</div>
-                        <div class="text-style-ro-20b mt-3" style="filter: blur(4px);">More info 1</div>
-                        <div class="text-style-ro-20b" style="filter: blur(4px);">More info 2</div>
+                        <div class="text-style-ro-20b mt-3" style="filter: blur(4px);">Email</div>
+                        <div class="text-style-ro-20b" style="filter: blur(4px);">Phone</div>
                     </div>
 
                     <div class="col-lg-5">
@@ -351,9 +488,9 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
-<div class="pop-up-detail col-lg-9 container-fluid justify-content-center" style="position: absolute; display: none; background: #fff; padding: 25px; box-shadow: 0px 0px 65px 0px rgba(0, 0, 0, 0.43);">
+<!-- <div class="pop-up-detail col-lg-9 container-fluid justify-content-center" style="position: absolute; display: none; background: #fff; padding: 25px; box-shadow: 0px 0px 65px 0px rgba(0, 0, 0, 0.43);">
             <div class="row">
                 <div class="d-flex">
                     <div class="col-lg-2">
@@ -436,7 +573,7 @@
                     </div>
                 </div>
         </div>
-</div>
+</div> -->
 
 
 <!-- Bootstrap core JavaScript-->
