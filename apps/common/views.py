@@ -255,20 +255,42 @@ class UpdateOrderView(APIView):
     def put(self, request, student_id):
         data = {}
         if request.data['status']:
-            student = Students.objects.get(id=student_id)
-            order_obj, created = Order.objects.update_or_create(
-                customer=request.user,
-                product=student,
-                defaults={
-                    "status": request.data['status'],
+            if request.data['status'] != 'removed':
+                student = Students.objects.get(id=student_id)
+                order_obj, created = Order.objects.update_or_create(
+                    customer=request.user,
+                    product=student,
+                    defaults={
+                        "status": request.data['status'],
 
-                }
-            )
-            data['saved'] = self.request.user.orders.all().filter(status='saved').values_list('product', flat=True).count()
-            data['connected'] = self.request.user.orders.all().filter(status='connected').values_list('product', flat=True).count()
-            data['message'] = 'Student updated successfully'
+                    }
+                )
+                data['saved'] = self.request.user.orders.all().filter(status='saved').values_list('product', flat=True).count()
+                data['connected'] = self.request.user.orders.all().filter(status='connected').values_list('product', flat=True).count()
+                data['message'] = 'Student updated successfully'
+            else:
+                student = Students.objects.get(id=student_id)
+                Order.objects.filter(customer=request.user, product=student).delete()
+                data['saved'] = self.request.user.orders.all().filter(status='saved').values_list('product', flat=True).count()
+                data['connected'] = self.request.user.orders.all().filter(status='connected').values_list('product', flat=True).count()
+                data['message'] = 'Student updated successfully'
         else:
             data['message'] = 'Status field is missing'
 
         return JsonResponse(data)
+
+
+def remove_from_library(request):
+    if request.user.is_authenticated:
+        return render(request, 'commons/dashboard.html')
+    return redirect('/login/')
+
+
+def remove_from_library(request, pk):
+    if request.user.is_authenticated:
+        student = Students.objects.get(id=pk)
+        Order.objects.filter(customer=request.user, product=student).delete()
+        return redirect('/library')
+    return redirect('/login/')
+
 

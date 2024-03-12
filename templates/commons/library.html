@@ -168,11 +168,13 @@
                         <div class="col-3 ms-2">
                             <div class="ps-4">
                                 <button data-student-id="{{ student.id }}" class="connect-button orange-button text-style-ro-24b" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)">CONNECT</button>
+{#                                <a href="#" class="text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</a>#}
+                                <a href="{% url 'remove_from_library' pk=student.id %}" class="text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</a>
                             </div>
 
-                            <div class="ps-4">
-                                <div class="text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</div>
-                            </div>
+{#                            <div class="ps-4">#}
+{#                                <div data-student-id="{{ student.id }}" class="remove-button text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</div>#}
+{#                            </div>#}
                         </div>
                     </div>
                 </div>
