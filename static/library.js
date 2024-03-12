@@ -56,6 +56,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 side_navbar.classList.add('blur');
                 navbar_custom.classList.add('blur');
                 pop_up_box.classList.add('pop-up-show');
+                var save_buttons = pop_up_box.querySelectorAll('.connect-button');
+                console.log(event.target.dataset.studentid.toString())
+                save_buttons[0].setAttribute('data-student-id', event.target.dataset.studentid.toString());
+                console.log(save_buttons)
+
             })
             // const button = btn.target;
             // console.log(button);
@@ -134,52 +139,4 @@ document.addEventListener('DOMContentLoaded', function() {
             })
         })
 
-        // var remove_buttons = document.querySelectorAll('.remove-button');
-        // remove_buttons.forEach(function(btn) {
-        //     btn.addEventListener('click', event =>{
-        //         console.log(event.target);
-        //         const studentId = btn.dataset.studentId;
-        //         console.log(`Clicked on student with ID: ${studentId}`);
-        //         const csrftoken = getCookie('csrftoken');
-        //         console.log(csrftoken )
-        //
-        //         const updateData = {
-        //           // Define the data you want to update
-        //           // For example, name or any other fields
-        //           status: 'removed',
-        //         };
-        //
-        //         fetch(`/update_order/${studentId}/`, {
-        //           method: 'PUT', // Or 'POST' based on your needs
-        //           headers: {
-        //               'Content-Type': 'application/json',
-        //               'X-CSRFToken': csrftoken, // Include the CSRF token
-        //           },
-        //           body: JSON.stringify(updateData),
-        //         })
-        //           .then(response => response.json())
-        //           .then(data => {
-        //             // Handle any response from the server
-        //             console.log(data);
-        //             const statusElement = document.querySelector(`[data-student-status-id="${studentId}"]`);
-        //             const savedItem = document.getElementById('saved-item');
-        //             if (savedItem){
-        //                 savedItem.textContent = "SAVED | " + data['saved'];
-        //             }
-        //
-        //             const connectedItem = document.getElementById('connected-item');
-        //             if (connectedItem){
-        //                 connectedItem.textContent = "|  CONNECTED | " + data['connected'];
-        //             }
-        //             if (statusElement) {
-        //                 statusElement.textContent = `Connected`; // Replace with the appropriate property from the response
-        //             }
-        //             // Update the UI if needed
-        //           })
-        //           .catch(error => {
-        //             // Handle any errors
-        //             console.error(error);
-        //           });
-        //     })
-        // })
 })

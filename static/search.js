@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
     detailed_experience_buttons.forEach(function(btn) {
         btn.addEventListener('click', event =>{
             console.log(event.target);
+            console.log(event.target.dataset.studentid);
     //         const button = event.target;
     //         const button_div = button.parentNode;
     //         const student_div = button_div.parentNode;
@@ -98,6 +99,10 @@ document.addEventListener('DOMContentLoaded', function() {
             side_navbar.classList.add('blur');
             navbar_custom.classList.add('blur');
             pop_up_box.classList.add('pop-up-show');
+            var save_buttons = pop_up_box.querySelectorAll('.save-button');
+            console.log(event.target.dataset.studentid.toString())
+            save_buttons[0].setAttribute('data-student-id', event.target.dataset.studentid.toString());
+            console.log(save_buttons)
         })
         // const button = btn.target;
         // console.log(button);
@@ -151,6 +156,33 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     })
 
+
+    var search_buttons = document.querySelectorAll('#search');
+    search_buttons.forEach(function(btn) {
+        btn.addEventListener('click', event =>{
+            console.log(event.target);
+            var selectedPosition = document.getElementById("selected-position").innerText;
+            if (selectedPosition === 'E.g. Mechanical Eng.'){
+                selectedPosition = ''
+            }
+            console.log(selectedPosition);
+            var selectedSpecialization = document.getElementById("selected-specialization").innerText;
+            if (selectedSpecialization === 'E.g. Aerodynamics'){
+                selectedSpecialization = ''
+            }
+            console.log(selectedSpecialization);
+            var selectedCountry = document.getElementById("selected-country").innerText;
+            if (selectedCountry === 'E.g. Germany'){
+                selectedCountry = ''
+            }
+            console.log(selectedCountry);
+
+            var url = '/search/?position=' + encodeURIComponent(selectedPosition) + '&specialization=' + encodeURIComponent(selectedSpecialization) + '&country=' + encodeURIComponent(selectedCountry);
+
+            // Redirect to the generated URL
+            window.location.href = url;
+        })
+    })
 
     document.getElementById('expand-button').addEventListener('click', function() {
         var container = document.querySelector('.light-pink-box');

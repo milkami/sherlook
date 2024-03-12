@@ -53,7 +53,7 @@
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                     <ul class="navbar-nav d-flex" style="width: 100%;">
                         <li class="nav-item ms-sm-auto">
-                            <a class="nav-link active ms-md-2 me-md-3" aria-current="page" id="search-button" href="{% url 'search' %}" title="SEARCH">
+                            <a class="nav-link active ms-md-2 me-md-3" aria-current="page" id="profile-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="PROFILE" data-popover-content="#popover-profile" data-html="true">
 {#                                <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5vw; color: white;"></i>#}
                                 <i class="fa-regular fa-user" style="font-size: 1.5vw; color: white;"></i>
                             </a>
@@ -149,6 +149,21 @@
 {#                <div class="text-style-ro-18b-popover" style="font-variant: small-caps; text-align: center;">Purchase successful. Your receipt has been sent to your e-mail.</div>#}
 {#            </div>#}
 {#        </div>#}
+
+                <!-- Notification popover -->
+        <div class="hidden" id="popover-profile" style="display: none; width: 500px;">
+            <div class="popover-heading">
+              PROFILE
+            </div>
+
+            <div class="popover-body">
+                <a href="{% url 'logout' %}" class="text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Log out</a>
+{#                <div class="ps-4">#}
+{#                    <a class="save-button orange-button text-style-ro-24b save-button" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)" href="{% url 'logout' %}">LOGOUT</a>#}
+{#                    <button class="save-button orange-button text-style-ro-24b save-button" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)">SAVE</button>#}
+{#                </div>#}
+            </div>
+        </div>
 
         <!-- Shopping cart popover -->
 {#        <div class="hidden" id="popover-cart" style="display: none;">#}

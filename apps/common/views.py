@@ -14,6 +14,7 @@ from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
+from django.db.models import Q
 
 
 class SignUpView(CreateView):
@@ -94,8 +95,27 @@ class SearchListView(ListView):
             return redirect('/')  # Replace 'login' with your actual login URL
         return super().get(request, *args, **kwargs)
 
+    def get_query_params(self, position, specialization, country):
+        q_objects = Q()
+        if not position and not specialization and not country:
+            return q_objects
+        if position:
+            q_objects &= Q(position=position)
+        if specialization:
+            q_objects &= Q(specialisation=specialization)
+        if country:
+            q_objects &= Q(country=country)
+
+        return q_objects
+
     def get_queryset(self):
-        return Students.objects.all()
+        position = self.request.GET.get('position', default=None)
+        specialization = self.request.GET.get('specialization', default=None)
+        country = self.request.GET.get('country', default=None)
+        parms = self.get_query_params(position, specialization, country)
+
+        students = Students.objects.filter(parms)
+        return students
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -103,12 +123,15 @@ class SearchListView(ListView):
         position = sorted(list(Students.objects.values_list('study', flat=True).distinct()))
         saved = self.request.user.orders.all().filter(status='saved').values_list('product', flat=True)
         specializations = sorted(list(Students.objects.values_list('specialisation', flat=True).distinct()))
-        orders = self.request.user.orders.all()
+        is_first = False
+        if len(self.request.GET) < 1:
+            is_first = True
 
-        context['country'] = country
-        context['position'] = position
-        context['specializations'] = specializations
+        context['country'] = [""] + country
+        context['position'] = [""] + position
+        context['specializations'] = [""] + specializations
         context['saved'] = saved
+        context['is_first'] = is_first
 
         return context
 
