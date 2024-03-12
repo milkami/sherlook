@@ -226,11 +226,12 @@
                     <div class="col-2 text-center text-truncate text-style-ro-18b">{{ student.study }}</div>
                     <div class="col-3 text-center text-style-ro-18b pe-4">{{ student.role_in_the_team }}</div>
                     <div class="col-2 text-center text-style-ro-18b pe-4">{{ student.country }}</div>
-                    <div class="col-1 text-center text-style-ro-18b pe-4" style="color: #FD612C;">23</div>
-                    <div class="col-2 text-center pe-4">
-                        <button class="" style="border: none; background-color: transparent;">
-                            <i class="fa-regular fa-square" style="color: #FD612C;"></i>
-                        </button>
+                    <div class="col-1 text-center text-style-ro-18b pe-4" style="color: #FD612C;">{{ student.age }}</div>
+                    <div class="col-2 text-center text-style-ro-18b pe-4" style="color: #FD612C;">
+                        {{ student.experience }}
+{#                        <button class="" style="border: none; background-color: transparent;">#}
+{#                            <i class="fa-regular fa-square" style="color: #FD612C;"></i>#}
+{#                        </button>#}
                     </div>
                     <div class="col-2 text-center text-style-ro-18b">
                         {% if student.id in saved %}
@@ -583,7 +584,7 @@
                         </div>
                         <div class="col-3 ms-2">
                             <div class="ps-4">
-                                <button class="connect-button orange-button text-style-ro-24b" style="width: 60% !important; font-weight: 500; box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.07), 0px 3px 3px 1px rgba(0, 0, 0, 0.07), 0px 3px 3px 1px rgba(0, 0, 0, 0.07);">SAVE</button>
+                                <button data-student-id="{{ student.id }}" class="save-button orange-button text-style-ro-24b save-button" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)">SAVE</button>
                             </div>
                         </div>
                     </div>

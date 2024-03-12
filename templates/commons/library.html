@@ -7,53 +7,23 @@
 
 {% block script %}
 
-    <script>
+    <script src="{% static 'library.js' %}"></script>
+
+    <!-- <script>
         document.addEventListener('DOMContentLoaded', function() {
 
-            var all_data = document.querySelectorAll('.all-data');
-            console.log(all_data);
-            all_data.forEach(function(each_row) {
-                each_row.addEventListener('click', event => {
-                    const dropdown_icon = each_row.querySelector('.dropdown-icon');
-                    console.log(event.target);
-                    const dropdown_div = each_row.querySelector('.dropdown-div');
-                    if (event.target === dropdown_icon) {
-                        if (dropdown_div.style.visibility === 'hidden') {
-                            dropdown_div.style.visibility = 'visible';
-                            dropdown_div.style.display = 'block';
-                        } else {
-                            dropdown_div.style.visibility = 'hidden';
-                            dropdown_div.style.display = 'none';
-                        }   
-                    }
-                })
+        var connect_buttons = document.querySelectorAll('.connect-button');
+        console.log(connect_buttons);
+        connect_buttons.forEach(function(button) {
+            button.addEventListener('click', event => {
+                document.querySelector('.search-body').classList.add('blur');
+                document.querySelector('.pop-up-box').classList.add('pop-up-show');
             })
-
-            // Function to apply the class based on the screen width
-        function applyClassBasedOnScreenWidth() {
-            var isLargeScreen = window.innerWidth > 1200;
-
-            // Find all span elements with the class dropdown-main-text
-            var dropdownMainTexts = document.querySelectorAll('.dropdown-main-text');
-
-            // Use the variable to dynamically change the class for each span
-            //dropdownMainTexts.forEach(function (mainText) {
-                //mainText.className = isLargeScreen ? 'text-style-ro-24b' : 'text-style-ro-20b';
-                //mainText.classList.toggle('text-style-ro-24b', isLargeScreen);
-                //mainText.classList.toggle('text-style-ro-20b', !isLargeScreen);
-            //});
-        }
-
-        // Call the function initially to set the class on page load
-        //applyClassBasedOnScreenWidth();
-
-        // Call the function when the window is resized
-        //window.addEventListener('resize', applyClassBasedOnScreenWidth);
         })
-    </script>
 
+    })
+    </script> -->
 {% endblock %}
-
 
 {% block body %}
 <div class="d-flex align-items-center justify-content-center px-md-4" id="library-body">
@@ -62,312 +32,145 @@
             <div class="d-flex justify-content-between align-items-center mt-5">
                 <div>
                     <div class="text-style-lato-24b d-flex px-3 py-2" style="background-image: linear-gradient(to right, #ED1C24 , #FF6B2C); border-radius: 10px; color: white;">
-                        <span>SAVED | 23</span> 
-                        <span class="ps-4">|  BOUGHT | 6</span>
+                        <span id="saved-item">SAVED | {{ saved.count }}</span>
+                        <span id="connected-item" class="ps-4">|  CONNECTED | {{ connected.count }}</span>
                     </div>
                 </div>
-                <!-- <div class="text-style-ro-60b pb-0 mb-0">LIBRARY</div> -->
-                <!-- <div class="">
-                    <form>
-                        <label class="text-style-ro-24b me-2" style="color: #100F0E !important;">SEARCH</label>
-                        <input type="text" style="border: 1px solid black; border-radius: 6px; font-size: 24px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.25), -2px 5px 5px -1px rgba(0, 0, 0, 0.25);">
-                    </form>
-                </div> -->
             </div>
         </div>
-        <div class="light-pink-box mt-5 px-5 pb-4" style="box-shadow: none; margin-bottom: 100px;">
-            <div class="row pt-4">
-                <div class="d-flex">
-                    <div class="col-lg-2 col-md-2 text-center text-style-ro-24b" style="color: #100F0E;">
-                        <div class="dropdown">
-                            <button class="dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: transparent;">
-                                <span class="text-style-ro-24b dropdown-main-text" style="color: #100F0E;">POSITION</span>
-                                <i class="fa-solid fa-chevron-down dropdown-icon" style="font-size: 1.5vw;"></i>
-                            </button> 
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item">Mechanical Eng.</li>
-                                <li class="dropdown-item">Electrical Eng.</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-3 col-md-3 text-center text-style-ro-24b" style="color: #100F0E;">
-                        <div class="dropdown">
-                            <button class="dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: transparent;">
-                                <span class="text-style-ro-24b dropdown-main-text" style="color: #100F0E;">SPECIALIZATION</span>
-                                <i class="fa-solid fa-chevron-down dropdown-icon" style="font-size: 1.5vw;"></i>
-                            </button> 
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item">Fluid Dynamics</li>
-                                <li class="dropdown-item">Mechatronics</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 text-center text-style-ro-24b" style="color: #100F0E;">
-                        <div class="dropdown">
-                            <button class="dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: transparent;">
-                                <span class="text-style-ro-24b dropdown-main-text" style="color: #100F0E;">COUNTRY</span>
-                                <i class="fa-solid fa-chevron-down dropdown-icon" style="font-size: 1.5vw;"></i>
-                            </button> 
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item">Germany</li>
-                                <li class="dropdown-item">Croatia</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-1 col-md-1 text-center text-style-ro-24b" style="color: #100F0E;">
-                        <div class="dropdown">
-                            <button class="dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: transparent;">
-                                <span class="text-style-ro-24b dropdown-main-text" style="color: #100F0E;">SFS</span>
-                                <i class="fa-solid fa-chevron-down dropdown-icon" style="font-size: 1.5vw;"></i>
-                            </button> 
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item">23</li>
-                                <li class="dropdown-item">24</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 text-center text-style-ro-24b" style="color: #100F0E;">
-                        <div class="dropdown">
-                            <button class="dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: transparent;">
-                                <span class="text-style-ro-24b dropdown-main-text" style="color: #100F0E;">CONNECT</span>
-                                <i class="fa-solid fa-chevron-down dropdown-icon" style="font-size: 1.5vw;"></i>
-                            </button> 
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item">23</li>
-                                <li class="dropdown-item">24</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-2 col-md-2 pe-4 text-center text-style-ro-24b" style="color: #100F0E;">
-                        <div class="dropdown">
-                            <button class="dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: transparent;">
-                                <span class="text-style-ro-24b dropdown-main-text" style="color: #100F0E;">STATUS</span>
-                                <i class="fa-solid fa-chevron-down dropdown-icon" style="font-size: 1.5vw;"></i>
-                            </button> 
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item">Bought</li>
-                                <li class="dropdown-item">Saved</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="mt-2" style="margin-left: -20px; margin-right: -20px;">
-                <div style="box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);">
-                    <div style="height: 2px; background-color: #FD612C;"></div>
-                </div>
-            </div>
-            <div class="all-data">
-                <div class="row mt-3" style="background-color: white; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1);">
-                    <div class="d-flex py-2 align-items-center">
-                        <div class="col-2 text-center text-style-ro-18b">Mechanical Eng.</div>
-                        <div class="col-3 text-center text-style-ro-18b pe-4">Fluid Dynamics</div>
-                        <div class="col-2 text-center text-style-ro-18b pe-4">Germany</div>
-                        <div class="col-1 text-center text-style-ro-18b pe-4" style="color: #FD612C;">23</div>
-                        <div class="col-2 text-center pe-4">
-                            <button class="connect-button" style="border: none; background-color: transparent;">
-                                <i class="fa-regular fa-square" style="color: #FD612C;"></i>
-                            </button>
-                        </div>
-                        <div class="col-2 text-center text-style-ro-18b">
-                            <span class="ps-xl-4 ps-lg-3 ps-md-3">Bought</span>
-                            <button class="dropdown-button ps-xl-5 ps-lg-5 ps-md-4" style="border: none; background-color: transparent;">
-                                <i class="fa-solid fa-chevron-down dropdown-icon" style="color: #FD612C;"></i>
-                            </button>  
-                        </div>
-                    </div>
+        <div class="light-pink-box mt-5 px-5 pb-4" style="box-shadow: none; margin-bottom: 50px;">
+        <div class="row pt-4">
+            <div class="d-flex mb-2">
+                <div class="col-lg-2 col-md-2 text-center text-style-ro-22b" style="color: #100F0E;">
+                   POSITION
                 </div>
 
-                <!-- Dropdown data -->
-                <div class="dropdown-div col-lg-11 container-fluid justify-content-center px-4 pt-4 pb-3" style="visibility: hidden; display: none; background: #fff; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1);">
-                    <div class="row">
-                        <div class="d-flex">
-                            <div class="col-lg-2">
-                                <div class="text-style-ro-20b">NAME</div>
-                                <div class="text-style-ro-20b">SURNAME</div>
-                                <div class="text-style-ro-20b mt-4">UNIVERSITY</div>
-                                <div class="text-style-ro-20b">UNIVERSITY 2</div>
-                                <div class="text-style-ro-20b mt-4">MORE INFO 1</div>
-                                <div class="text-style-ro-20b">MORE INFO 2</div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="text-style-ro-20b" style="filter: blur(4px);">Name</div>
-                                <div class="text-style-ro-20b" style="filter: blur(4px);">Surname</div>
-                                <div class="text-style-ro-20b mt-3" style="filter: blur(4px);">University</div>
-                                <div class="text-style-ro-20b" style="filter: blur(4px);">University 2</div>
-                                <div class="text-style-ro-20b mt-3" style="filter: blur(4px);">More info 1</div>
-                                <div class="text-style-ro-20b" style="filter: blur(4px);">More info 2</div>
-                            </div>
-        
-                            <div class="col-lg-5 pe-5">
-                                <div class="text-style-ro-20b">RELEVANT EXPERIENCE</div>
-                                <div>
-                                    <ul class="text-style-ro-16 ps-3">
-                                        <li>Hybrid Design – Combination of Monocoque and Steel Frame</li>
-                                        <li>CFRP Monocoque (Prepreg + Autoclave), Aluminium Honeycomb</li>
-                                        <li>8 mm Lower Centre of Gravity</li>
-                                        <li>Ergonomic Design</li>
-                                        <li>Powertrain in CRMo Space Frame</li>
-                                        <li>High Chassis Stifness and Maintenance – Heavy Design</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <a class="text-style-ro-16" style="color: #FF6B2C; font-weight: 700;">DETAILED EXPERIENCE AND COMPETENCES</a>
-                                </div>
-                            </div>
-        
-                            <div class="col-lg-2 text-center">
-                                <div class="row">
-                                    <div class="d-flex justify-content-between align-middle">
-                                        <div class="text-style-qs-16" style="line-height: 28px;">FS ALPE ADRIA</div>
-                                        <div>
-                                            <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="d-flex justify-content-between align-middle">
-                                        <div class="text-style-qs-16" style="line-height: 28px;">FS AUSTRIA</div>
-                                        <div>
-                                            <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="d-flex justify-content-between align-middle">
-                                        <div class="text-style-qs-16" style="line-height: 28px;">FS EAST</div>
-                                        <div>
-                                            <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="d-flex justify-content-between align-middle">
-                                        <div class="text-style-qs-16" style="line-height: 28px;">FS GERMANY</div>
-                                        <div>
-                                            <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="d-flex justify-content-between align-middle">
-                                        <div class="text-style-qs-16" style="line-height: 28px;">FS INDIA</div>
-                                        <div>
-                                            <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="orange-button text-style-ro-24b mt-4" style="font-weight: 500;">CONNECT</button>
-                                <button class="text-style-ro-14 mt-4" style="color: #FD602C; border: none; background-color: transparent;">Remove From Library</button>
-                            </div>
-                        </div>
+                <div class="col-lg-3 col-md-3 text-center text-style-ro-22b" style="color: #100F0E;">
+                    SPECIALIZATION
+                </div>
+                <div class="col-lg-2 col-md-2 text-center text-style-ro-22b" style="color: #100F0E;">
+                    COUNTRY
+                </div>
+                <div class="col-lg-1 col-md-1 text-center text-style-ro-22b" style="color: #100F0E;">
+                    AGE
+                </div>
+                <div class="col-lg-2 col-md-2 text-center text-style-ro-22b" style="color: #100F0E;">
+                    EXPERIENCE
+                </div>
+                <div class="col-lg-2 col-md-2 pe-4 text-center text-style-ro-22b" style="color: #100F0E;">
+                    STATUS
+                </div>
+            </div>
+        </div>
+        <div class="mt-2" style="margin-left: -20px; margin-right: -20px;">
+            <div style="box-shadow: 0 3px 1px rgba(0, 0, 0, 0.2);">
+                <div style="height: 2px; background-color: #FD612C;"></div>
+            </div>
+        </div>
+        {% for student in students %}
+        <div class="all-data">
+            <div class="row mt-3" style="background-color: white; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1);">
+                <div class="d-flex pt-2 pb-1 align-items-center">
+                    <div class="col-2 text-center text-truncate text-style-ro-18b">{{ student.study }}</div>
+                    <div class="col-3 text-center text-style-ro-18b pe-4">{{ student.role_in_the_team }}</div>
+                    <div class="col-2 text-center text-style-ro-18b pe-4">{{ student.country }}</div>
+                    <div class="col-1 text-center text-style-ro-18b pe-4" style="color: #FD612C;">{{ student.age }}</div>
+                    <div class="col-2 text-center text-style-ro-18b pe-4" style="color: #FD612C;">
+                        {{ student.experience }}
+
+                    </div>
+                    <div class="col-2 text-center text-style-ro-18b">
+                        {% if student.id in saved %}
+                        <span data-student-status-id="{{ student.id }}" class="ps-xl-4 ps-lg-3 ps-md-3">Saved</span>
+                        {% else %}
+                        <span data-student-status-id="{{ student.id }}" class="ps-xl-4 ps-lg-3 ps-md-3">Connected</span>
+                        {% endif %}
+                        <button class="dropdown-button ps-xl-5 ps-lg-5 ps-md-4" style="border: none; background-color: transparent;">
+                            <i class="fa-solid fa-chevron-down dropdown-icon" style="color: #FD612C;"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="ms-2" style="height: 2px; background-color: #100F0E; opacity: 0.1; margin-left: 5px; width: 98%;"></div>
+                <div class="d-flex justify-content-between mt-2 mb-2">
+                    <div>
+                        <span class="ext-style-ro-16b" style="color: #FD602C !important;">Experience</span>
+                        <span class="ext-style-ro-16b">| Monocoque Construction</span>
+                        <span class="ext-style-ro-16b">| Carbon Fibre Layup</span>
+                        <span class="ext-style-ro-16b">| Material Testing</span>
+                    </div>
+                    <div>
+                        <span class="ext-style-ro-16b">Quick Learner |</span>
+                        <span class="ext-style-ro-16b">Detaik-Oriented |</span>
+                        <span class="ext-style-ro-16b">Hard Working |</span>
+                        <span class="ext-style-ro-16b" style="color: #FD602C !important;">Personality</span>
                     </div>
                 </div>
             </div>
 
-            <div class="all-data">
-                <div class="row mt-3" style="background-color: white; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1);">
-                    <div class="d-flex py-2">
-                        <div class="col-lg-2 text-center text-style-ro-18b">Electrical Eng.</div>
-                        <div class="col-lg-3 text-center text-style-ro-18b pe-4">Fluid Dynamics</div>
-                        <div class="col-lg-2 text-center text-style-ro-18b pe-4">Croatia</div>
-                        <div class="col-lg-1 text-center text-style-ro-18b pe-4" style="color: #FD612C;">23</div>
-                        <div class="col-lg-2 text-center pe-4">
-                            <button class="connect-button" style="border: none; background-color: transparent;">
-                                <i class="fa-regular fa-square" style="color: #FD612C;"></i>
-                            </button>
+
+            <!-- Dropdown data -->
+            <div class="dropdown-div col-lg-11 container-fluid justify-content-center px-4 pt-4 pb-3" style="visibility: hidden; display: none; background: #fff; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1); margin-top: 0.015em;">
+                <div class="row">
+                    <div class="d-flex">
+                        <div class="col-2">
+                            <div class="text-style-ro-18b">NAME</div>
+                            <div class="text-style-ro-18b mt-1">SURNAME</div>
+                            <div class="text-style-ro-18b mt-4">UNIVERSITY</div>
+                            <div class="text-style-ro-18b mt-1">UNIVERSITY 2</div>
+                            <div class="text-style-ro-18b mt-4">MORE INFO 1</div>
+                            <div class="text-style-ro-18b mt-1">MORE INFO 2</div>
                         </div>
-                        <div class="col-lg-2 ps-3 text-center text-style-ro-18b">
-                            <span class="ps-3">Saved</span>
-                            <button class="dropdown-button ms-5" style="border: none; background-color: transparent;">
-                                <i class="fa-solid fa-chevron-down dropdown-icon pe-2" style="color: #FD612C;"></i>
-                            </button>  
+                        <div class="col-2">
+                            <div class="text-style-ro-18b" style="filter: blur(4px);">Name</div>
+                            <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">Surname</div>
+                            <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">University</div>
+                            <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">University 2</div>
+                            <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">More info 1</div>
+                            <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">More info 2</div>
+                        </div>
+
+                        <div class="col-5 pe-5 ms-1">
+                            <div class="text-style-ro-18b" style="color: #FF6B2C;">RELEVANT EXPERIENCE</div>
+                            <div class="mt-2">
+                                <ul class="text-style-ro-16 ps-3">
+                                    <li>Hybrid Design – Combination of Monocoque and Steel Frame</li>
+                                    <li>CFRP Monocoque (Prepreg + Autoclave), Aluminium Honeycomb</li>
+                                    <li>8 mm Lower Centre of Gravity</li>
+                                    <li>Ergonomic Design</li>
+                                    <li>Powertrain in CRMo Space Frame</li>
+                                    <li>High Chassis Stifness and Maintenance – Heavy Design</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col-3 ms-2">
+                            <div class="text-style-ro-18b ps-3" style="color: #FF6B2C;">PERSONALITY</div>
+                            <div class="mt-2">
+                                <ul class="text-style-ro-16">
+                                    <li>Quick Learner</li>
+                                    <li>Detail-Oriented</li>
+                                    <li>Hard Working</li>
+                                    <li>Team Player</li>
+                                    <li>Motivated By Success</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
-    
-    
-                <!-- Dropdown data -->
-                <div class="dropdown-div col-lg-11 container-fluid justify-content-center px-4 py-3" style="visibility: hidden; display: none; background: #fff; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1);">
-                    <div class="row">
-                        <div class="d-flex">
-                            <div class="col-lg-2">
-                                <div class="text-style-ro-20b">NAME</div>
-                                <div class="text-style-ro-20b">SURNAME</div>
-                                <div class="text-style-ro-20b mt-3">UNIVERSITY</div>
-                                <div class="text-style-ro-20b">UNIVERSITY 2</div>
-                                <div class="text-style-ro-20b mt-3">MORE INFO 1</div>
-                                <div class="text-style-ro-20b">MORE INFO 2</div>
+                <div class="row">
+                    <div class="d-flex align-items-end">
+                        <div class="col-4"></div>
+                        <div class="col-5 ms-1">
+                            <div>
+                                <a class="detailed-experience text-style-ro-16" style="color: #FF6B2C; font-weight: 700;">DETAILED EXPERIENCE AND COMPETENCES</a>
                             </div>
-                            <div class="col-lg-3">
-                                <div class="text-style-ro-20b" style="filter: blur(4px);">Name</div>
-                                <div class="text-style-ro-20b" style="filter: blur(4px);">Surname</div>
-                                <div class="text-style-ro-20b mt-3" style="filter: blur(4px);">University</div>
-                                <div class="text-style-ro-20b" style="filter: blur(4px);">University 2</div>
-                                <div class="text-style-ro-20b mt-3" style="filter: blur(4px);">More info 1</div>
-                                <div class="text-style-ro-20b" style="filter: blur(4px);">More info 2</div>
+                        </div>
+                        <div class="col-3 ms-2">
+                            <div class="ps-4">
+                                <button data-student-id="{{ student.id }}" class="connect-button orange-button text-style-ro-24b" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)">CONNECT</button>
                             </div>
-            
-                            <div class="col-lg-5">
-                                <div class="text-style-ro-20b">RELEVANT EXPERIENCE</div>
-                                <div>
-                                    <ul class="text-style-ro-16 ps-3">
-                                        <li>Hybrid Design – Combination of Monocoque and Steel Frame</li>
-                                        <li>CFRP Monocoque (Prepreg + Autoclave), Aluminium Honeycomb</li>
-                                        <li>8 mm Lower Centre of Gravity</li>
-                                        <li>Ergonomic Design</li>
-                                        <li>Powertrain in CRMo Space Frame</li>
-                                        <li>High Chassis Stifness and Maintenance – Heavy Design</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <a class="text-style-ro-16" style="color: #FF6B2C; font-weight: 700;">DETAILED EXPERIENCE AND COMPETENCES</a>
-                                </div>
-                            </div>
-            
-                            <div class="col-lg-2">
-                                <div class="row">
-                                    <div class="d-flex justify-content-between align-middle">
-                                        <div class="text-style-qs-16" style="line-height: 28px;">FS ALPE ADRIA</div>
-                                        <div>
-                                            <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="d-flex justify-content-between align-middle">
-                                        <div class="text-style-qs-16" style="line-height: 28px;">FS AUSTRIA</div>
-                                        <div>
-                                            <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="d-flex justify-content-between align-middle">
-                                        <div class="text-style-qs-16" style="line-height: 28px;">FS EAST</div>
-                                        <div>
-                                            <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="d-flex justify-content-between align-middle">
-                                        <div class="text-style-qs-16" style="line-height: 28px;">FS GERMANY</div>
-                                        <div>
-                                            <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="d-flex justify-content-between align-middle">
-                                        <div class="text-style-qs-16" style="line-height: 28px;">FS INDIA</div>
-                                        <div>
-                                            <span style="font-size: 12px!important; line-height: 28px;">&#x2705</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <button class="orange-button text-style-ro-24b mt-4" style="font-weight: 500;">CONNECT</button>
+
+                            <div class="ps-4">
                                 <div class="text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</div>
                             </div>
                         </div>
@@ -375,6 +178,86 @@
                 </div>
             </div>
         </div>
+        {% endfor %}
+
+
+    </div>
+
+      <!-- Pagination -->
+      <nav aria-label="Page navigation example" class="mt-4">
+        <ul class="pagination justify-content-center">
+
+            {% if page_obj.number == 1 %}
+            <li class="page-item disabled">
+                <a class="page-link" href="" aria-label="First">
+                <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1" aria-label="First">
+                <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number}}" aria-label="Previous">
+                <span aria-hidden="true">&lsaquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="" aria-label="Previous">
+                <span aria-hidden="true">&lsaquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+                {% if page_obj.number == num %}
+                    <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+                {% else %}
+                    {% if num > page_objpage_obj.number|add:"-2" and num < page_obj.number|add:"2" %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+
+                    {% elif num == page_obj.paginator.num_pages %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                    {% endif %}
+                {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                <span aria-hidden="true">&rsaquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&rsaquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% if page_obj.number == page_obj.paginator.num_pages %}
+            <li class="page-item disabled">
+                <a class="page-link" href="" aria-label="Last">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+        </ul>
+      </nav>
     </div>
 </div>
 
