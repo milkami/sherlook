@@ -233,7 +233,11 @@
                         </button>
                     </div>
                     <div class="col-2 text-center text-style-ro-18b">
-                        <span class="ps-xl-4 ps-lg-3 ps-md-3">Bought</span>
+                        {% if student.id in saved %}
+                        <span data-student-status-id="{{ student.id }}" class="ps-xl-4 ps-lg-3 ps-md-3">Saved</span>
+                        {% else %}
+                        <span data-student-status-id="{{ student.id }}" class="ps-xl-4 ps-lg-3 ps-md-3">Bought</span>
+                        {% endif %}
                         <button class="dropdown-button ps-xl-5 ps-lg-5 ps-md-4" style="border: none; background-color: transparent;">
                             <i class="fa-solid fa-chevron-down dropdown-icon" style="color: #FD612C;"></i>
                         </button>  
@@ -363,7 +367,7 @@
                         </div>
                         <div class="col-3 ms-2">
                             <div class="ps-4">
-                                <button class="connect-button orange-button text-style-ro-24b py-3" style="width: 60% !important; font-weight: 500; box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.07), 0px 3px 3px 1px rgba(0, 0, 0, 0.07), 0px 3px 3px 1px rgba(0, 0, 0, 0.07);">SAVE</button>
+                                <button data-student-id="{{ student.id }}" class="save-button orange-button text-style-ro-24b py-3 save-button" style="width: 60% !important; font-weight: 500; box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.07), 0px 3px 3px 1px rgba(0, 0, 0, 0.07), 0px 3px 3px 1px rgba(0, 0, 0, 0.07);">SAVE</button>
                                 </div>
                         </div>
                     </div>

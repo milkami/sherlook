@@ -2,6 +2,7 @@ django
 psycopg2
 gspread
 gspread_formatting
+djangorestframework
 # google-api-python-client
 django-crispy-forms
 crispy_bootstrap4

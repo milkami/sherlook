@@ -17,12 +17,21 @@ from sib_api_v3_sdk.rest import ApiException
 from django.contrib import messages
 from django.views.generic import TemplateView, View, ListView
 import math
+from django.http import JsonResponse
+from rest_framework.views import APIView
+from rest_framework.authentication import SessionAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 
 class SignUpView(CreateView):
     form_class = SignUpForm
     success_url = reverse_lazy('login')
     template_name = 'commons/signup.html'
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect(self.success_url)
+        return super().dispatch(request, *args, **kwargs)
 
 
 class LogoutView(View):
@@ -47,6 +56,11 @@ class LogInView(LoginView):
             return HttpResponseRedirect(self.success_url)
         else:
             return redirect('/login/')
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect(self.success_url)
+        return super().dispatch(request, *args, **kwargs)
 
 
 def faq_view(request):
@@ -114,6 +128,7 @@ class SearchListView(ListView):
         context = super().get_context_data(**kwargs)
         country = sorted(list(Students.objects.values_list('country', flat=True).distinct()))
         position = sorted(list(Students.objects.values_list('study', flat=True).distinct()))
+        saved = self.request.user.orders.all().filter(status='saved').values_list('product', flat=True)
         specializations = sorted(list(Students.objects.values_list('specialisation', flat=True).distinct()))
         orders = self.request.user.orders.all()
 
@@ -121,6 +136,7 @@ class SearchListView(ListView):
         context['country'] = country
         context['position'] = position
         context['specializations'] = specializations
+        context['saved'] = saved
 
         return context
 
@@ -202,3 +218,23 @@ def dashboard_view(request):
     if request.user.is_authenticated:
         return render(request, 'commons/dashboard.html')
     return redirect('/login/')
+
+
+class UpdateOrderView(APIView):
+    authentication_classes = [SessionAuthentication]
+    permission_classes = [IsAuthenticated]
+
+    def put(self, request, student_id):
+        if request.data['status'] == 'saved':
+            student = Students.objects.get(id=student_id)
+            order_obj, created = Order.objects.update_or_create(
+                customer=request.user,
+                product=student,
+                defaults={
+                    "status": "saved",
+
+                }
+            )
+
+        return JsonResponse({'message': 'Student updated successfully'})
+

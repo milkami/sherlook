@@ -16,7 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from apps.common.views import SignUpView, LogInView, TemplateView, EmailAttachementView, LogoutView, SearchListView
+from apps.common.views import SignUpView, LogInView, TemplateView, EmailAttachementView, LogoutView, SearchListView,UpdateOrderView
 from django.contrib.auth import views as auth_views
 from apps.common import views
 
@@ -41,5 +41,6 @@ urlpatterns = [
     path('dashboard/', views.dashboard_view, name='dashboard'),
     path('library/', views.library_view, name='library'),
     path('logout/', LogoutView.as_view(), name="logout"),
+    path('update_order/<int:student_id>/', UpdateOrderView.as_view(), name="update_order"),
 
 ]

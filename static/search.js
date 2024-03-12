@@ -1,3 +1,15 @@
+function getCookie(name) {
+  const cookieValue = document.cookie.split(';')
+    .map(cookie => cookie.split('='))
+    .find(([cookieName]) => cookieName.trim() === name);
+
+  if (cookieValue) {
+    return cookieValue[1];
+  }
+
+  return null;
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     var all_data = document.querySelectorAll('.all-data');
     console.log(all_data);
@@ -7,14 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const dropdown_icon = each_row.querySelector('.dropdown-icon');
         console.log(event.target);
         const dropdown_div = each_row.querySelector('.dropdown-div');
-    
+
         if (event.target === dropdown_icon) {
           if (dropdown_div.style.visibility === 'hidden') {
             dropdown_div.style.visibility = 'visible';
             dropdown_div.style.display = 'block';
             dropdown_div.style.opacity = '0';
             dropdown_div.style.height = '0';
-    
+
             // Delay before applying the transition
             setTimeout(() => {
               dropdown_div.style.transition = 'opacity 1.5s ease, height 1.5s ease';
@@ -25,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             dropdown_div.style.transition = 'opacity 3.5s ease, height 3.5s ease';
             dropdown_div.style.opacity = '0';
             dropdown_div.style.height = '0px';
-    
+
             // Delay before hiding the element
             setTimeout(() => {
               dropdown_div.style.display = 'none';
@@ -96,6 +108,46 @@ document.addEventListener('DOMContentLoaded', function() {
         pop_up_box.classList.remove('pop-up-show');
     })
 
+    var save_buttons = document.querySelectorAll('.save-button');
+    save_buttons.forEach(function(btn) {
+        btn.addEventListener('click', event =>{
+            console.log(event.target);
+            const studentId = btn.dataset.studentId;
+            console.log(`Clicked on student with ID: ${studentId}`);
+            const csrftoken = getCookie('csrftoken');
+            console.log(csrftoken )
+
+            const updateData = {
+              // Define the data you want to update
+              // For example, name or any other fields
+              status: 'saved',
+            };
+
+            fetch(`/update_order/${studentId}/`, {
+              method: 'PUT', // Or 'POST' based on your needs
+              headers: {
+                  'Content-Type': 'application/json',
+                  'X-CSRFToken': csrftoken, // Include the CSRF token
+              },
+              body: JSON.stringify(updateData),
+            })
+              .then(response => response.json())
+              .then(data => {
+                // Handle any response from the server
+                console.log(data);
+                const statusElement = document.querySelector(`[data-student-status-id="${studentId}"]`);
+                if (statusElement) {
+                    statusElement.textContent = `Saved`; // Replace with the appropriate property from the response
+                }
+                // Update the UI if needed
+              })
+              .catch(error => {
+                // Handle any errors
+                console.error(error);
+              });
+        })
+    })
+
 
     document.getElementById('expand-button').addEventListener('click', function() {
         var container = document.querySelector('.light-pink-box');
@@ -135,6 +187,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // this.style.display = 'none';
     });
 
-    
+
 
 })
