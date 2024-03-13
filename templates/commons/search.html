@@ -55,7 +55,13 @@
                     </div>
                     <div class="search-dropdown dropdown mt-4 mx-5 py-2">
                         <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span id="selected-position" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Mechanical Eng.</span>
+                            {% with  position=request.GET.position|default:"" %}
+                                {% if position %}
+                                    <span id="selected-position" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ position }}</span>
+                                {% else %}
+                                    <span id="selected-position" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Mechanical Eng.</span>
+                                {% endif %}
+                            {% endwith %}
                             <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2"></i>
                         </button> 
                         <ul class="search-dropdown-menu dropdown-menu ms-1 me-1 mt-1">
@@ -71,7 +77,13 @@
                     </div>
                     <div class="search-dropdown dropdown mt-4 mx-5 py-2">
                         <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span id="selected-specialization" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Aerodynamics</span>
+                            {% with  specialization=request.GET.specialization|default:"" %}
+                                {% if specialization %}
+                                    <span id="selected-specialization" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ specialization }}</span>
+                                {% else %}
+                                    <span id="selected-specialization" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Aerodynamics</span>
+                                {% endif %}
+                            {% endwith %}
                             <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2" style="font-size: 1.5vw; color: #FD612C;"></i>
                         </button> 
                         <ul class="search-dropdown-menu dropdown-menu ms-1 me-1 mt-1">
@@ -87,7 +99,13 @@
                     </div>
                     <div class="search-dropdown dropdown mt-4 mx-5 py-2">
                         <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span id="selected-country" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Germany</span>
+                            {% with  country=request.GET.country|default:"" %}
+                                {% if country %}
+                                    <span id="selected-country" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ country }}</span>
+                                {% else %}
+                                    <span id="selected-country" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Germany</span>
+                                {% endif %}
+                            {% endwith %}
                             <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2" style="font-size: 1.5vw; color: #FD612C;"></i>
                         </button> 
                         <ul class="search-dropdown-menu dropdown-menu ms-1 me-1 mt-1">
