@@ -2,6 +2,7 @@
 
 {% load static %}
 {% load crispy_forms_tags %}
+{% load custom_filters %}
 
 {% block title %}Django CRM - Search{% endblock %}
 {% block script %}
@@ -449,7 +450,11 @@
             </li>
             {% else %}
             <li class="page-item">
-                <a class="page-link" href="?page=1" aria-label="First">
+                {% with query_params=request.GET|dict_to_query_string %}
+                    <a class="page-link" href="?page=1&{{ query_params }}" aria-label="First">
+                {% endwith %}
+
+{#                <a class="page-link" href="?page=1" aria-label="First">#}
                 <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
@@ -457,7 +462,10 @@
 
             {% if page_obj.has_previous %}
             <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.previous_page_number}}" aria-label="Previous">
+                {% with query_params=request.GET|dict_to_query_string %}
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number}}&{{ query_params }}" aria-label="Previous">
+                {% endwith %}
+{#                <a class="page-link" href="?page={{ page_obj.previous_page_number}}" aria-label="Previous">#}
                 <span aria-hidden="true">&lsaquo;</span>
                 </a>
             </li>
@@ -474,17 +482,23 @@
                     <li class="page-item active"><span class="page-link">{{ num }}</span></li>
                 {% else %}
                     {% if num > page_objpage_obj.number|add:"-2" and num < page_obj.number|add:"2" %}
-                        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                        {% with query_params=request.GET|dict_to_query_string %}
+                            <li class="page-item"><a class="page-link" href="?page={{ num }}&{{ query_params }}">{{ num }}</a></li>
+                        {% endwith %}
                 
                     {% elif num == page_obj.paginator.num_pages %}
-                        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                        {% with query_params=request.GET|dict_to_query_string %}
+                            <li class="page-item"><a class="page-link" href="?page={{ num }}&{{ query_params }}">{{ num }}</a></li>
+                        {% endwith %}
                     {% endif %}
                 {% endif %}
             {% endfor %}
 
             {% if page_obj.has_next %}
             <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                {% with query_params=request.GET|dict_to_query_string %}
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}&{{ query_params }}" aria-label="Next">
+                {% endwith %}
                 <span aria-hidden="true">&rsaquo;</span>
                 </a>
             </li>
@@ -504,7 +518,10 @@
             </li>
             {% else %}
             <li class="page-item">
-                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                {% with query_params=request.GET|dict_to_query_string %}
+                    <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}&{{ query_params }}" aria-label="Last">
+                {% endwith %}
+{#                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">#}
                 <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
