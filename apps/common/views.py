@@ -95,6 +95,9 @@ class SearchListView(ListView):
             return redirect('/')  # Replace 'login' with your actual login URL
         return super().get(request, *args, **kwargs)
 
+    def save_query_params(self, params):
+        self.request.session['search_params'] = params
+
     def get_query_params(self, position, specialization, country):
         q_objects = Q()
         if not position and not specialization and not country:
@@ -114,8 +117,22 @@ class SearchListView(ListView):
         country = self.request.GET.get('country', default=None)
         parms = self.get_query_params(position, specialization, country)
 
+        # Retrieve saved query parameters from the session
+        saved_params = self.retrieve_saved_query_params()
+        if len(self.request.GET) < 1 and saved_params:
+            position = saved_params.get('position')
+            specialization = saved_params.get('specialization')
+            country = saved_params.get('country')
+            parms = self.get_query_params(position, specialization, country)
+        else:
+            self.save_query_params(self.request.GET.dict())
         students = Students.objects.filter(parms)
         return students
+
+    def retrieve_saved_query_params(self):
+        saved_params = self.request.session.get('search_params', {})
+
+        return saved_params
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -124,7 +141,8 @@ class SearchListView(ListView):
         saved = self.request.user.orders.all().filter(status='saved').values_list('product', flat=True)
         specializations = sorted(list(Students.objects.values_list('specialisation', flat=True).distinct()))
         is_first = False
-        if len(self.request.GET) < 1:
+        saved_params = self.retrieve_saved_query_params()
+        if len(self.request.GET) < 1 and not saved_params:
             is_first = True
 
         context['country'] = [""] + country

@@ -1,4 +1,5 @@
 {% load static %}
+{% load custom_filters %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -216,7 +217,7 @@
             <div class="row" style="flex: 1; display: flex; width: 100%;">
               <div id="side-navbar" style="padding-right: 0; width: 15%; position: fixed; top: 80px; left: 0; bottom: 0;  background-image: linear-gradient(to right, #ED1C24 , #F02825); box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);">
                 <div style="padding-top: 200px;">
-                    <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 mb-2 {% if request.path == '/search/' %}active{% endif %}" href="{% url 'search' %}" style="color: white;">SEARCH</a>
+                    <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 mb-2 {% if request.path == '/search/' %}active{% endif %}" href="{% url 'search' %}{% if request.session.search_params %}?{{ request.session.search_params|dict_to_query_string }}{% endif %}" style="color: white;">SEARCH</a>
                     <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 mb-2 {% if request.path == '/library/' %}active{% endif %}" href="{% url 'library' %}" style="color: white;">LIBRARY</a>
                     <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 mb-2 {% if request.path == '/dashboard/' %}active{% endif %}" href="{% url 'dashboard' %}" style="color: white;">DASHBOARD</a>
                     <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 mb-2 {% if request.path == '/info/' %}active{% endif %}" href="{% url 'info' %}"  style="color: white;">INFO</a>

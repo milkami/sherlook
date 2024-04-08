@@ -56,11 +56,17 @@
                     </div>
                     <div class="search-dropdown dropdown mt-4 mx-5 py-2">
                         <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            {% with  position=request.GET.position|default:"" %}
-                                {% if position %}
-                                    <span id="selected-position" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ position }}</span>
+                            {% with position=request.GET.position|default:"" %}
+                                {% if not position %}
+                                    {% with saved_position=request.session.search_params.position|default:"" %}
+                                        {% if saved_position %}
+                                            <span id="selected-position" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ saved_position }}</span>
+                                        {% else %}
+                                            <span id="selected-position" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Mechanical Eng.</span>
+                                        {% endif %}
+                                    {% endwith %}
                                 {% else %}
-                                    <span id="selected-position" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Mechanical Eng.</span>
+                                    <span id="selected-position" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ position }}</span>
                                 {% endif %}
                             {% endwith %}
                             <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2"></i>
@@ -79,10 +85,16 @@
                     <div class="search-dropdown dropdown mt-4 mx-5 py-2">
                         <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% with  specialization=request.GET.specialization|default:"" %}
-                                {% if specialization %}
-                                    <span id="selected-specialization" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ specialization }}</span>
+                                {% if not specialization %}
+                                    {% with saved_specialization=request.session.search_params.specialization|default:"" %}
+                                        {% if saved_specialization %}
+                                            <span id="selected-specialization" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ saved_specialization }}</span>
+                                        {% else %}
+                                            <span id="selected-specialization" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Aerodynamics</span>
+                                        {% endif %}
+                                    {% endwith %}
                                 {% else %}
-                                    <span id="selected-specialization" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Aerodynamics</span>
+                                    <span id="selected-specialization" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ specialization }}</span>
                                 {% endif %}
                             {% endwith %}
                             <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2" style="font-size: 1.5vw; color: #FD612C;"></i>
@@ -101,10 +113,16 @@
                     <div class="search-dropdown dropdown mt-4 mx-5 py-2">
                         <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% with  country=request.GET.country|default:"" %}
-                                {% if country %}
-                                    <span id="selected-country" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ country }}</span>
+                                {% if not country %}
+                                    {% with saved_country=request.session.search_params.country|default:"" %}
+                                        {% if saved_country %}
+                                            <span id="selected-country" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ saved_country }}</span>
+                                        {% else %}
+                                            <span id="selected-country" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Germany</span>
+                                        {% endif %}
+                                    {% endwith %}
                                 {% else %}
-                                    <span id="selected-country" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">E.g. Germany</span>
+                                    <span id="selected-country" class="text-style-ro-16 dropdown-main-text px-2" style="color: #5E6B78;">{{ country }}</span>
                                 {% endif %}
                             {% endwith %}
                             <i class="search-dropdown-icon fa-solid fa-chevron-down dropdown-icon px-2" style="font-size: 1.5vw; color: #FD612C;"></i>

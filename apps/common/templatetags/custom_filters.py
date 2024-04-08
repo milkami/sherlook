@@ -5,4 +5,4 @@ register = template.Library()
 
 @register.filter
 def dict_to_query_string(value):
-    return urlencode(list(value.items()))
+    return urlencode([tup for tup in list(value.items()) if 'page' not in tup[0]])
