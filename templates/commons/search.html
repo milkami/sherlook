@@ -21,6 +21,7 @@
         console.log(selectedSpecialization);
         var selectedCountry = document.getElementById("selected-country").innerText;
         console.log(selectedCountry);
+        console.log("taj se koristiiii");
 
         // Create the URL with the selected values as parameters
         var url = '/search/?position=' + encodeURIComponent(selectedPosition) + '&specialization=' + encodeURIComponent(selectedSpecialization) + '&country=' + encodeURIComponent(selectedCountry);
@@ -243,18 +244,10 @@
                         </ul>
                     </div> -->
                 </div>
-                <div class="col-lg-2 col-md-2 text-center text-style-ro-22b" style="color: #100F0E;">
+                <div id="experience"  class="col-lg-2 col-md-2 text-center text-style-ro-22b" style="color: #100F0E;">
                     EXPERIENCE
-                    <!-- <div class="dropdown">
-                        <button class="dropdown" type="button" data-bs-toggle="dropdown" aria-expanded="false" style="border: none; background-color: transparent;">
-                            <span class="text-style-ro-24b dropdown-main-text" style="color: #100F0E;">CONNECT</span>
-                            <i class="fa-solid fa-chevron-down dropdown-icon" style="font-size: 1.5vw;"></i>
-                        </button> 
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item">23</li>
-                            <li class="dropdown-item">24</li>
-                        </ul>
-                    </div> -->
+                    <i class="fa-solid fa-chevron-down dropdown-icon" style="font-size: 1.5vw;"></i>
+
                 </div>
                 <div class="col-lg-2 col-md-2 pe-4 text-center text-style-ro-22b" style="color: #100F0E;">
                     STATUS
@@ -282,7 +275,7 @@
             <div class="row mt-3" style="background-color: white; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1);">
                 <div class="d-flex pt-2 pb-1 align-items-center">
                     <div class="col-2 text-center text-truncate text-style-ro-18b">{{ student.study }}</div>
-                    <div class="col-3 text-center text-style-ro-18b pe-4">{{ student.role_in_the_team }}</div>
+                    <div class="col-3 text-center text-style-ro-18b pe-4">{{ student.specialisation }}</div>
                     <div class="col-2 text-center text-style-ro-18b">{{ student.country }}</div>
                     <div class="col-1 text-center text-style-ro-18b" style="color: #FD612C;">{{ student.age }}</div>
                     <div class="col-2 text-center text-style-ro-18b pe-4" style="color: #FD612C;">

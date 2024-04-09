@@ -184,6 +184,34 @@ document.addEventListener('DOMContentLoaded', function() {
         })
     })
 
+    var experience_buttons = document.querySelectorAll('#experience');
+    console.log(experience_buttons)
+    experience_buttons.forEach(function(btn) {
+        btn.addEventListener('click', event =>{
+            console.log(event.target);
+            var selectedPosition = document.getElementById("selected-position").innerText;
+            if (selectedPosition === 'E.g. Mechanical Eng.'){
+                selectedPosition = ''
+            }
+            console.log(selectedPosition);
+            var selectedSpecialization = document.getElementById("selected-specialization").innerText;
+            if (selectedSpecialization === 'E.g. Aerodynamics'){
+                selectedSpecialization = ''
+            }
+            console.log(selectedSpecialization);
+            var selectedCountry = document.getElementById("selected-country").innerText;
+            if (selectedCountry === 'E.g. Germany'){
+                selectedCountry = ''
+            }
+            console.log(selectedCountry);
+
+            var url = '/search/?position=' + encodeURIComponent(selectedPosition) + '&specialization=' + encodeURIComponent(selectedSpecialization) + '&country=' + encodeURIComponent(selectedCountry) + '&experience=True';
+
+            // Redirect to the generated URL
+            window.location.href = url;
+        })
+    })
+
     document.getElementById('expand-button').addEventListener('click', function() {
         var container = document.querySelector('.light-pink-box');
         var country_rating_row = document.querySelector('.country-rating-row');

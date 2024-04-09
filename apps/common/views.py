@@ -14,7 +14,7 @@ from django.http import JsonResponse
 from rest_framework.views import APIView
 from rest_framework.authentication import SessionAuthentication
 from rest_framework.permissions import IsAuthenticated
-from django.db.models import Q
+from django.db.models import Q, F
 
 
 class SignUpView(CreateView):
@@ -102,6 +102,9 @@ class SearchListView(ListView):
         q_objects = Q()
         if not position and not specialization and not country:
             return q_objects
+        position = None if position == 'Any' else position
+        specialization = None if specialization == 'Any' else specialization
+        country = None if country == 'Any' else country
         if position:
             q_objects &= Q(position=position)
         if specialization:
@@ -115,6 +118,7 @@ class SearchListView(ListView):
         position = self.request.GET.get('position', default=None)
         specialization = self.request.GET.get('specialization', default=None)
         country = self.request.GET.get('country', default=None)
+        experience = self.request.GET.get('experience', default=None)
         parms = self.get_query_params(position, specialization, country)
 
         # Retrieve saved query parameters from the session
@@ -126,7 +130,12 @@ class SearchListView(ListView):
             parms = self.get_query_params(position, specialization, country)
         else:
             self.save_query_params(self.request.GET.dict())
-        students = Students.objects.filter(parms)
+        if experience:
+            students = Students.objects.filter(parms).extra(
+                order_by=[F('experience').desc(nulls_last=True)]
+            )
+        else:
+            students = Students.objects.filter(parms)
         return students
 
     def retrieve_saved_query_params(self):
@@ -145,9 +154,9 @@ class SearchListView(ListView):
         if len(self.request.GET) < 1 and not saved_params:
             is_first = True
 
-        context['country'] = [""] + country
-        context['position'] = [""] + position
-        context['specializations'] = [""] + specializations
+        context['country'] = ["Any"] + country
+        context['position'] = ["Any"] + position
+        context['specializations'] = ["Any"] + specializations
         context['saved'] = saved
         context['is_first'] = is_first
 
