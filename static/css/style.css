@@ -438,6 +438,14 @@ input[id="cb1"] {
     border-radius: 50%;
 }
 
+@media screen and (min-width: 1300px) and (max-width: 1599px) {
+
+    .side-nav-link {
+        margin-bottom: 30%;
+    }
+
+}
+
 
 @media screen and (min-width: 1600px) {
     #info-body {
