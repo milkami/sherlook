@@ -20,6 +20,9 @@
     }
 }
 
+
+
+
 .navbar-brand .navbar-text .nav-link{
     color: white !important;
 }
@@ -134,8 +137,9 @@ input[id="cb1"] {
 }
 
 .white-box {
-    border-radius: 20px;
+    border-radius: 10px;
     background-color: white;
+    box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .white-input-box {
@@ -196,6 +200,13 @@ input[id="cb1"] {
     font-weight: 500;
     font-variant: small-caps;
     text-align: center;
+}
+
+.text-style-ro-20 {
+    font-size: 20px;
+    font-family: 'Roboto';
+    color: #100F0E;
+    line-height: 30px;
 }
 
 .text-style-ro-20b {
@@ -384,6 +395,107 @@ input[id="cb1"] {
     font-weight: 700;
 }
 
+.text-style-lato-20b {
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    line-height: 30px;
+    font-weight: 700;
+}
+
+
+.select-student-image-div {
+    position: absolute;
+    top: 10%;
+    left: 4%;
+    width: 70%;
+}
+
+.side-navbar-div {
+    padding-top: 60%;
+}
+
+.side-nav-link {
+    color: white; 
+    margin-bottom: 20%;
+}
+
+.side-nav-link:hover {
+    color: white;
+}
+
+/* Search button on search page */
+.search-button {
+    width: 170px; 
+    height: 35px;
+    box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.07), 0px 3px 3px 1px rgba(0, 0, 0, 0.07), 0px 3px 3px 1px rgba(0, 0, 0, 0.07);
+}
+
+/* Font awesome icon on search button on search page */
+.search-button-icon {
+    font-size: 45px; 
+    color: #FD602C; 
+    box-shadow: 0px 3px 2px rgba(0, 0, 0, 0.25); 
+    border-radius: 50%;
+}
+
+
+@media screen and (min-width: 1600px) {
+    #info-body {
+        width: 100%;
+    }
+
+    .info-images-div {
+        width: 90%;
+        /* padding-left: 180px;
+        padding-right: 180px; */
+    }
+
+    .info-library  {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+
+    .data-points-img {
+        margin-right: 70px;
+    }
+
+    .text-style-ro-20b {
+        font-size: 22px;
+    }
+
+    .text-style-ro-16 {
+        font-size: 18px;
+    }
+
+    .text-style-lato-20b {
+        font-size: 22px;
+    }
+
+    .select-student-image-div{
+        top: 15% !important;
+    }
+
+    .side-navbar-div {
+        padding-top: 90%;
+    }
+
+    .side-nav-link {
+        margin-bottom: 30%;
+    }
+
+    .search-button {
+        height: 40px;
+    }
+
+    .search-button-icon {
+        font-size: 55px;
+    }
+}
+
+
+
+
+
 /* Checkbox styling */
 .my-custom-checkbox {
     /* -moz-appearance:none;
@@ -433,6 +545,11 @@ input[id="cb1"] {
     left: 0px;
     top: 0px;
     visibility: hidden;
+    z-index: 1000;
+}
+
+#footer {
+    z-index: 900;
 }
 
 .pop-up-box .overlay {
@@ -500,9 +617,10 @@ input[id="cb1"] {
 } */
 
 .popover-body {
+    padding: 5px;
     /*height: 300px;*/
-    overflow: scroll;
-    overflow-x:hidden;
+    /* overflow: scroll;
+    overflow-x:hidden; */
 }
 
 .custom-cart-popover {
@@ -594,7 +712,12 @@ input[id="cb1"] {
     background-color: rgb(265, 215, 200);
 }
 
-
+/* Vertical line for info page */
+.vertical-line {
+    height: 35px; /* Adjust the height as needed */
+    width: 2px; /* Width of the vertical line */
+    background: linear-gradient(to bottom, #ED1C24, #FF6B2C); /* Gradient color from top to bottom */
+}
 
 
 
