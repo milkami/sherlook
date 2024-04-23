@@ -86,11 +86,329 @@
 {% load crispy_forms_tags %}
 
 {% block title %}Django CRM - Search{% endblock %}
+
+{% block script %}
+
+    <script src="{% static 'info.js' %}"></script>
+
+{% endblock %}
+
 {% block body %}
-<div class="col-12 px-4 py-5 col container-fluid" style="width: 100%; height: 100%;">
-    <div class="light-pink-box-without-shadow" style="height: 100%;">
-
-
+<div id="info-body" class="col-12 px-4 py-5 d-flex justify-content-center" style="height: 100%;">
+    <div class="col-12 light-pink-box-without-shadow pb-5" style="height: 100%;">
+        <!-- How to use search - info -->
+        <div id="info-search">
+            <div class="d-flex justify-content-center mt-5">
+                <div class="text-style-ro-40b px-5" style="color: white; background-color: #ED1C24; border-radius: 20px;">HOW TO USE SEARCH?</div>
+            </div>
+            <div class="col-12 px-5" style="width: 100%;">
+                <div class="col-12 mt-5 pt-5" style="border: 3px solid #FF6B2C; border-radius: 20px;">
+                    <!-- How to use search 1 -->
+                    <div class="d-flex justify-content-center">
+                        <div class="col-10 d-flex justify-content-center">
+                            <div class="info-images-div d-flex justify-content-between px-2">
+                                <div class="ps-5"><img class="img-fluid" style="width: 60%;" src="{% static 'images/side_menu1.png' %}"></div>
+                                <div class="pe-5">
+                                    <div class="text-style-ro-20b">SELECT SEARCH TAB</div>
+                                    <div class="text-style-ro-16 mt-2">
+                                        <ul>
+                                            <li>Select <span class="text-style-ro-16" style="color: #FF6B2C;">SEARCH</span> On side Menu to open search page and to choose search categories</li>
+                                        </ul>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <img class="img-fluid" src="{% static 'images/sherlock.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Scroll button -->
+                    <div class="d-flex justify-content-center mt-5"><img class="img-fluid" src="{% static 'images/scroll_button.png' %}"></div>
+                    <!-- How to use search 2 -->
+                    <div class="d-flex justify-content-center">
+                        <div class="col-11 d-flex justify-content-center">
+                            <div class="info-images-div col-12 d-flex mt-5">
+                                <div class="col-5 text-center">
+                                    <div class="text-style-ro-20b">POSITION</div>
+                                    <div class="ps-4 mt-3"><img class="img-fluid" style="width: 70%;" src="{% static 'images/position_one.png' %}"></div>
+                                </div>
+                                <div class="col-7 pe-5">
+                                    <div class="text-style-ro-20b ps-5">SELECT DESIRED CATEGORIES</div>
+                                    <div class="text-style-ro-16 mt-3 ps-5">
+                                        <ul>
+                                            <li>In Drop Down Menu Select Requirement You Are Looking For</li>
+                                            <li class="mt-2">There Are 3 Categories That You Can Search By:
+                                                <ol type="a">
+                                                    <li>POSITION</li>
+                                                    <li>SPECIALIZATION</li>
+                                                    <li>COUNTRY</li>
+                                                </ol>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="d-flex justify-content-center">
+                                        <img class="img-fluid" src="{% static 'images/programming_rafiki.png' %}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Scroll button -->
+                    <div class="d-flex justify-content-center mt-5"><img class="img-fluid" src="{% static 'images/scroll_button.png' %}"></div>
+                    <!-- How to use search 3 -->
+                    <div class="d-flex justify-content-center">
+                        <div class="col-10 d-flex justify-content-center">
+                            <div class="col-12 mt-5">
+                                <div class="row d-flex">
+                                    <div class="col-7 ps-3">
+                                        <div class="d-flex justify-content-center">
+                                            <img class="img-fluid" style="width: 90%;" src="{% static 'images/software_tester_rafiki.png' %}">
+                                        </div>
+                                    </div>
+                                    <div class="col-5 text-center">
+                                        <div class="text-style-ro-20b pe-4">POSITION</div>
+                                        <div class="pe-4 mt-3"><img class="img-fluid" style="width: 80%;" src="{% static 'images/position_and_search.png' %}"></div>
+                                    </div> 
+                                </div>
+                                <div class="d-flex justify-content-center mt-5">
+                                    <div class="col-8">
+                                        <div class="text-style-ro-20b ps-2">CLICK ON SEARCH BUTTON</div>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <div class="col-8">
+                                        <ul class="text-style-ro-16">
+                                            <li>When Search Categories Have Been Selected, Click On <span style="color: #FF6B2C;">SEARCH</span> Button On Bottom Right Of The Page To See Search List Of Available People</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Scroll button -->
+                    <div class="d-flex justify-content-center mt-5"><img class="img-fluid" src="{% static 'images/scroll_button.png' %}"></div>
+                    <!-- How to use search 4 -->
+                    <div class="d-flex justify-content-center mt-1">
+                        <div class="col-12 mt-5">
+                            <div class="d-flex justify-content-center "><img class="img-fluid" style="width: 30%;" src="{% static 'images/filter.png' %}"></div>
+                            <div class="d-flex justify-content-center mt-4">
+                                <div class="col-8">
+                                    <div class="text-style-ro-20b ps-2">FILTER SEARCH LIST</div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-2">
+                                <div class="col-8">
+                                    <ul class="text-style-ro-16">
+                                        <li>Filter Search List By Pressing On One Of The Categories. List Will Be Then Rearranged By The Order You Selected (Words - Alphabatic, Numbers - Highest To Lowest/Lowest To Highest)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3"><img class="img-fluid" style="width: 70%;" src="{% static 'images/search_results.png' %}"></div>
+                        </div>
+                    </div>
+                    <!-- Scroll button -->
+                    <div class="d-flex justify-content-center mt-5"><img class="img-fluid" src="{% static 'images/scroll_button.png' %}"></div>
+                    <!-- How to use search 5 -->
+                    <div class="d-flex justify-content-center">
+                        <div class="info-images-div col-12 mt-5 px-4" id="info-images-div">
+                            <div class="d-flex justify-content-center text-style-ro-30b">FILTER SEARCH CATEGORIES</div>
+                            <div class="d-flex justify-content-center mt-4">
+                                <div class="col-10 white-box d-flex align-items-center py-3">
+                                    <div class="text-style-ro-20b ps-3 pe-3">POSITION</div>
+                                    <div class="vertical-line"></div>
+                                    <div class="text-style-ro-16 ps-3">Employment Position That You Are Looking For.</div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <div class="col-10 white-box d-flex align-items-center py-3">
+                                    <div class="text-style-ro-20b ps-3 pe-3">SPECIALIZATION</div>
+                                    <div class="vertical-line"></div>
+                                    <div class="text-style-ro-16 ps-3">Students Field Of Specialization. Can Be Used In Combination With Position To Find Better Fit.</div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <div class="col-10 white-box d-flex align-items-center py-3">
+                                    <div class="text-style-ro-20b ps-3 pe-3">COUNTRY</div>
+                                    <div class="vertical-line"></div>
+                                    <div class="text-style-ro-16 ps-3">Country Where Student Is Currently Attending University.</div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <div class="col-10 white-box d-flex align-items-center py-3">
+                                    <div class="text-style-ro-20b ps-3 pe-3">AGE</div>
+                                    <div class="vertical-line"></div>
+                                    <div class="text-style-ro-16 ps-3">Age Of The Student.</div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <div class="col-10 white-box d-flex align-items-center py-3">
+                                    <div class="text-style-ro-20b ps-3 pe-3">EXPERIENCE</div>
+                                    <div class="vertical-line"></div>
+                                    <div class="text-style-ro-16 ps-3">Experience Based On Sherlooks Own Experience Scoring Formula.</div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-3">
+                                <div class="col-10 white-box d-flex align-items-center py-3">
+                                    <div class="text-style-ro-20b ps-3 pe-3">STATUS</div>
+                                    <div class="vertical-line"></div>
+                                    <div class="text-style-ro-16 ps-3">Current Status Of Actions That Have Been Done With Student.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Scroll button -->
+                    <div class="d-flex justify-content-center mt-5"><img class="img-fluid" src="{% static 'images/scroll_button.png' %}"></div>
+                    <!-- How to use search 6 -->
+                    <div class="d-flex justify-content-center">
+                        <div class="col-10">
+                            <div class="position-relative">
+                                <img class="img-fluid" src="{% static 'images/student_select.png' %}">
+                                <div class="position-absolute select-student-image-div">
+                                    <div class="text-style-ro-20b">SELECT A STUDENT</div>
+                                    <div class="mt-2 text-style-ro-16">
+                                        <ul>
+                                            <li>Select A Student / Candidate That Fits Your Requirements Best. By Clicking On The Candidate You Will Be Able To See Full Description And More Information About Them</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Scroll button -->
+                    <div class="d-flex justify-content-center mt-5"><img class="img-fluid" src="{% static 'images/scroll_button.png' %}"></div>
+                    <!-- How to use search 7 -->
+                    <div class="d-flex justify-content-center">
+                        <div class="col-12 mt-5">
+                            <div class="d-flex justify-content-center mt-4 px-3">
+                                <div class="col-9">
+                                    <div class="text-style-ro-20b ps-2">SAVE SELECTED STUDENT</div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-2 px-3">
+                                <div class="col-9">
+                                    <ul class="text-style-ro-16">
+                                        <li>To Save Student In Your Library Click On <span style="color: #FF6B2C;">SAVE</span> Button. When A Student Is In Your Library You Will Be Able To Make A Connection</li>
+                                        <li class="mt-2">To Gather More Information And Better Description Click On <span style="color: #FF6B2C; text-decoration: underline;">DETAILED EXPERIENCE AND COMPETENCES</span></li>
+                                        <li class="mt-2">Personal Information Will Only Be Available After Connection With The Student Has Been Made</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-2"><img class="img-fluid" style="width: 40%;" src="{% static 'images/selecting_team_rafiki.png' %}"></div>
+                            <div class="d-flex justify-content-center mt-2"><img class="img-fluid" style="width: 60%;" src="{% static 'images/experience_detail.png' %}"></div>
+                        </div>
+                    </div>
+                    <!-- Go to library button -->
+                    <div class="d-flex justify-content-center mt-5 mb-5">
+                        <div id="library-button" class="col-9 text-style-ro-40b d-flex py-1" style="color: white; background-color: #ED1C24; border-radius: 25px;">
+                            <div class="col-11 d-flex justify-content-center align-items-center">GO TO LIBRARY TUTORIAL</div>
+                            <div class="col-1 pe-3 d-flex justify-content-end align-items-center"><i class="fa-solid fa-circle-chevron-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- How to use library - info -->
+        <div id="info-library">
+            <div class="d-flex justify-content-center mt-5">
+                <div class="text-style-ro-40b px-5" style="color: white; background-color: #ED1C24; border-radius: 20px;">HOW TO USE LIBRARY?</div>
+            </div>
+            <div class="col-12 px-5" style="width: 100%;">
+                <div class="col-12 mt-5 pt-5" style="border: 3px solid #FF6B2C; border-radius: 20px;">
+                    <!-- How to use library 1 -->
+                    <div class="d-flex justify-content-center">
+                        <div class="col-10 d-flex px-5">
+                            <div class="ps-5"><img class="img-fluid" style="width: 70%;" src="{% static 'images/library_side_menu.png' %}"></div>
+                            <div class="pe-5">
+                                <div class="text-style-ro-20b">SELECT LIBRARY TAB</div>
+                                <div class="text-style-ro-16 mt-2">
+                                    <ul>
+                                        <li>Select <span style="color: #FF6B2C;">LIBRARY</span> On Side Menu To Open Search Page And To Choose Search Categories</li>
+                                    </ul>
+                                </div>
+                                <div class="ps-5"><img class="img-fluid" style="width: 100%;" src="{% static 'images/about_us_page_rafiki.png' %}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Scroll button -->
+                    <div class="d-flex justify-content-center mt-5"><img class="img-fluid" src="{% static 'images/scroll_button.png' %}"></div>
+                    <!-- How to use library 2 -->
+                    <div class="info-library d-flex justify-content-center mt-5">
+                        <div class="col-10 px-1">
+                            <div class="col-9">
+                                <div class="text-style-ro-20b ps-5">STATUS IN LIBRARY</div>
+                                <div class="text-style-ro-16 ps-5 pe-5 mt-2">
+                                    <ul>
+                                        <li>In Top left Corner You Can See Current Status Of Your Library. It Shows How Many Contacts You Have Saved And How Many Contacts You Have Connected To</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between pt-3">
+                                <div class="ps-5">
+                                    <div class="text-style-lato-20b d-flex align-items-center px-4 py-2" style="background-image: linear-gradient(to right, #ED1C24 , #FF6B2C); border-radius: 10px; color: white;">
+                                        <span id="saved-item">SAVED  &nbsp; | &nbsp; 23</span>
+                                        <span id="connected-item" class="ps-4">CONNECTED &nbsp; | &nbsp; 6</span>
+                                    </div>
+                                </div>
+                                <div class="pe-2 data-points-img"><img class="img-fluid" style="width: 90%;" src="{% static 'images/data_points.png' %}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Scroll button -->
+                    <div class="d-flex justify-content-center mt-5"><img class="img-fluid" src="{% static 'images/scroll_button.png' %}"></div>
+                    <!-- How to use library 3 -->
+                    <div class="d-flex justify-content-center mt-5">
+                        <div class="col-9">
+                            <div class="d-flex align-items-center">
+                                <div class="col-6 d-flex justify-content-center"><img class="img-fluid" style="width: 100%;" src="{% static 'images/user_research.png' %}"></div>
+                                <div class="col-6 d-flex justify-content-center"><img class="img-fluid" style="width: 60%;" src="{% static 'images/connect_button.png' %}"></div>
+                            </div>
+                            <div class="d-flex justify-content-center">
+                                <div class="col-9">
+                                    <div class="text-style-ro-20b">CLICK ON CONNECT BUTTON</div>
+                                    <div class="text-style-ro-16 mt-2">
+                                        <ul>
+                                            <li>To Recruit Contact You First Need To Connect With Them By Clicking <span style="color: #FF6B2C;">CONNECT</span> Button. This Will Let Sherlook Team Know That You Want To Recruit One Of The Contacts And Will Try To Connect You With Them</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Scroll button -->
+                    <div class="d-flex justify-content-center mt-5"><img class="img-fluid" src="{% static 'images/scroll_button.png' %}"></div>
+                    <!-- How to use library 4 -->
+                    <div class="d-flex justify-content-center mt-5">
+                        <div class="col-10">
+                            <div class="d-flex justify-content-center"><img class="img-fluid" style="width: 50%;" src="{% static 'images/people_search.png' %}"></div>
+                            <div class="d-flex justify-content-center mt-4">
+                                <div class="">
+                                    <div class="text-style-ro-20b">REMOVING CONTACT FROM LIBRARY</div>
+                                    <div class="text-style-ro-16 mt-2">
+                                        <ul>
+                                            <li>To Remove Contact From Your Library Click On <span style="color: #FF6B2C;">Remove From Library</span> Below <span style="color: #FF6B2C;">CONNECT</span> Button </li>
+                                            <li class="mt-2">This Will Completely Remove Contact From Your Library And You Will Not Be Able To See Them</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-center mt-4"><img class="img-fluid" style="width: 25%;" src="{% static 'images/remove_button.png' %}"></div>
+                        </div>
+                    </div>
+                    <!-- Scroll button -->
+                    <div class="d-flex justify-content-center mt-5"><img class="img-fluid" src="{% static 'images/scroll_button.png' %}"></div>
+                    <!-- How to use library 5 -->
+                    <div class="d-flex justify-content-center mt-5 mb-5">
+                        <div class="col-9">
+                            <div class="d-flex justify-content-center">
+                                <img class="img-fluid" style="width: 65%;" src="{% static 'images/more_coming_soon.png' %}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
     </div>
 </div>
 {% endblock %}
+
+To remove contact from your library click on Remove from library Below CONNECT button This will Completely remove contact from your library and you will not be able to see them
