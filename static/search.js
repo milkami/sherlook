@@ -17,15 +17,22 @@ document.addEventListener('DOMContentLoaded', function() {
     all_data.forEach(function(each_row) {
       each_row.addEventListener('click', event => {
         const dropdown_icon = each_row.querySelector('.dropdown-icon');
+        const student_data_div = each_row.querySelector('.student-data-div');
         console.log(event.target);
         const dropdown_div = each_row.querySelector('.dropdown-div');
 
-        if (event.target === dropdown_icon) {
+        // if (event.target === dropdown_icon) 
+        if (student_data_div.contains(event.target)){
+          console.log(student_data_div);
           if (dropdown_div.style.visibility === 'hidden') {
             dropdown_div.style.visibility = 'visible';
             dropdown_div.style.display = 'block';
             dropdown_div.style.opacity = '0';
             dropdown_div.style.height = '0';
+            if (dropdown_icon.classList.contains('fa-chevron-down')) {
+              dropdown_icon.classList.remove('fa-chevron-down');
+              dropdown_icon.classList.add('fa-chevron-up');
+            }
 
             // Delay before applying the transition
             setTimeout(() => {
@@ -43,6 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
               dropdown_div.style.display = 'none';
               dropdown_div.style.visibility = 'hidden';
             }, 115);
+
+            if (dropdown_icon.classList.contains('fa-chevron-up')) {
+              console.log('it contains');
+              dropdown_icon.classList.remove('fa-chevron-up');
+              dropdown_icon.classList.add('fa-chevron-down');
+            }
           }
         }
       });
@@ -70,6 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var search_body = document.querySelector('#search-body');
     var side_navbar = document.querySelector('#side-navbar');
+    var footer = document.querySelector('#footer');
     var pop_up_box = document.querySelector('.pop-up-box');
     var navbar_custom = document.querySelector('.navbar-custom'); 
     // var pop_up_position = document.querySelector('#pop-up-position');
@@ -98,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
             search_body.classList.add('blur');
             side_navbar.classList.add('blur');
             navbar_custom.classList.add('blur');
+            footer.classList.add('blur');
             pop_up_box.classList.add('pop-up-show');
             var save_buttons = pop_up_box.querySelectorAll('.save-button');
             console.log(event.target.dataset.studentid.toString())
@@ -113,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
         search_body.classList.remove('blur');
         side_navbar.classList.remove('blur');
         navbar_custom.classList.remove('blur');
+        footer.classList.remove('blur');
         pop_up_box.classList.remove('pop-up-show');
     })
 
