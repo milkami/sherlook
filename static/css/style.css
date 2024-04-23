@@ -438,7 +438,7 @@ input[id="cb1"] {
     border-radius: 50%;
 }
 
-@media screen and (min-width: 1320px) and (max-width: 1599px) {
+@media screen and (min-width: 1500px) and (max-width: 1599px) {
 
     .side-nav-link {
         margin-bottom: 30%;
