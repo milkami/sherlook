@@ -165,7 +165,11 @@ class SearchListView(ListView):
     
 def info_view(request):
     if request.user.is_authenticated:
-        return render(request, 'commons/info.html')
+        library = request.GET.get('library', default=None)
+        if library:
+            return render(request, 'commons/info.html', {'library': "True"})
+        else:
+            return render(request, 'commons/info.html', {'library': "False"})
     return redirect('/login/')
 
 

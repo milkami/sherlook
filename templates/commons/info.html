@@ -97,6 +97,7 @@
 <div id="info-body" class="col-12 px-4 py-5 d-flex justify-content-center" style="height: 100%;">
     <div class="col-12 light-pink-box-without-shadow pb-5" style="height: 100%;">
         <!-- How to use search - info -->
+        {% if library == "False" %}
         <div id="info-search">
             <div class="d-flex justify-content-center mt-5">
                 <div class="text-style-ro-40b px-5" style="color: white; background-color: #ED1C24; border-radius: 20px;">HOW TO USE SEARCH?</div>
@@ -298,7 +299,7 @@
                         </div>
                     </div>
                     <!-- Go to library button -->
-                    <div class="d-flex justify-content-center mt-5 mb-5">
+                    <div class="d-flex justify-content-center mt-5 mb-5" id="go-to-library">
                         <div id="library-button" class="col-9 text-style-ro-40b d-flex py-1" style="color: white; background-color: #ED1C24; border-radius: 25px;">
                             <div class="col-11 d-flex justify-content-center align-items-center">GO TO LIBRARY TUTORIAL</div>
                             <div class="col-1 pe-3 d-flex justify-content-end align-items-center"><i class="fa-solid fa-circle-chevron-right"></i></div>
@@ -307,6 +308,7 @@
                 </div>
             </div>
         </div>
+        {% else %}
          <!-- How to use library - info -->
         <div id="info-library">
             <div class="d-flex justify-content-center mt-5">
@@ -407,6 +409,7 @@
                 </div>
             </div>
          </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

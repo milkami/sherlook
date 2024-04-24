@@ -15,5 +15,14 @@ document.addEventListener('DOMContentLoaded', function() {
             element.classList.add('px-3');
         }
     });
+    var library_button = document.querySelector('#go-to-library');
+
+    library_button.addEventListener('click', event => {
+        var currentURL = window.location.href;
+        var url = currentURL + "?library=True";
+
+        window.location.href = url; // Redirect to the modified URL
+    });
+
 
 })
