@@ -48,7 +48,7 @@
 {% endblock %}
 {% block body %}
 <div id="search-body" class="col-12 px-4 py-5 col container-fluid" style="width: 100%;">
-    <div class="light-pink-box" style="height: 100%;">
+    <div class="light-pink-box pb-2" style="height: 100%;">
         <div class="col">
             <div class="d-flex justify-content-between pt-5 col-12">
                 <div class="text-center col-4" style="">
@@ -286,9 +286,9 @@
                     </div>
                     <div class="col-2 text-center text-style-ro-18b">
                         {% if student.id in saved %}
-                        <span data-student-status-id="{{ student.id }}" class="ps-xl-4 ps-lg-3 ps-md-3">Saved</span>
+                        <span data-student-status-id="{{ student.id }}" class="ms-4 ps-5 ps-md-3">Saved</span>
                         {% else %}
-                        <span data-student-status-id="{{ student.id }}" class="ps-xl-4 ps-lg-3 ps-md-3">Bought</span>
+                        <span data-student-status-id="{{ student.id }}" class="ms-4 ps-5 ps-md-3">Bought</span>
                         {% endif %}
                         <button class="dropdown-button ps-xl-5 ps-lg-5 ps-md-4" style="border: none; background-color: transparent;">
                             <i class="dropdown-icon fa-solid fa-chevron-down" style="color: #FD612C;"></i>
@@ -298,16 +298,16 @@
                 <div class="ms-2" style="height: 2px; background-color: #100F0E; opacity: 0.1; margin-left: 5px; width: 98%;"></div>
                 <div class="d-flex justify-content-between mt-2 mb-2">
                     <div>
-                        <span class="ext-style-ro-16b" style="color: #FD602C !important;">Experience</span>
-                        <span class="ext-style-ro-16b">| Monocoque Construction</span>
-                        <span class="ext-style-ro-16b">| Carbon Fibre Layup</span>
-                        <span class="ext-style-ro-16b">| Material Testing</span>
+                        <span class="text-style-ro-14" style="color: #FD602C !important;">Experience</span>
+                        <span class="text-style-ro-14">| Monocoque Construction</span>
+                        <span class="text-style-ro-14">| Carbon Fibre Layup</span>
+                        <span class="text-style-ro-14">| Material Testing</span>
                     </div>
                     <div>
-                        <span class="ext-style-ro-16b">Quick Learner |</span>
-                        <span class="ext-style-ro-16b">Detaik-Oriented |</span>
-                        <span class="ext-style-ro-16b">Hard Working |</span>
-                        <span class="ext-style-ro-16b" style="color: #FD602C !important;">Personality</span>
+                        <span class="text-style-ro-14">Quick Learner |</span>
+                        <span class="text-style-ro-14">Detaik-Oriented |</span>
+                        <span class="text-style-ro-14">Hard Working |</span>
+                        <span class="text-style-ro-14" style="color: #FD602C !important;">Personality</span>
                     </div>
                 </div>
             </div>

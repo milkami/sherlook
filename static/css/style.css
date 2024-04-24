@@ -510,6 +510,32 @@ input[id="cb1"] {
     }
 }
 
+@media screen and (min-width: 1600px) {
+
+    .text-style-ro-14 {
+        font-size: 18px;
+    }
+
+    .text-style-ro-18b {
+        font-size: 23px;
+    }
+
+    .text-style-ro-22b {
+        font-size: 26px;
+    }
+
+    .text-style-ro-24b {
+        font-size: 30px;
+    }
+
+    .text-style-ro-30b {
+        font-size: 40px;
+    }
+
+    .text-style-lato-24b {
+        font-size: 30px;
+    }
+}
 
 
 
