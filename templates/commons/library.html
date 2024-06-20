@@ -78,30 +78,46 @@
                     <div class="col-2 text-center text-style-ro-18b pe-4" style="color: #FD612C;">
                         {{ student.experience }}
                     </div>
-                    <div class="col-2 d-flex justify-content-between text-center text-style-ro-18b">
+                    <!-- <div class="col-2 text-center text-style-ro-18b">
                         {% if student.id in saved %}
-                        <span data-student-status-id="{{ student.id }}" class="ms-4 ps-5 ps-md-3">Saved</span>
+                        <span data-student-status-id="{{ student.id }}" class="ms-4 ps-3">Saved</span>
                         {% else %}
-                        <span data-student-status-id="{{ student.id }}" class="ms-4 ps-5 ps-md-3">Connected</span>
+                        <span data-student-status-id="{{ student.id }}" class="ps-3">Connected</span>
                         {% endif %}
-                        <button class="dropdown-button" style="padding-right: 0; border: none; background-color: transparent;">
-                            <i class="fa-solid fa-chevron-down dropdown-icon" style="color: #FD612C;"></i>
-                        </button>
+                        <button class="dropdown-button ps-4" style="border: none; background-color: transparent;">
+                            <i class="dropdown-icon fa-solid fa-chevron-down" style="color: #FD612C;"></i>
+                        </button>  
+                    </div> -->
+                    <div class="col-2 d-flex text-center text-style-ro-18b">
+                        {% if student.id in saved %}
+                        <div class="col-11 text-center">
+                            <span data-student-status-id="{{ student.id }}" class="">Saved</span>
+                        </div>
+                        {% else %}
+                        <div class="col-11">
+                            <span data-student-status-id="{{ student.id }}" class="">Connected</span>
+                        </div>
+                        {% endif %}
+                        <div class="col-1 text-center">
+                            <button class="dropdown-button" style="padding: 0; border: none; background-color: transparent;">
+                                <i class="fa-solid fa-chevron-down dropdown-icon" style="color: #FD612C;"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div class="ms-2" style="height: 2px; background-color: #100F0E; opacity: 0.1; margin-left: 5px; width: 98%;"></div>
                 <div class="d-flex justify-content-between mt-2 mb-2">
                     <div>
-                        <span class="ext-style-ro-16b" style="color: #FD602C !important;">Experience</span>
-                        <span class="ext-style-ro-16b">| Monocoque Construction</span>
-                        <span class="ext-style-ro-16b">| Carbon Fibre Layup</span>
-                        <span class="ext-style-ro-16b">| Material Testing</span>
+                        <span class="text-style-ro-14" style="color: #FD602C !important;">Experience</span>
+                        <span class="text-style-ro-14">| Monocoque Construction</span>
+                        <span class="text-style-ro-14">| Carbon Fibre Layup</span>
+                        <span class="text-style-ro-14">| Material Testing</span>
                     </div>
                     <div>
-                        <span class="ext-style-ro-16b">Quick Learner |</span>
-                        <span class="ext-style-ro-16b">Detaik-Oriented |</span>
-                        <span class="ext-style-ro-16b">Hard Working |</span>
-                        <span class="ext-style-ro-16b" style="color: #FD602C !important;">Personality</span>
+                        <span class="text-style-ro-14">Quick Learner |</span>
+                        <span class="text-style-ro-14">Detaik-Oriented |</span>
+                        <span class="text-style-ro-14">Hard Working |</span>
+                        <span class="text-style-ro-14" style="color: #FD602C !important;">Personality</span>
                     </div>
                 </div>
             </div>
@@ -178,8 +194,8 @@
                 <div class="row">
                     <div class="d-flex">
                         <div class="col-9"></div>
-                        <div class="col-3 mt-2 pe-3 text-center">
-                            <a href="{% url 'remove_from_library' pk=student.id %}" class="text-style-ro-14 mt-3 text-center" style="color: #FD602C;">Remove From Library</a>
+                        <div class="col-3 mt-2 pe-3 text-center remove-from-library-div">
+                            <a href="{% url 'remove_from_library' pk=student.id %}" class="text-style-ro-14 mt-3 text-center remove-from-library-link" style="color: #FD602C;">Remove From Library</a>
                         </div>
                     </div>
                 </div>
@@ -272,7 +288,7 @@
     <div class="overlay row d-flex" style="width: 100%; margin: 0;"></div>
     <div class="pop-up-body col-lg-9">
         <div class="pop-up-inner-body">
-            <div class="row">
+            <div class="row pop-up-inner-body-row">
                 <div class="d-flex">
                     <div class="col-lg-2">
                         <div class="text-style-ro-18b">NAME</div>
@@ -283,12 +299,12 @@
                         <div class="text-style-ro-18b mt-1">MORE INFO 2</div>
                     </div>
                     <div class="col-lg-2">
-                        <div class="text-style-ro-18b" style="filter: blur(4px);">Name</div>
-                        <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">Surname</div>
-                        <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">University</div>
-                        <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">University 2</div>
-                        <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">More info 1</div>
-                        <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">More info 2</div>
+                        <div class="text-style-ro-18b" style="filter: blur(5px);">Name</div>
+                        <div class="text-style-ro-18b mt-1" style="filter: blur(5px);">Surname</div>
+                        <div class="text-style-ro-18b mt-4" style="filter: blur(5px);">University</div>
+                        <div class="text-style-ro-18b mt-1" style="filter: blur(5px);">University 2</div>
+                        <div class="text-style-ro-18b mt-4" style="filter: blur(5px);">More info 1</div>
+                        <div class="text-style-ro-18b mt-1" style="filter: blur(5px);">More info 2</div>
                     </div>
 
                     <div class="col-lg-5 pe-5 ms-1">

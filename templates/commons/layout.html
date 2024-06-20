@@ -43,7 +43,7 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-dark navbar-expand-sm navbar-custom" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); position: fixed; width: 100%;">
+            <nav class="navbar navbar-dark navbar-expand-sm navbar-custom" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); position: fixed; width: 100%; z-index: 1000;">
                 <div class="container-fluid px-5">
                     <a class="navbar-brand text-style-ro-24b" href="{% url 'home' %}">SHERLOOK</a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -153,6 +153,32 @@
         <script>
 
         document.addEventListener("DOMContentLoaded", function() {
+
+            let screen_width = window.innerWidth;
+            let side_nav_links = document.querySelectorAll('.side-nav-link');
+
+            if (screen_width >= 3000) {
+                // Add additional padding to side nav links
+                side_nav_links.forEach(side_nav_link => {
+                    side_nav_link.classList.remove('py-1');
+                    side_nav_link.classList.add('py-3');
+                });
+            };
+
+            window.addEventListener('resize', () => {
+                    let screen_width = window.innerWidth;
+
+                    // Add additional padding to side nav links
+                    side_nav_links.forEach(side_nav_link => {
+                        if (screen_width >= 3000) {
+                            side_nav_link.classList.remove('py-1');
+                            side_nav_link.classList.add('py-3');
+                        } else {
+                            side_nav_link.classList.remove('py-3');
+                            side_nav_link.classList.add('py-1');
+                        }
+                    });
+                });
 
             var body = document.querySelector('.body');
         

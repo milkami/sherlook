@@ -89,20 +89,56 @@ document.addEventListener('DOMContentLoaded', function() {
         })
 
         let screen_width = window.innerWidth;
+        let remove_from_library_div = document.querySelector('.remove-from-library-div');
+        let remove_from_library_link = document.querySelector('.remove-from-library-link');
+        var pop_up_inner_body_row = document.querySelector('.pop-up-inner-body-row');
+
         if (screen_width >= 3000) {
             library_body.classList.add('px-4');
+
+            // Adjust position of 'Remove from library' link
+            remove_from_library_div.classList.remove('pe-4');
+            remove_from_library_div.classList.add('pe-5');
+            remove_from_library_div.classList.remove('pt-2');
+            remove_from_library_div.classList.add('pt-3');
+            remove_from_library_link.classList.add('me-5');
+
+            // Add padding to pop-up with additional info
+            pop_up_inner_body_row.classList.add('px-3');
+            pop_up_inner_body_row.classList.add('py-2');
         };
     
         window.addEventListener('resize', () => {
             let screen_width = window.innerWidth;
-            console.log('resized');
             if (screen_width >= 3000) {
                 // Add bigger padding to library page
                 library_body.classList.add('px-4');
 
+                // Adjust position of 'Remove from library' link
+                remove_from_library_div.classList.remove('pe-4');
+                remove_from_library_div.classList.add('pe-5');
+                remove_from_library_div.classList.remove('pt-2');
+                remove_from_library_div.classList.add('pt-3');
+                remove_from_library_link.classList.add('me-5');
+
+                // Add padding to pop-up with additional info
+            pop_up_inner_body_row.classList.add('px-3');
+            pop_up_inner_body_row.classList.add('py-2');
+
             } else {
                 // Return to normal padding on library page
                 library_body.classList.remove('px-4');
+
+                // Adjust position of 'Remove from library' link
+                remove_from_library_div.classList.remove('pe-5');
+                remove_from_library_div.classList.add('pe-4');
+                remove_from_library_div.classList.remove('pt-3');
+                remove_from_library_div.classList.add('pt-2');
+                remove_from_library_link.classList.remove('me-5');
+
+                // Remove padding from pop-up with additional info
+                pop_up_inner_body_row.classList.remove('px-3');
+                pop_up_inner_body_row.classList.remove('py-2');
             };
         });
 

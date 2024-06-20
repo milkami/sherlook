@@ -25,15 +25,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     var info_body = document.querySelector('#info-body');
-    var info_search_div = document.querySelector('.info-search-6-div');
+    var info_search_div_one = document.querySelector('.info-search-div-one');
+    var info_search_div_two = document.querySelector('.info-search-div-two');
+    var filter_search_categories_div = document.querySelector('.filter-search-categories-div');
+    var info_search_div_six = document.querySelector('.info_search_div_six');
     let screen_width = window.innerWidth;
 
       if (screen_width >= 3000) {
         info_body.classList.remove('px-4');
         info_body.classList.add('px-5');
 
-        info_search_div.classList.remove('col-10');
-        info_search_div.classList.add('col-9');
+        // Size adjustment of 'How to use search 1' div
+        info_search_div_one.classList.remove('col-10');
+        info_search_div_one.classList.add('col-9');
+
+        // Size adjustment of 'How to use search 2' div
+        info_search_div_two.classList.add('ms-5');
+        info_search_div_two.classList.add('ps-5');
+
+        // Size adjustment of 'Filter search categories' div in 'How to use search 5' div
+        filter_search_categories_div.classList.remove('pb-2');
+        filter_search_categories_div.classList.add('pb-4');
+
+        // Size adjustment of 'How to use search 6' div
+        info_search_div_six.classList.remove('col-10');
+        info_search_div_six.classList.add('col-9');
+
       };
     
     window.addEventListener('resize', () => {
@@ -43,18 +60,38 @@ document.addEventListener('DOMContentLoaded', function() {
         info_body.classList.remove('px-4');
         info_body.classList.add('px-5');
 
-        // Change size of one of info div's
-        info_search_div.classList.remove('col-10');
-        info_search_div.classList.add('col-9');
+        // Size adjustment of 'How to use search 1' div
+        info_search_div_one.classList.remove('col-10');
+        info_search_div_one.classList.add('col-9');
+
+        // Size adjustment of 'How to use search 2' div
+        info_search_div_two.classList.remove('ms-5');
+        info_search_div_two.classList.remove('ps-5');
+
+        // Size adjustment of 'Filter search categories' div in 'How to use search 5' div
+        filter_search_categories_div.classList.remove('pb-2');
+        filter_search_categories_div.classList.add('pb-4');
+
+        // Size adjustment of 'How to use search 6' div
+        info_search_div_six.classList.remove('col-10');
+        info_search_div_six.classList.add('col-9');
 
       } else {
         // Return to normal padding on info page
         info_body.classList.remove('px-5');
         info_body.classList.add('px-4');
 
-        // Change size of one of info div's
-        info_search_div.classList.remove('col-9');
-        info_search_div.classList.add('col-10');
+        // Size adjustment of 'How to use search 1' div
+        info_search_div_one.classList.remove('col-9');
+        info_search_div_one.classList.add('col-10');
+
+        // Size adjustment of 'Filter search categories' div in 'How to use search 5' div
+        filter_search_categories_div.classList.remove('pb-4');
+        filter_search_categories_div.classList.add('pb-2');
+
+        // Size adjustment of 'How to use search 6' div
+        info_search_div_six.classList.remove('col-9');
+        info_search_div_six.classList.add('col-10');
       };
     });
 

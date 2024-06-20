@@ -229,6 +229,7 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     var search_dropdowns = document.querySelectorAll('.search-dropdown');
+    var pop_up_inner_body_row = document.querySelector('.pop-up-inner-body-row');
 
     let screen_width = window.innerWidth;
       if (screen_width >= 3000) {
@@ -239,6 +240,11 @@ document.addEventListener('DOMContentLoaded', function() {
           search_dropdown.classList.remove('py-2');
           search_dropdown.classList.add('py-3');
         });
+
+        // Add padding to pop-up with additional info
+        pop_up_inner_body_row.classList.add('px-3');
+        pop_up_inner_body_row.classList.add('py-2');
+
       };
     
     window.addEventListener('resize', () => {
@@ -254,6 +260,10 @@ document.addEventListener('DOMContentLoaded', function() {
           search_dropdown.classList.add('py-3');
         });
 
+        // Add padding to pop-up with additional info
+        pop_up_inner_body_row.classList.add('px-3');
+        pop_up_inner_body_row.classList.add('py-2');
+
       } else {
         // Return to normal padding on search page
         search_body.classList.remove('px-5');
@@ -263,6 +273,10 @@ document.addEventListener('DOMContentLoaded', function() {
           search_dropdown.classList.remove('py-3');
           search_dropdown.classList.add('py-2');
         });
+
+        // Remove padding from pop-up with additional info
+        pop_up_inner_body_row.classList.remove('px-3');
+        pop_up_inner_body_row.classList.remove('py-2');
 
       };
     });

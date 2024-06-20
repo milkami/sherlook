@@ -37,6 +37,58 @@
         <script>
             document.addEventListener('DOMContentLoaded', function() {
 
+                let screen_width = window.innerWidth;
+                let card_body = document.querySelector('.card-body');
+                let field_labels = document.querySelectorAll('.field-label');
+                let field_check_box = document.querySelector('.field-check-box');
+
+                if (screen_width >= 3000) {
+                    card_body.classList.remove('py-4');
+                    card_body.classList.add('py-5');
+
+                    // Add margin top to input labels
+                    field_labels.forEach(field_label => {
+                        field_label.classList.add('mt-3');
+                    });
+
+                    // Add margin top and bottom to checkbox
+                    field_check_box.classList.add('mt-4');
+                    field_check_box.classList.add('mb-4');
+                };
+            
+                window.addEventListener('resize', () => {
+                    let screen_width = window.innerWidth;
+                    console.log('resized');
+                    if (screen_width >= 3000) {
+                        // Add bigger padding
+                        card_body.classList.remove('py-4');
+                        card_body.classList.add('py-5');
+
+                    } else {
+                        // Return to normal padding
+                        card_body.classList.remove('py-5');
+                        card_body.classList.add('py-4');
+                    };
+
+                    // Add or remove margin top to input labels
+                    field_labels.forEach(field_label => {
+                        if (screen_width >= 3000) {
+                            field_label.classList.add('mt-3');
+                        } else {
+                            field_label.classList.remove('mt-3');
+                        }
+                    });
+
+                    // Add or remove margin top and bottom to checkbox
+                    if (screen_width >= 3000) {
+                        field_check_box.classList.add('mt-4');
+                        field_check_box.classList.add('mb-4');
+                    } else {
+                        field_check_box.classList.remove('mt-4');
+                        field_check_box.classList.remove('mb-4');
+                    }
+                });
+
                 var checkbox_input = document.querySelector('#cb1');
                 document.querySelector('#signup-button').disabled = true;
 
@@ -46,9 +98,9 @@
                     } else {
                         document.querySelector('#signup-button').disabled = true;
                     }
-                })
+                });
 
-            })
+            });
         </script>
 
 
@@ -205,6 +257,58 @@
                 color: #FF6B2C !important;
             }
 
+            @media screen and (min-width: 3000px) {
+
+                .text-style-ro-14l {
+                    font-size: 25px;
+                    line-height: 40px;
+                }
+
+                .text-style-ro-14 {
+                    font-size: 25px;
+                }
+
+                .text-style-ro-16 {
+                    font-size: 30px;
+                    line-height: 40px;
+                }
+
+                .text-style-ro-22b {
+                    font-size: 38px;
+                    line-height: 45px;
+                }
+
+                .text-style-ro-32b {
+                    font-size: 45px;
+                    line-height: 70px;
+                }
+
+                .text-style-ro-60 {
+                    font-size: 100px;
+                    line-height: 120px;
+                }
+
+                .button-custom-style {
+                    height: 60px;
+                }
+
+                .my-custom-checkbox::before {
+                    font-size: 22px;
+                    width: 22px;
+                    height: 22px;
+                }
+
+                .my-custom-checkbox:checked:before {
+                    font-size: 18px;
+                    line-height: 20px !important;
+                }
+
+                .footer-custom {
+                    height: 90px;
+                }
+                
+            }
+
         </style>
 
 </head>
@@ -234,20 +338,22 @@
                 <div class="container-custom card col-lg-10 col-md-10 col-sm-12">
                     <div class="row justify-content-center">
                         <div class="col-lg-11 col-sm-10">
-                            <div class="card-body pt-4 pb-4" style="width: 100%;">
+                            <div class="card-body py-4" style="width: 100%;">
                                 <h5 class="card-title text-style-ro-32b mb-3">Welcome back!</h5>
                                 <form method="POST">
                                     {% csrf_token %}
                                     {% for field in form %}
                                         {% if field.field.widget.input_type != 'checkbox' %}
-                                            <label class="text-style-ro-14l mb-2">{{field.label}}</label>
+                                            <label class="text-style-ro-14l mb-2 field-label">{{field.label}}</label>
                                             {{ field }}
                                         {% elif field.field.widget.input_type == 'checkbox' %}
-                                            {{ field }}<label class="text-style-ro-14" style="margin-left: 10px;">{{field.label}}</label>
+                                            <div class="d-flex align-items-center">
+                                            {{ field }}<label class="text-style-ro-14 field-check-box" style="margin-left: 10px;">{{field.label}}</label>
+                                            </div>
                                         {% endif %}
                                     {% endfor %}
                                     <div class="d-flex justify-content-center">
-                                        <button id="login-button" type="submit" style="width: 100%;" class="button-custom-style mt-4">
+                                        <button id="login-button" type="submit" style="width: 100%;" class="button-custom-style mt-4 text-style-ro-16">
                                             <i class="fa-solid fa-arrow-right-to-bracket pe-3" style=""></i>
                                                 Log-in
                                         </button>

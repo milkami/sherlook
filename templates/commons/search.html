@@ -284,15 +284,21 @@
 {#                            <i class="fa-regular fa-square" style="color: #FD612C;"></i>#}
 {#                        </button>#}
                     </div>
-                    <div class="col-2 text-center text-style-ro-18b">
+                    <div class="col-2 d-flex text-center text-style-ro-18b">
                         {% if student.id in saved %}
-                        <span data-student-status-id="{{ student.id }}" class="ms-4 ps-5 ps-md-3">Saved</span>
+                        <div class="col-11 text-center">
+                            <span data-student-status-id="{{ student.id }}" class="">Saved</span>
+                        </div>
                         {% else %}
-                        <span data-student-status-id="{{ student.id }}" class="ms-4 ps-5 ps-md-3">Bought</span>
+                        <div class="col-11 text-center">
+                            <span data-student-status-id="{{ student.id }}" class="">Bought</span>
+                        </div>
                         {% endif %}
-                        <button class="dropdown-button ps-xl-5 ps-lg-5 ps-md-4" style="border: none; background-color: transparent;">
-                            <i class="dropdown-icon fa-solid fa-chevron-down" style="color: #FD612C;"></i>
-                        </button>  
+                        <div class="col-1 text-center">
+                            <button class="dropdown-button" style="padding: 0; border: none; background-color: transparent;">
+                                <i class="dropdown-icon fa-solid fa-chevron-down" style="color: #FD612C;"></i>
+                            </button>  
+                        </div>
                     </div>
                 </div>
                 <div class="ms-2" style="height: 2px; background-color: #100F0E; opacity: 0.1; margin-left: 5px; width: 98%;"></div>
@@ -314,7 +320,7 @@
             
 
             <!-- Dropdown data -->
-            <div class="dropdown-div col-lg-11 container-fluid justify-content-center px-4 pt-4 pb-3" style="visibility: hidden; display: none; background: #fff; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1); margin-top: 0.015em;">
+            <div class="dropdown-div col-lg-11 container-fluid justify-content-center px-4 pt-5 pb-4" style="visibility: hidden; display: none; background: #fff; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1); margin-top: 0.015em;">
                 <div class="row">
                     <div class="d-flex">
                         <div class="col-2">
@@ -326,12 +332,12 @@
                             <div class="text-style-ro-18b mt-1">MORE INFO 2</div>
                         </div>
                         <div class="col-2">
-                            <div class="text-style-ro-18b" style="filter: blur(4px);">Name</div>
-                            <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">Surname</div>
-                            <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">University</div>
-                            <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">University 2</div>
-                            <div class="text-style-ro-18b mt-4" style="filter: blur(4px);">More info 1</div>
-                            <div class="text-style-ro-18b mt-1" style="filter: blur(4px);">More info 2</div>
+                            <div class="text-style-ro-18b" style="filter: blur(5px);">Name</div>
+                            <div class="text-style-ro-18b mt-1" style="filter: blur(5px);">Surname</div>
+                            <div class="text-style-ro-18b mt-4" style="filter: blur(5px);">University</div>
+                            <div class="text-style-ro-18b mt-1" style="filter: blur(5px);">University 2</div>
+                            <div class="text-style-ro-18b mt-4" style="filter: blur(5px);">More info 1</div>
+                            <div class="text-style-ro-18b mt-1" style="filter: blur(5px);">More info 2</div>
                         </div>
     
                         <div class="col-6 pe-5 ms-1">
@@ -550,7 +556,7 @@
     <div class="overlay row d-flex" style="width: 100%; margin: 0;"></div>
     <div class="pop-up-body col-lg-9">
         <div class="pop-up-inner-body">
-            <div class="row">
+            <div class="row pop-up-inner-body-row">
                 <div class="d-flex">
                     <div class="col-lg-2">
                         <div class="text-style-ro-18b">NAME</div>

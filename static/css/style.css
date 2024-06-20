@@ -76,7 +76,7 @@ input[id="cb1"] {
 
 .side-nav-link.active {
     background: linear-gradient(to right, #FF6B2C, #FFFFFF);
-    border-radius: 10px 0 0 10px;
+    border-radius: 15px 0 0 15px;
 }
 
 
@@ -453,6 +453,40 @@ input[id="cb1"] {
     border-radius: 50%;
 }
 
+/* Pagination */
+.page-link {
+    font-size: 15px;
+}
+
+.pagination .page-item .page-link {
+    background-color: #FFF0EA;
+    color: #FD612C;; 
+    border-color: #FFF0EA;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: rgb(275, 225, 210); 
+    border-color: rgb(275, 225, 210);
+}
+
+.pagination .page-item.disabled .page-link {
+    background-color: #FFF0EA;
+    border-color: #FFF0EA;
+    color: rgb(253, 97, 44, 0.3);
+}
+
+.pagination .page-item .page-link:hover {
+    background-color: rgb(265, 215, 200);
+}
+
+.info-search-div-three-image-one {
+    width: 90%;
+}
+
+.info-search-div-three-image-two {
+    width: 80%;
+}
+
 @media screen and (min-width: 1500px) and (max-width: 1599px) {
 
     /*.side-nav-link {*/
@@ -594,6 +628,7 @@ input[id="cb1"] {
 
     .text-style-ro-30b {
         font-size: 50px;
+        line-height: 70px;
     }
 
     .text-style-ro-40b {
@@ -619,6 +654,23 @@ input[id="cb1"] {
     .search-button-icon {
         font-size: 80px;
     }
+
+    .search-button {
+        width: 250px;
+    }
+
+    .save-button {
+        height: 50px;
+    }
+
+    .connect-button {
+        height: 50px;
+    }
+
+    .page-link {
+        font-size: 25px;
+    }
+
 }
 
 
@@ -818,28 +870,6 @@ input[id="cb1"] {
     text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
-
-/* Pagination */
-.pagination .page-item .page-link {
-    background-color: #FFF0EA;
-    color: #FD612C;; 
-    border-color: #FFF0EA;
-}
-
-.pagination .page-item.active .page-link {
-    background-color: rgb(275, 225, 210); 
-    border-color: rgb(275, 225, 210);
-}
-
-.pagination .page-item.disabled .page-link {
-    background-color: #FFF0EA;
-    border-color: #FFF0EA;
-    color: rgb(253, 97, 44, 0.3);
-}
-
-.pagination .page-item .page-link:hover {
-    background-color: rgb(265, 215, 200);
-}
 
 /* Vertical line for info page */
 .vertical-line {
