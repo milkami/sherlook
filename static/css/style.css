@@ -1,7 +1,13 @@
 .navbar-custom {
     background-image: linear-gradient(to right, #ED1C24 , #FF6B2C);
-    /* height: 86px; */
+    height: 80px; 
 }
+
+.footer-custom {
+    background-image: linear-gradient(to right, #ED1C24 , #FF6B2C);
+    height: 70px;
+}
+
 
 
 :root {
@@ -11,16 +17,20 @@
  }
 
  .side-navbar {
-    background: var(--side-navbar-color);
+    background: var(--side-navbar-color); 
  }
 
-@media screen and (min-width: 800px) {
-    /*.navbar-custom {*/
-    /*    height: 6vw;*/
-    /*}*/
+ #side-navbar {
+    top: 80px;
+ }
+
+
+.content {
+    width: 85%; 
+    margin-left: 15%; 
+    padding: 0; 
+    margin-top: 80px;
 }
-
-
 
 
 .navbar-brand .navbar-text .nav-link{
@@ -49,7 +59,7 @@ html, body {
 body {
     display: flex;
     flex-direction: column;
-    padding-bottom: 80px;
+    /* padding-bottom: 80px; */
 }
 
 .first-container {
@@ -280,7 +290,7 @@ input[id="cb1"] {
 }
 
 .text-style-ro-60b {
-    font-size: 3.8vw;
+    font-size: 60px;
     font-family: 'Roboto';
     color: #100F0E;
     line-height: 70px;
@@ -452,6 +462,8 @@ input[id="cb1"] {
 }
 
 
+
+
 @media screen and (min-width: 1600px) {
     #info-body {
         width: 100%;
@@ -536,6 +548,79 @@ input[id="cb1"] {
         font-size: 30px;
     }
 }
+
+@media screen and (min-width: 3000px) {
+
+    .navbar-custom {
+        height: 120px;
+    }
+
+    .footer-custom {
+        height: 90px;
+    }
+
+    .content {
+        margin-top: 120px;
+    }
+
+    #side-navbar {
+        top: 120px; 
+    }
+
+    .text-style-ro-14 {
+        font-size: 20px;
+    }
+
+    .text-style-ro-16 {
+        font-size: 22px;
+        line-height: 30px;
+    }
+
+    .text-style-ro-18b {
+        font-size: 25px;
+    }
+
+    .text-style-ro-20b {
+        font-size: 28px;
+    }
+
+    .text-style-ro-22b {
+        font-size: 30px;
+    }
+
+    .text-style-ro-24b {
+        font-size: 40px;
+    }
+
+    .text-style-ro-30b {
+        font-size: 50px;
+    }
+
+    .text-style-ro-40b {
+        font-size: 55px;
+        line-height: 90px;
+    }
+
+    .text-style-ro-60b {
+        font-size: 120px;
+        line-height: 140px;
+    }
+
+    #search-body {
+        margin-top: 50px;
+        width: 100%;
+    }
+
+    .search-button {
+        height: 60px;
+        width: 200px;
+    }
+
+    .search-button-icon {
+        font-size: 80px;
+    }
+}
+
 
 
 

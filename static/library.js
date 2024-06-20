@@ -88,6 +88,26 @@ document.addEventListener('DOMContentLoaded', function() {
             pop_up_box.classList.remove('pop-up-show');
         })
 
+        let screen_width = window.innerWidth;
+        if (screen_width >= 3000) {
+            library_body.classList.add('px-4');
+        };
+    
+        window.addEventListener('resize', () => {
+            let screen_width = window.innerWidth;
+            console.log('resized');
+            if (screen_width >= 3000) {
+                // Add bigger padding to library page
+                library_body.classList.add('px-4');
+
+            } else {
+                // Return to normal padding on library page
+                library_body.classList.remove('px-4');
+            };
+        });
+
+
+
 
     // Function to apply the class based on the screen width
         function applyClassBasedOnScreenWidth() {

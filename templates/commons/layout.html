@@ -43,112 +43,43 @@
     </head>
     <body>
         <header>
-        <nav class="navbar navbar-dark navbar-expand-sm navbar-custom" style="height: 80px; box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);">
-            <div class="container-fluid px-5">
-                <a class="navbar-brand text-style-ro-24b" href="{% url 'home' %}">SHERLOOK</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                {% if request.user.is_authenticated %}
-                <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-                    <ul class="navbar-nav d-flex" style="width: 100%;">
-                        <li class="nav-item">
-                            <a class="nav-link active ms-md-2 me-md-3" aria-current="page" id="shopping-cart-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="YOUR CART" data-popover-content="#popover-cart" data-html="true" data-bs-custom-class="custom-cart-popover">
-{#                                <i class="fa-solid fa-cart-shopping" style="font-size: 1.5vw; color: white;"></i>#}
-                            </a>
-                        </li>
-                        <li class="nav-item ms-sm-auto">
-                            <a class="nav-link active ms-md-2 me-md-3" aria-current="page" id="profile-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="PROFILE" data-popover-content="#popover-profile" data-html="true">
-{#                                <i class="fa-solid fa-magnifying-glass" style="font-size: 1.5vw; color: white;"></i>#}
-                                <i class="fa-regular fa-user" style="font-size: 1.5vw; color: white;"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active ms-md-3 me-md-3" aria-current="page" id="notification-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="NOTIFICATIONS" data-popover-content="#popover-notification" data-html="true">
-                                <i class="fa-regular fa-bell" style="font-size: 1.5vw; color: white;"></i>
-                            </a>
-                        </li>
-{#                        <li class="nav-item">#}
-{#                            <a class="nav-link active ms-md-2 me-md-1" aria-current="page" href="{% url 'profile' %}">#}
-{#                                <i class="fa-regular fa-user" style="font-size: 1.5vw; color: white;"></i>#}
-{#                            </a>#}
-{#                        </li>#}
-                    </ul>
-                </div>
-                <!-- <div style="color: white;" class="collapse navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo01">
-                    <div>
-                        <a class="nav-link active text-style-ro-24b" aria-current="page" href="{% url 'home' %}" style="color: white;">
-                            SHERLOOK 3000
-                        </a>
+            <nav class="navbar navbar-dark navbar-expand-sm navbar-custom" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); position: fixed; width: 100%;">
+                <div class="container-fluid px-5">
+                    <a class="navbar-brand text-style-ro-24b" href="{% url 'home' %}">SHERLOOK</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    {% if request.user.is_authenticated %}
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                        <ul class="navbar-nav d-flex" style="width: 100%;">
+                            <li class="nav-item">
+                                <a class="nav-link active ms-md-2 me-md-3" aria-current="page" id="shopping-cart-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="YOUR CART" data-popover-content="#popover-cart" data-html="true" data-bs-custom-class="custom-cart-popover">
+                                <!-- <i class="fa-solid fa-cart-shopping" style="font-size: 1.5vw; color: white;"></i> -->
+                                </a>
+                            </li>
+                            <li class="nav-item ms-sm-auto">
+                                <a class="nav-link active ms-md-2 me-md-3" aria-current="page" id="profile-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="PROFILE" data-popover-content="#popover-profile" data-html="true">
+                                    <i class="fa-regular fa-user" style="font-size: 1.5vw; color: white;"></i>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active ms-md-3 me-md-3" aria-current="page" id="notification-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="NOTIFICATIONS" data-popover-content="#popover-notification" data-html="true">
+                                    <i class="fa-regular fa-bell" style="font-size: 1.5vw; color: white;"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>   
+
+                    {% else %}
+                    <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
+                        <div class="text-style-ro-29b">SHERLOOK</div>
                     </div>
-                    <div class="d-flex align-items-center">
-                        <a class="nav-link active ms-3 me-3" aria-current="page" id="notification-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="NOTIFICATIONS" data-popover-content="#popover-notification" data-html="true">
-                            <i class="fa-solid fa-magnifying-glass" style="font-size: 21px;"></i>
-                        </a>
-                        <a class="nav-link active ms-2 me-3" aria-current="page" id="notification-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="NOTIFICATIONS" data-popover-content="#popover-notification" data-html="true">
-                            <i class="fa-regular fa-bell" style="font-size: 21px;"></i>
-                        </a>
-                        <a class="nav-link active ms-2 me-3" aria-current="page" id="shopping-cart-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="YOUR CART" data-popover-content="#popover-cart" data-html="true" data-bs-custom-class="custom-cart-popover">
-                            <i class="fa-solid fa-cart-shopping" style="font-size: 21px;"></i>
-                        </a>
-                        <a class="nav-link active ms-2 me-1" aria-current="page" href="{% url 'profile' %}">
-                            <i class="fa-regular fa-user" style="font-size: 21px;"></i>
-                        </a>
-                    </div> -->
-
-
-                    
-                    <!-- <div class="d-flex">
-                        <a class="nav-link active" aria-current="page" href="{% url 'home' %}" style="font-family: 'Roboto'; font-size: 21.5px; font-weight: 700;">
-                            Home
-                        </a>
-                    </div> -->
-                    <!-- <div class="d-flex">
-                        <a class="nav-link active" aria-current="page" href="#" style="font-family: 'Racing Sans One'; font-weight: 400; font-size: 24px;">
-                            SHERLOOK 3000
-                        </a>
-                    </div> -->
-                    <!-- <div>
-                        <div style="float: left; padding-right: 20px;" class="d-flex">
-                            <a class="nav-link active" aria-current="page" href="{% url 'payment' %}">
-                                <i class="fa-solid fa-cart-shopping"></i>
-                            </a>
-                        </div>
-                        <div style="float: right;" class="d-flex">
-                            <a class="nav-link active" aria-current="page" href="{% url 'profile' %}">
-                                <i class="fa-regular fa-user"></i>
-                            </a>
-                        </div>
-                    </div> -->
+                    {% endif %}
                 </div>
-                {% else %}
-                <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarSupportedContent">
-                    <div class="text-style-ro-29b">SHERLOOK</div>
-                </div>
-                {% endif %}
-                
-            </div>
-        </nav>
+            </nav>
         </header>
 
         
-
-        <!-- Notification popover -->
-{#        <div class="hidden" id="popover-notification" style="display: none; width: 500px;">#}
-{#            <div class="popover-heading">#}
-{#              NOTIFICATIONS#}
-{#            </div>#}
-{#            #}
-{#            <div class="popover-body popover-notification-body">#}
-{#                <div class="text-style-ro-18b-popover" style="font-variant: small-caps;">Item that you bought has been updated.</div>#}
-{#                <hr>#}
-{#                <div class="text-style-ro-18b-popover" style="font-variant: small-caps; text-align: center;">Item that you bought has been updated.</div>#}
-{#                <hr>#}
-{#                <div class="text-style-ro-18b-popover" style="font-variant: small-caps; text-align: center;">Support has answered you inquiry. Check your e-mail.</div>#}
-{#                <hr>#}
-{#                <div class="text-style-ro-18b-popover" style="font-variant: small-caps; text-align: center;">Purchase successful. Your receipt has been sent to your e-mail.</div>#}
-{#            </div>#}
-{#        </div>#}
 
                 <!-- Notification popover -->
         <div class="hidden" id="popover-profile" style="display: none; width: 500px;">
@@ -160,108 +91,64 @@
                 <div class="d-flex justify-content-center align-items-center">
                     <a href="{% url 'logout' %}" class="text-style-ro-14 my-2 text-center" style="color: #FD602C; text-decoration: none;">Log out</a>
                 </div>
-{#                <div class="ps-4">#}
-{#                    <a class="save-button orange-button text-style-ro-24b save-button" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)" href="{% url 'logout' %}">LOGOUT</a>#}
-{#                    <button class="save-button orange-button text-style-ro-24b save-button" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)">SAVE</button>#}
-{#                </div>#}
+
             </div>
         </div>
 
-        <!-- Shopping cart popover -->
-{#        <div class="hidden" id="popover-cart" style="display: none;">#}
-{#            <div class="popover-heading">#}
-{#              YOUR CART#}
-{#            </div>#}
-{#            #}
-{#            <div class="popover-body">#}
-{#                <div>#}
-{#                    <div class="d-flex justify-content-between align-items-center">#}
-{#                        <div class="text-style-ro-16b text-center">Fluid dynamics</div>#}
-{#                        <div class="d-flex align-items-center">#}
-{#                            <span class="align-middle text-style-qs-16 me-1" style="line-height: 19px !important; vertical-align: middle; border: 0px;">VERIFIED AT FS ALPE ADRIA</span>#}
-{#                            <span style="font-size: 12px!important; line-height: 19px; vertical-align: middle; border: 0px;">&#x2705</span></div>#}
-{#                        </div>#}
-{#                    <div class="text-style-ro-16b mt-1">Mechanical Eng</div>#}
-{#                    <div class="text-style-ro-16b mt-1">Germany</div>#}
-{#                    <div class="d-flex justify-content-between align-items-center">#}
-{#                        <div class="text-style-ro-22b" style="color:#FF6B2C">23</div>#}
-{#                        <div class="text-style-rso-18">300 💰 credits</div>#}
-{#                    </div>#}
-{#                    #}
-{#                    <hr>#}
-{##}
-{#                    <div class="d-flex justify-content-between align-items-center">#}
-{#                        <div class="text-style-ro-16b text-center">Fluid dynamics</div>#}
-{#                        <div class="d-flex align-items-center">#}
-{#                            <span class="align-middle text-style-qs-16 me-1" style="line-height: 19px !important; vertical-align: middle; border: 0px;">VERIFIED AT FS ALPE ADRIA</span>#}
-{#                            <span style="font-size: 12px!important; line-height: 19px; vertical-align: middle; border: 0px;">&#x2705</span></div>#}
-{#                        </div>#}
-{#                    <div class="text-style-ro-16b mt-1">Mechanical Eng</div>#}
-{#                    <div class="text-style-ro-16b mt-1">Germany</div>#}
-{#                    <div class="d-flex justify-content-between align-items-center">#}
-{#                        <div class="text-style-ro-22b" style="color:#FF6B2C">23</div>#}
-{#                        <div class="text-style-rso-18">300 💰 credits</div>#}
-{#                    </div>#}
-{##}
-{#                    <hr>#}
-{##}
-{#                    <div class="d-flex justify-content-between align-items-center">#}
-{#                        <div class="text-style-rso-22">TOTAL:</div>#}
-{#                        <div class="text-style-rso-18">600 💰 credits</div>#}
-{#                        <div><button class="orange-button">CHECKOUT</button></div>#}
-{#                    </div>#}
-{#                </div>#}
-{#            </div>#}
-{#        </div>#}
 
-        <div class="" style="min-height: 100%; display: flex; flex-direction: column;">
-            <div class="row" style="flex: 1; display: flex;">
-              <div id="side-navbar" style="padding-right: 0; width: 15%; position: fixed; top: 80px; left: 0; bottom: 0;  background-image: linear-gradient(to right, #ED1C24 , #F02825); box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);">
-                <div class="side-navbar-div">
-                    <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 {% if request.path == '/search/' %}active{% endif %}" href="{% url 'search' %}">SEARCH</a>
-                    <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 {% if request.path == '/library/' %}active{% endif %}" href="{% url 'library' %}">LIBRARY</a>
-                    <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 {% if request.path == '/dashboard/' %}active{% endif %}" href="{% url 'dashboard' %}">DASHBOARD</a>
-                    <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 {% if request.path == '/info/' %}active{% endif %}" href="{% url 'info' %}">INFO</a>
+
+        <div class="" style="min-height: 100vh; display: flex; flex-direction: column;">
+            <div class="row" style="flex: 1; display: flex; width: 100%; margin: 0;">
+                <div id="side-navbar" style="padding-right: 0; width: 15%; position: fixed; left: 0; bottom: 0px;  background-image: linear-gradient(to right, #ED1C24 , #F02825); box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);">
+                    <div class="side-navbar-div">
+                        <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 {% if request.path == '/search/' %}active{% endif %}" href="{% url 'search' %}">SEARCH</a>
+                        <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 {% if request.path == '/library/' %}active{% endif %}" href="{% url 'library' %}">LIBRARY</a>
+                        <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 {% if request.path == '/dashboard/' %}active{% endif %}" href="{% url 'dashboard' %}">DASHBOARD</a>
+                        <a class="side-nav-link nav-link text-center text-style-ro-30b py-1 {% if request.path == '/info/' %}active{% endif %}" href="{% url 'info' %}">INFO</a>
+                    </div>
                 </div>
-              </div>
-              <div class="d-flex justify-content-center" style="margin-left: -0.5%; padding-right: 0;">
-                <div class="pl-0" style="margin-left: 15%; width: 85%; flex-grow: 1;">
+              <!-- <div class="d-flex justify-content-center" style="margin-left: -0.5%; padding-right: 0; width: 100%;">
+                <div class="pl-0" style="margin-left: 15%; width: 85%; flex-grow: 1;"> -->
+                <div class="content" style="">
+                   
                     {% block body %}
             
                     {% endblock %}
-                </div>
-              </div>
+                   
+                </div> 
+                <!-- </div>
+              </div> -->
             </div>
-        <footer id="footer">
-            <nav class="navbar navbar-expand-lg navbar-custom" style="height: 70px !important; position: sticky;">
+        <footer id="footer" style="bottom: 0; width: 100%;">
+            <nav class="navbar navbar-expand-lg footer-custom" style="">
                 <div class="container-fluid px-5">
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
                     <div class="collapse navbar-collapse d-flex justify-content-between" id="navbarTogglerDemo02" style="color: white;">
                         <div class="d-flex navbar-nav align-items-center justify-content-between" style="width: 100%;">
-                                <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
-                                    WHO ARE WE?
-                                </a>
-                                <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
-                                    CONTACT
-                                </a>
-                                <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
-                                    FAQ
-                                </a>
-                                <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
-                                    SHERLOOK APP
-                                </a>
-                                <div>
-                                    <img class="img-fluid" src="{% static 'images/croatian_flag.png' %}" style="height: 22px;">
-                                </div>
+                            <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
+                                WHO ARE WE?
+                            </a>
+                            <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
+                                CONTACT
+                            </a>
+                            <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
+                                FAQ
+                            </a>
+                            <a class="nav-link active text-style-ro-22b" aria-current="page" href="#" style="color: white;">
+                                SHERLOOK APP
+                            </a>
+                            <div>
+                                <img class="img-fluid" src="{% static 'images/croatian_flag.png' %}" style="height: 22px;">
+                            </div>
                         </div>
                     
+                    </div>
                 </div>
             </nav>
         </footer>
     </div>
-</div>
  
         <script>
 
@@ -316,7 +203,7 @@
             });
 
             // For the top distance of our side navbar while scrolling
-            window.addEventListener('scroll', function() {
+            /*window.addEventListener('scroll', function() {
                 var coloredDiv = document.getElementById('side-navbar');
                 var topNavbarHeight = 80;
                 var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -329,7 +216,7 @@
 
 
                 
-            });
+            });*/
 
             
     
