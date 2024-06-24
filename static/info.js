@@ -2,9 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     var info_search = document.querySelector('#info-search');
     var library_button = document.querySelector('#library-button');
 
-    library_button.addEventListener('click', event => {
-        info_search.style.visibility = 'hidden';
-    });
+    // library_button.addEventListener('click', event => {
+    //     info_search.style.visibility = 'hidden';
+    // });
 
     window.addEventListener('resize', function() {
         var element = document.getElementById('info-images-div');
@@ -29,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var info_search_div_two = document.querySelector('.info-search-div-two');
     var filter_search_categories_div = document.querySelector('.filter-search-categories-div');
     var info_search_div_six = document.querySelector('.info_search_div_six');
+    var info_library_div_two = document.querySelector('.info-library-div-two');
     let screen_width = window.innerWidth;
 
       if (screen_width >= 3000) {
@@ -50,6 +51,10 @@ document.addEventListener('DOMContentLoaded', function() {
         // Size adjustment of 'How to use search 6' div
         info_search_div_six.classList.remove('col-10');
         info_search_div_six.classList.add('col-9');
+
+        // Size adjustment of 'How to use library 2' div
+        info_library_div_two.classList.remove('col-10');
+        info_library_div_two.classList.add('col-9');
 
       };
     

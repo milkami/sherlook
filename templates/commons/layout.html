@@ -58,13 +58,13 @@
                                 </a>
                             </li>
                             <li class="nav-item ms-sm-auto">
-                                <a class="nav-link active ms-md-2 me-md-3" aria-current="page" id="profile-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="PROFILE" data-popover-content="#popover-profile" data-html="true">
-                                    <i class="fa-regular fa-user" style="font-size: 1.5vw; color: white;"></i>
+                                <a class="nav-link active ms-md-2 me-md-3" aria-current="page" id="profile-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" data-popover-content="#popover-profile" data-html="true">
+                                    <i class="fa-regular fa-user navbar-icon" style=""></i>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active ms-md-3 me-md-3" aria-current="page" id="notification-button" href="#" data-bs-toggle="popover" data-bs-placement="bottom" title="NOTIFICATIONS" data-popover-content="#popover-notification" data-html="true">
-                                    <i class="fa-regular fa-bell" style="font-size: 1.5vw; color: white;"></i>
+                                    <i class="fa-regular fa-bell navbar-icon" style=""></i>
                                 </a>
                             </li>
                         </ul>
@@ -83,12 +83,14 @@
 
                 <!-- Notification popover -->
         <div class="hidden" id="popover-profile" style="display: none; width: 500px;">
-            <div class="popover-heading">
-              PROFILE
-            </div>
+            <!-- <div class="popover-heading">
+                <div class="d-flex justify-content-center align-items-center">
+                    <a href="{% url 'logout' %}" class="text-style-ro-14 my-2 text-center" style="color: #FD602C; text-decoration: none;">Log out</a>
+                </div>
+            </div> -->
 
             <div class="popover-body d-flex justify-content-center">
-                <div class="d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-center align-items-center px-4">
                     <a href="{% url 'logout' %}" class="text-style-ro-14 my-2 text-center" style="color: #FD602C; text-decoration: none;">Log out</a>
                 </div>
 
@@ -214,11 +216,11 @@
                     var content = this.getAttribute("data-popover-content");
                     var popoverContent = document.querySelector(content);
                     var popoverBody = popoverContent.querySelector(".popover-body").innerHTML;
-                    var popoverHeading = popoverContent.querySelector(".popover-heading").innerHTML;
+                    //var popoverHeading = popoverContent.querySelector(".popover-heading").innerHTML;
 
                     var popoverOptions = {
                     content: popoverBody,
-                    title: popoverHeading,
+                    //title: popoverHeading,
                     html: true,
                     sanitize: false,
                     };
