@@ -145,10 +145,15 @@ input[id="cb1"] {
 
 .orange-button {
     background-color: #FD602C; 
-    width: 100%; 
+    width: 70%; 
     border: none; 
     color: white; 
     border-radius: 6px;
+}
+
+.save-button {
+    width: 60%; 
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
 }
 
 .white-box {
@@ -514,6 +519,10 @@ input[id="cb1"] {
     width: 65%;
 }
 
+#go-to-library {
+    cursor: pointer;
+}
+
 
 @media screen and (min-width: 1500px) and (max-width: 1599px) {
 
@@ -523,7 +532,116 @@ input[id="cb1"] {
 
 }
 
+@media screen and (max-width: 1300px) {
+    .text-style-ro-14{
+        font-size: 12px;
+    }
 
+    .text-style-ro-16 {
+        font-size: 13px;
+    }
+
+    .text-style-ro-18b{
+        font-size: 15px;
+    }
+
+    .text-style-ro-20b{
+        font-size: 16px;
+    }
+
+    .text-style-ro-22b{
+        font-size: 18px;
+    }
+
+    .text-style-ro-24b {
+        font-size: 20px;
+    }
+
+    .text-style-ro-30b {
+        font-size: 22px;
+    }
+
+    .text-style-ro-60b {
+        font-size: 50px;
+    }
+
+    .text-style-lato-20b {
+        font-size: 16px;
+    }
+
+    .text-style-lato-24b {
+        font-size: 20px;
+    }
+
+    .orange-button {
+        width: 80%;
+    }
+
+    .save-button {
+        width: 80%;
+    }
+
+    .search-button {
+        /* height: 60px; */
+        width: 130px;
+    }
+
+    .page-link {
+        font-size: 12px;
+    }
+
+}
+
+@media screen and (max-width: 1000px) {
+
+    .text-style-ro-14 {
+        font-size: 11px;
+    }
+
+    .text-style-ro-16 {
+        font-size: 12px;
+    }
+
+    .text-style-ro-18b {
+        font-size: 13px;
+    }
+
+    .text-style-ro-20b{
+        font-size: 13px;
+    }
+
+    .text-style-ro-22b {
+        font-size: 14px;
+    }
+
+    .text-style-ro-24b {
+        font-size: 16px;
+    }
+
+    .text-style-ro-30b {
+        font-size: 18px;
+    }
+
+    .text-style-ro-60b {
+        font-size: 45px;
+    }
+
+    .text-style-lato-20b {
+        font-size: 13px;
+    }
+
+    .text-style-lato-24b {
+        font-size: 16px;
+    }
+
+    .page-link {
+        font-size: 11px;
+    }
+
+    .scroll-button-img {
+        width: 10%;
+    }
+}
 
 
 @media screen and (min-width: 1600px) {
@@ -683,6 +801,10 @@ input[id="cb1"] {
         width: 100%;
     }
 
+    .orange-button {
+        width: 60%;
+    }
+
     .search-button {
         height: 60px;
         width: 200px;
@@ -698,6 +820,7 @@ input[id="cb1"] {
 
     .save-button {
         height: 50px;
+        width: 60%;
     }
 
     .connect-button {

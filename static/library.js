@@ -19,6 +19,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     const student_data_div = each_row.querySelector('.student-data-div');
                     console.log(event.target);
                     const dropdown_div = each_row.querySelector('.dropdown-div');
+                    const remove_from_library_div = each_row.querySelector('.remove-from-library-div');
+                    const remove_from_library_link = each_row.querySelector('.remove-from-library-link');
                     // if (event.target === dropdown_icon) 
                     if (student_data_div.contains(event.target)) {
                         if (dropdown_div.style.visibility === 'hidden') {
@@ -38,6 +40,66 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         }
                     }
+
+                    let screen_width = window.innerWidth;
+                    if (screen_width <= 1300) {
+                        // Change width of dropdown div
+                        dropdown_div.classList.remove('col-11');
+                        dropdown_div.classList.add('col-12');
+
+                        // Adjust position of 'Remove from library' link
+                        remove_from_library_div.classList.remove('pe-3');
+                        remove_from_library_div.classList.add('ps-3');
+                    }
+
+                    if (screen_width >= 3000) {
+                        // Adjust position of 'Remove from library' link
+                        remove_from_library_div.classList.remove('pe-3');
+                        remove_from_library_div.classList.add('pe-5');
+                        remove_from_library_div.classList.remove('pt-2');
+                        remove_from_library_div.classList.add('pt-3');
+                        remove_from_library_link.classList.add('pe-5');
+                        remove_from_library_link.classList.add('me-5');
+                    };
+
+                    window.addEventListener('resize', () => {
+                        let screen_width = window.innerWidth;
+                        if (screen_width <= 1300) {
+                            // Change width of dropdown div
+                            dropdown_div.classList.remove('col-11');
+                            dropdown_div.classList.add('col-12');
+
+                            // Adjust position of 'Remove from library' link
+                            remove_from_library_div.classList.remove('pe-3');
+                            remove_from_library_div.classList.add('ps-3');
+                        } else {
+                            // Change width of dropdown div
+                            dropdown_div.classList.remove('col-12');
+                            dropdown_div.classList.add('col-11');
+
+                            // Adjust position of 'Remove from library' link
+                            remove_from_library_div.classList.remove('ps-3');
+                            remove_from_library_div.classList.add('pe-3');
+                        };
+
+                        if (screen_width >= 3000) {         
+                            // Adjust position of 'Remove from library' link
+                            remove_from_library_div.classList.remove('pe-3');
+                            remove_from_library_div.classList.add('pe-5');
+                            remove_from_library_div.classList.remove('pt-2');
+                            remove_from_library_div.classList.add('pt-3');
+                            remove_from_library_link.classList.add('pe-5');
+                            remove_from_library_link.classList.add('me-5');           
+                        } else if (screen_width > 1300 && screen_width < 3000) {
+                            // Adjust position of 'Remove from library' link
+                            remove_from_library_div.classList.remove('pe-5');
+                            remove_from_library_div.classList.add('pe-3');
+                            remove_from_library_div.classList.remove('pt-3');
+                            remove_from_library_div.classList.add('pt-2');
+                            remove_from_library_link.classList.remove('pe-5');
+                            remove_from_library_link.classList.remove('me-5');
+                        };
+                    })
                 })
             })
     
@@ -91,17 +153,17 @@ document.addEventListener('DOMContentLoaded', function() {
         let screen_width = window.innerWidth;
         let remove_from_library_div = document.querySelector('.remove-from-library-div');
         let remove_from_library_link = document.querySelector('.remove-from-library-link');
-        var pop_up_inner_body_row = document.querySelector('.pop-up-inner-body-row');
+        let pop_up_inner_body_row = document.querySelector('.pop-up-inner-body-row');
+        let library_result_box = document.querySelector('.library-result-box');
+
+        if (screen_width <= 1300) {
+            // Adjust horizontal padding in library result box
+            library_result_box.classList.remove('px-5');
+            library_result_box.classList.add('px-4');
+        }
 
         if (screen_width >= 3000) {
             library_body.classList.add('px-4');
-
-            // Adjust position of 'Remove from library' link
-            remove_from_library_div.classList.remove('pe-4');
-            remove_from_library_div.classList.add('pe-5');
-            remove_from_library_div.classList.remove('pt-2');
-            remove_from_library_div.classList.add('pt-3');
-            remove_from_library_link.classList.add('me-5');
 
             // Add padding to pop-up with additional info
             pop_up_inner_body_row.classList.add('px-3');
@@ -110,31 +172,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
         window.addEventListener('resize', () => {
             let screen_width = window.innerWidth;
+
+            if (screen_width <= 1300) {
+                // Adjust horizontal padding in library result box
+                library_result_box.classList.remove('px-5');
+                library_result_box.classList.add('px-4');
+            } else {
+                // Adjust horizontal padding in library result box
+                library_result_box.classList.remove('px-4');
+                library_result_box.classList.add('px-5');
+            };
+
             if (screen_width >= 3000) {
                 // Add bigger padding to library page
                 library_body.classList.add('px-4');
 
-                // Adjust position of 'Remove from library' link
-                remove_from_library_div.classList.remove('pe-4');
-                remove_from_library_div.classList.add('pe-5');
-                remove_from_library_div.classList.remove('pt-2');
-                remove_from_library_div.classList.add('pt-3');
-                remove_from_library_link.classList.add('me-5');
-
                 // Add padding to pop-up with additional info
-            pop_up_inner_body_row.classList.add('px-3');
-            pop_up_inner_body_row.classList.add('py-2');
+                pop_up_inner_body_row.classList.add('px-3');
+                pop_up_inner_body_row.classList.add('py-2');
 
             } else {
                 // Return to normal padding on library page
                 library_body.classList.remove('px-4');
-
-                // Adjust position of 'Remove from library' link
-                remove_from_library_div.classList.remove('pe-5');
-                remove_from_library_div.classList.add('pe-4');
-                remove_from_library_div.classList.remove('pt-3');
-                remove_from_library_div.classList.add('pt-2');
-                remove_from_library_link.classList.remove('me-5');
 
                 // Remove padding from pop-up with additional info
                 pop_up_inner_body_row.classList.remove('px-3');

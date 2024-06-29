@@ -55,7 +55,7 @@
                     <div class="text-style-ro-24b" style="color: black;">
                         POSITION
                     </div>
-                    <div class="search-dropdown dropdown mt-4 mx-5 py-2">
+                    <div class="search-dropdown dropdown mt-md-3 mt-lg-4 mt-4 mx-md-3 mx-lg-4 mx-xl-5 mx-5 py-2">
                         <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% with position=request.GET.position|default:"" %}
                                 {% if not position %}
@@ -83,7 +83,7 @@
                     <div class="text-style-ro-24b" style="color: black;">
                         SPECIALIZATION
                     </div>
-                    <div class="search-dropdown dropdown mt-4 mx-5 py-2">
+                    <div class="search-dropdown dropdown mt-md-3 mt-lg-4 mt-4 mx-md-3 mx-lg-4 mx-xl-5 mx-5 py-2">
                         <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% with  specialization=request.GET.specialization|default:"" %}
                                 {% if not specialization %}
@@ -111,7 +111,7 @@
                     <div class="text-style-ro-24b" style="color: black;">
                         COUNTRY
                     </div>
-                    <div class="search-dropdown dropdown mt-4 mx-5 py-2">
+                    <div class="search-dropdown dropdown mt-md-3 mt-lg-4 mt-4 mx-md-3 mx-lg-4 mx-xl-5 mx-5 py-2">
                         <button class="search-dropdown-button dropdown d-flex justify-content-between align-items-center" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             {% with  country=request.GET.country|default:"" %}
                                 {% if not country %}
@@ -171,7 +171,7 @@
                     </div>
                 </div>
             </div> -->
-            <div class="d-flex col-12 justify-content-end mt-5 px-5 mb-5 align-items-center">
+            <div class="d-flex col-12 justify-content-end mt-5 px-md-2 px-lg-5 px-5 mb-5 align-items-center">
                 <div class="d-flex justify-content-center align-items-center">
                     <button id="search" class="d-flex align-items-center justify-content-center search-button orange-button text-style-ro-24b" style="font-weight: 400 !important;">
                         SEARCH
@@ -188,7 +188,7 @@
     </div>
 
     {% if is_first == False %}
-    <div class="light-pink-box mt-5 px-5 pb-4" style="box-shadow: none; margin-bottom: 50px;">
+    <div class="search-result-box light-pink-box mt-5 px-5 pb-4" style="box-shadow: none; margin-bottom: 50px;">
         <div class="row pt-4">
             <div class="d-flex mb-2">
                 <div class="col-lg-2 col-md-2 text-center text-style-ro-22b" style="color: #100F0E;">
@@ -309,24 +309,24 @@
                         <span class="text-style-ro-14">| Carbon Fibre Layup</span>
                         <span class="text-style-ro-14">| Material Testing</span>
                     </div>
-                    <div>
+                    <!-- <div>
                         <span class="text-style-ro-14">Quick Learner |</span>
                         <span class="text-style-ro-14">Detaik-Oriented |</span>
                         <span class="text-style-ro-14">Hard Working |</span>
                         <span class="text-style-ro-14" style="color: #FD602C !important;">Personality</span>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             
 
             <!-- Dropdown data -->
-            <div class="dropdown-div col-lg-11 container-fluid justify-content-center px-4 pt-5 pb-4" style="visibility: hidden; display: none; background: #fff; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1); margin-top: 0.015em;">
+            <div class="dropdown-div col-11 container-fluid justify-content-center px-md-3 px-lg-4 px-4 pt-md-3 pt-lg-4 pt-4 pb-4" style="visibility: hidden; display: none; background: #fff; border-radius: 6px; box-shadow: 2px 5px 5px -1px rgba(0, 0, 0, 0.1), -2px 5px 5px -1px rgba(0, 0, 0, 0.1); margin-top: 1px;">
                 <div class="row">
                     <div class="d-flex">
                         <div class="col-2">
                             <div class="text-style-ro-18b">NAME</div>
                             <div class="text-style-ro-18b mt-1">SURNAME</div>
-                            <div class="text-style-ro-18b mt-4">UNIVERSITY</div>
+                            <div class="text-style-ro-18b mt-4">UNIVERSITY</div> 
                             <div class="text-style-ro-18b mt-1">UNIVERSITY 2</div>
                             <div class="text-style-ro-18b mt-4">MORE INFO 1</div>
                             <div class="text-style-ro-18b mt-1">MORE INFO 2</div>
@@ -423,9 +423,9 @@
                                 <a data-studentId="{{ student.id }}"  class="detailed-experience text-style-ro-16" style="color: #FF6B2C; font-weight: 700;">DETAILED EXPERIENCE AND COMPETENCES</a>
                             </div>
                         </div>
-                        <div class="col-3 ms-5">
+                        <div class="col-3 ms-2">
                             <div class="ps-4">
-                                <button data-student-id="{{ student.id }}" class="save-button orange-button text-style-ro-24b save-button" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)">SAVE</button>
+                                <button data-student-id="{{ student.id }}" class="save-button orange-button text-style-ro-24b" style="font-weight: 500;">SAVE</button>
                             </div>
                         </div>
                     </div>
@@ -657,9 +657,9 @@
                                 <a class="detailed-experience text-style-ro-16" style="color: #FF6B2C; font-weight: 700;">DETAILED EXPERIENCE AND COMPETENCES</a>
                             </div> -->
                         </div>
-                        <div class="col-3 ms-5">
+                        <div class="col-3 ms-2">
                             <div class="ps-4">
-                                <button class="save-button orange-button text-style-ro-24b save-button" style="width: 60% !important; font-weight: 500; box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25)">SAVE</button>
+                                <button class="save-button orange-button text-style-ro-24b" style="font-weight: 500;">SAVE</button>
                             </div>
                         </div>
                     </div>

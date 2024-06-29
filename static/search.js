@@ -12,7 +12,6 @@ function getCookie(name) {
 
 document.addEventListener('DOMContentLoaded', function() {
     var all_data = document.querySelectorAll('.all-data');
-    console.log(all_data);
     
     all_data.forEach(function(each_row) {
       each_row.addEventListener('click', event => {
@@ -58,6 +57,28 @@ document.addEventListener('DOMContentLoaded', function() {
             }
           }
         }
+
+        let screen_width = window.innerWidth;
+
+        if (screen_width <= 1300) {
+          // Change width of dropdown div
+          dropdown_div.classList.remove('col-11');
+          dropdown_div.classList.add('col-12');
+        };
+
+        window.addEventListener('resize', () => {
+          let screen_width = window.innerWidth;
+          if (screen_width <= 1300) {
+            // Change width of dropdown div
+            dropdown_div.classList.remove('col-11');
+            dropdown_div.classList.add('col-12');
+          } else {
+            // Change width of dropdown div
+            dropdown_div.classList.remove('col-12');
+            dropdown_div.classList.add('col-11');
+          };
+        })
+
       });
     });
    
@@ -92,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // var pop_up_age = document.querySelector('#pop-up-age');
 
     var detailed_experience_buttons = document.querySelectorAll('.detailed-experience');
-    console.log(detailed_experience_buttons);
     detailed_experience_buttons.forEach(function(btn) {
         btn.addEventListener('click', event =>{
             console.log(event.target);
@@ -201,7 +221,6 @@ document.addEventListener('DOMContentLoaded', function() {
     })
 
     var experience_buttons = document.querySelectorAll('#experience');
-    console.log(experience_buttons)
     experience_buttons.forEach(function(btn) {
         btn.addEventListener('click', event =>{
             console.log(event.target);
@@ -230,26 +249,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var search_dropdowns = document.querySelectorAll('.search-dropdown');
     var pop_up_inner_body_row = document.querySelector('.pop-up-inner-body-row');
+    var search_result_box = document.querySelector('.search-result-box');
 
     let screen_width = window.innerWidth;
-      if (screen_width >= 3000) {
-        search_body.classList.remove('px-4');
-        search_body.classList.add('px-5');
 
-        search_dropdowns.forEach(search_dropdown => {
-          search_dropdown.classList.remove('py-2');
-          search_dropdown.classList.add('py-3');
-        });
+    if (screen_width <= 1300) {
+      // Adjust horizontal padding in search result box so that header fits on one line
+      if (document.body.contains(search_result_box)) {
+        search_result_box.classList.remove('px-5');
+        search_result_box.classList.add('px-4');
+      }
+    }
 
-        // Add padding to pop-up with additional info
-        pop_up_inner_body_row.classList.add('px-3');
-        pop_up_inner_body_row.classList.add('py-2');
+    if (screen_width >= 3000) {
+      search_body.classList.remove('px-4');
+      search_body.classList.add('px-5');
 
-      };
+      search_dropdowns.forEach(search_dropdown => {
+        search_dropdown.classList.remove('py-2');
+        search_dropdown.classList.add('py-3');
+      });
+
+      // Add padding to pop-up with additional info
+      pop_up_inner_body_row.classList.add('px-3');
+      pop_up_inner_body_row.classList.add('py-2');
+
+    };
     
     window.addEventListener('resize', () => {
       let screen_width = window.innerWidth;
-      console.log('resized');
+
+      if (screen_width <= 1300) {
+        // Adjust horizontal padding in search result box so that header fits on one line
+        if (document.body.contains(search_result_box)) {
+          search_result_box.classList.remove('px-5');
+          search_result_box.classList.add('px-4');
+        };
+      } else {
+        // Adjust horizontal padding in search result box so that header fits on one line
+        if (document.body.contains(search_result_box)) {
+          search_result_box.classList.remove('px-4');
+          search_result_box.classList.add('px-5');
+        };
+      };
+
       if (screen_width >= 3000) {
         // Add bigger padding to search page
         search_body.classList.remove('px-4');
