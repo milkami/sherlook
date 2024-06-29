@@ -643,6 +643,57 @@ input[id="cb1"] {
     }
 }
 
+@media screen and (max-width: 1000px) {
+
+    .text-style-ro-14 {
+        font-size: 10px;
+    }
+
+    .text-style-ro-16 {
+        font-size: 10px;
+    }
+
+    .text-style-ro-18b {
+        font-size: 11px;
+    }
+
+    .text-style-ro-20b{
+        font-size: 12px;
+    }
+
+    .text-style-ro-22b {
+        font-size: 12px;
+    }
+
+    .text-style-ro-24b {
+        font-size: 15px;
+    }
+
+    .text-style-ro-30b {
+        font-size: 16px;
+    }
+
+    .text-style-ro-60b {
+        font-size: 45px;
+    }
+
+    .text-style-lato-20b {
+        font-size: 12px;
+    }
+
+    .text-style-lato-24b {
+        font-size: 15px;
+    }
+
+    .page-link {
+        font-size: 10px;
+    }
+
+    .scroll-button-img {
+        width: 10%;
+    }
+}
+
 
 @media screen and (min-width: 1600px) {
     #info-body {
